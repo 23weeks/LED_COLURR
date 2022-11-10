@@ -2,8 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- 절대경로 설정 -->
 <c:set var='root' value="${pageContext.request.contextPath}/"/>	
+
 <script>
-alert('삭제되었습니다')
-location.href='${root}notice_list?notice_type=${notice_type}'
-/* location.href='${root}notice_list?notice_type=${getNoticeInfo.notice_type}' */
+	alert('수정완료')
+	location.href='${root}notice_read?notice_type=${modifyNoticeBean.notice_type}&notice_idx=${modifyNoticeBean.notice_idx}&page=${page}'
 </script>

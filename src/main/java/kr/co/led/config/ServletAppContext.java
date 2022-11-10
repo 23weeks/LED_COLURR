@@ -34,6 +34,7 @@ import kr.co.led.mapper.ProductMapper;
 import kr.co.led.mapper.QuestionMapper;
 import kr.co.led.mapper.UserMapper;
 import kr.co.led.service.AnswerService;
+import kr.co.led.service.NoticeService;
 import kr.co.led.service.QuestionService;
 
 //Spring MVC 프로젝트에 관련된 설정을 하는 클래스
@@ -64,10 +65,13 @@ public class ServletAppContext implements WebMvcConfigurer {
    private UserBean loginUserBean;
    
    @Autowired
-	private QuestionService questionService;
+   private NoticeService noticeService;
+   
+   @Autowired
+   private QuestionService questionService;
 	
-	@Autowired
-	private AnswerService answerService;
+   @Autowired
+   private AnswerService answerService;
 	
       // Controller의 메서드가 반환하는 jsp의 이름 앞뒤에 경로와 확장자를 붙혀주도록 설정한다.
       @Override
@@ -200,7 +204,7 @@ public class ServletAppContext implements WebMvcConfigurer {
       CheckWriterInterceptor checkWriterInterceptor = new CheckWriterInterceptor(loginUserBean, questionService);
       InterceptorRegistration reg3 = registry.addInterceptor(checkWriterInterceptor);
       
-      reg3.addPathPatterns("/board/modify", "/board/delete");
+      reg3.addPathPatterns("/board/modify", "/board/delete", "/notice/modify", "/notice/delete");
       }
       
       

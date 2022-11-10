@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<c:set var='root' value="${pageContext.request.contextPath}/"/>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<c:set var='root' value="${pageContext.request.contextPath}/"/>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,8 +52,8 @@
 <c:import url="/WEB-INF/views/include/top_menu.jsp"></c:import>
 
 
-
   <main class="main-content">
+
     <!--== Start Page Title Area ==-->
     <section class="page-title-area bg-img" data-bg-img="assets/img/photos/bg-page1.jpg">
       <div class="container">
@@ -71,50 +71,75 @@
     
     
     
-<div class="container" style="margin-top:100px">
-	<div class="row">
-		<div class="col-sm-3"></div>
-		<div class="col-sm-6">
-			<div class="card shadow">
-				<div class="card-body">
-											
-					<form action="${root }notice_read" method="get">	
-						<div class="form-group">
-							<label for="board_writer_name">작성자</label>
-							<input type="text" id="board_writer_name" name="board_writer_name" class="form-control" value="홍길동" disabled="disabled"/>
-						</div>
-						<div class="form-group">
-							<label for="board_date">작성날짜</label>
-							<input type="text" id="board_date" name="board_date" class="form-control" value="2018-7-20" disabled="disabled"/>
-						</div>
-						<div class="form-group">
-							<label for="board_subject">제목</label>
-							<input type="text" id="board_subject" name="board_subject" class="form-control" value="제목입니다"/>
-						</div>
-						<div class="form-group">
-							<label for="board_content">내용</label>
-							<textarea id="board_content" name="board_content" class="form-control" rows="10" style="resize:none">본문입니다</textarea>
-						</div>
-						<div class="form-group">
-							<label for="board_file">첨부 이미지</label>
-							<img src="${root }image/logo.png" width="100%"/>	
-							<input type="file" name="board_file" id="board_file" class="form-control" accept="image/*"/>					
-						</div>
-						<div class="form-group">
-							<div class="text-right">
-								<button type="submit" class="btn btn-primary">(관리자용)수정완료</button>
-								<a href="${root }notice_read?notice_type=${'notice'}" class="btn btn-info">(관리자용)취소</a>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-3"></div>
-	</div>
-</div>
+<!--== Start Blog Area Wrapper ==-->
+    <section class="blog-details-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="blog-content-column">
+              <div class="blog-content-area no-sidebar">
+                <div class="post-details-content">
+                  <div class="post-details-body">
+                    <div class="content" style="text-align:center">
+                      
+                      <form:form action="${root }notice_modify_pro" method="post" modelAttribute="modifyNoticeBean" enctype="multipart/form-data" style="text-align:center">
+                  		
+                  		<form:hidden path="notice_idx"/>
+                  		<form:hidden path="notice_type"/>
+                        
+                        <input type="hidden" name='page' value='${page }'/>  
+                        
+                        <div class="form-group">
+                   		  <form:input path="admin_id" class="form-control" placeholder="작성자" readonly="true"/>
+                   		</div>
+                  		<p/>
 
+                        <div class="form-group">
+                   		  <form:input path="notice_date" class="form-control" placeholder="작성날짜" readonly="true"/>
+                   		</div>
+                  		<p/>
+                        
+                        <div class="form-group">
+                   		  <form:input path="notice_title" class="form-control"/>
+                   		  <form:errors path="notice_title" style="color:gray"/>
+                   		</div>
+                  		<p/>
 
+                        <div class="form-group">
+                   		  <form:textarea path="notice_context" class="form-control" rows="10" style="resize:none"></form:textarea>
+                   		  <form:errors path="notice_context" style="color:gray"/>
+                   		</div> 
+                   		<p/>
+                   		
+                  		<div class="form-group">
+                  			<c:if test='${modifyNoticeBean.notice_img != null }'>
+								<img src="${root }upload/${modifyNoticeBean.notice_img}" width="100%"/>	
+								<form:hidden path="notice_img"/>	<!-- 이미지 계속 떠있게 하는거  -->
+							</c:if>
+                    	  <form:input type="file" path="upload_file" class="form-control" accept="image/*"/>
+                   		</div>
+                   		<p/>
+                   		<p/>
+                   
+                   		<div class="form-group">
+                    	  <form:button class="btn-theme btn btn-black" style="width:180px">작성하기</form:button>
+                    	  <a href="${root }notice_read?notice_type=${notice_type}&notice_idx=${notice_idx}&page=${page}" class="btn-theme btn btn-black" style="width:180px">취소</a>
+                   		</div>
+                      </form:form>
+                      <!-- 여기 -->
+                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Blog Area Wrapper ==-->
+
+</main>
 
 <!-- 하단 footer -->
 <c:import url="/WEB-INF/views/include/bottom_info.jsp"></c:import>

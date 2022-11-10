@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var='root' value="${pageContext.request.contextPath}/"/> 
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +69,7 @@
     </section>
     <!--== End Page Title Area ==-->
 
-    <!--== Start Blog Area Wrapper ==-->
+      <!--== Start Blog Area Wrapper ==-->
     <section class="blog-details-area">
       <div class="container">
         <div class="row">
@@ -80,64 +81,58 @@
                     <div class="content" style="text-align:center">
                       
                       
-                      <!-- 여기 -->
-                      <div class="category">
-                        <a href="${root }notice_read?notice_type=${'readNotice.notice_type'}">Notice</a>		<!-- notice/event -->
-                      </div>											
-                      <h4>${readNoticeBean.notice_title }</h4>								<!-- 제목 -->
-                      <p class="author" style="font-size: 14px">${readNoticeBean.admin_id }</p>		<!-- 작성자 -->
-                      <p class="date" style="font-size: 14px">${readNoticeBean.notice_date }</p>			<!-- 날짜 -->
-                      <hr />
-                      <ul class="meta">
-                        <li class="board_file">첨부 이미지</li>
-                        <li> | </li>
-                        <li><img src="${root }upload/${readNoticeBean.notice_img }"  width="20%"/></li>			<!-- 첨부파일 -->
-                      </ul>
-                      <p style="text-align:left">${readNoticeBean.notice_context }</p>															<!-- 내용 -->
-                      <p class="m-0"></p>
+                     <!-- 여기 -->
+                      
+                      <%-- <form:form action="${root }notice_read" method="get" modelAttribute="readNoticeBean" enctype="multipart/form-data" style="text-align:center">
+                      
+                      <form:hidden path="notice_idx"/>
+                       --%>
+                      <!-- notice 카테고리 > 누르면 list로 이동  -->
+	                  <div class="notice_type">
+	                  	<a href="${root }notice_list?notice_type=${readNoticeBean.notice_type}">${readNoticeBean.notice_type}</a>	
+	                  </div>
+	                      
+                      <!-- 제목 -->
+                      <h4>${readNoticeBean.notice_title }</h4>			 			
+                      
+                      <!-- 작성자 -->
+                      <p class="admin_id" style="font-size: 14px">${readNoticeBean.admin_id }</p>	
+                      	
+                      <!-- 작성날짜 -->	
+                      <p class="notice_date" style="font-size: 14px">${readNoticeBean.notice_date }</p> 	
                       <hr />
                       
+                      <!-- 첨부파일 -->
+                      <c:if test="${readNoticeBean.notice_img != null}">
+	                   <ul class="meta">
+	                  	<li class="notice_img">첨부파일</li>
+	                  	<li> | </li>
+	                  	<li><img src="${root }upload/${readNoticeBean.notice_img }" width="20%"/></li>		
+	                   </ul>
+	                  </c:if>
+	                      
+	                  <!-- 내용 -->    
+	                  <p style="text-align:left">${readNoticeBean.notice_context }</p>			
+                      <p class="notice_context"></p>
+                      <hr />
+                     
+                     
+                     
+                     <!-- 하단 버튼 -->
 	                 <div>
-	                    	<button class="btn-theme btn btn-black" onclick="location.href='${root }notice_list?notice_type=${'notice_type'}'">목록보기</button>
-	                        <c:if test="${loginUserBean.user_idx == readNoticeBean.content_writer_idx}">
-	                        <button class="btn-theme btn btn-black" onclick="location.href='${root }notice_modify?notice_type=${'notice_type'}'">수정하기</button>
-	                        <button class="btn-theme btn btn-black" onclick="location.href='${root }notice_delete'">삭제하기</button>
-	                        </c:if>
+		                <a href="${root }notice_list?notice_type=${readNoticeBean.notice_type}&page=${page}" class="btn-theme btn btn-black">목록보기</a>
+		                <c:if test="${loginUserBean.user_name == readNoticeBean.admin_id }">
+		                	<a href="${root }notice_modify?notice_type=${readNoticeBean.notice_type}&notice_idx=${notice_idx}&page=${page}" class="btn-theme btn btn-black">수정하기</a>
+		                 	<a href="${root }notice_delete?notice_type=${notice_type}&notice_idx=${readNoticeBean.notice_idx}" class="btn-theme btn btn-black">삭제하기</a>
+	                 	 </c:if>
 	                 </div>
-	                 
-                    </div>
+	                
+	                
+	                <%-- </form:form> --%>
+	                
+                   </div>
                     
-                    <!-- <div class="comments-area" style="margin:30px">
-                      <h2>답변 작성</h2>
-                      <div class="comments-form-wrap">
-                        <div class="clearfix"></div>
-                        <form action="#" method="post">
-                          <div class="comments-form-content">
-                            <div class="row row-gutter-20">
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <textarea class="form-control textarea" name="comment" rows="5" placeholder="답변을 작성해주세요" required=""></textarea>
-                                </div>
-                              </div>
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <div class="comment-form-cookies"><input id="comment-cookies" name="comment-cookies" type="checkbox" value="yes"> <label for="comment-cookies">동의 체크</label></div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-12">
-                                <div class="form-group" style="text-align:center">
-                                  <button class="btn-theme btn btn-black" type="submit">제출</button>
-                                  
-                                  
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div> -->
+                    
                   </div>
                 </div>
               </div>

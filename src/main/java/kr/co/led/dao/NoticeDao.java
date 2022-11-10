@@ -2,6 +2,7 @@ package kr.co.led.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -15,23 +16,45 @@ public class NoticeDao {
 	private NoticeMapper noticeMapper;
 	
 	
-	//æ¹²ï¿½ï¿½ì˜‰ï¿½ê½¦
+	//±ÛÀÛ¼º
 		public void addNoticeInfo(NoticeBean writeNoticeBean) {
-			noticeMapper.addNoticeInfo(writeNoticeBean);
+				noticeMapper.addNoticeInfo(writeNoticeBean);
 		}
 		
 		
 		
-	//ê²Œì‹œ?ï¿½ï¿½ ë¦¬ìŠ¤?ï¿½ï¿½
-		public List<NoticeBean> getNoticeList() {
-			return noticeMapper.getNoticeList();
+		
+	//±Û ¸ñ·Ïº¸±â
+		public List<NoticeBean> getNoticeList(String notice_type, RowBounds rowBounds) {
+			return noticeMapper.getNoticeList(notice_type, rowBounds);
 		}
 
 		
 		
-	//ê²Œì‹œ?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ï¿½?
+	//±Û ÇÏ³ªº¸±â
 		public NoticeBean getNoticeInfo(int notice_idx) {
 			return noticeMapper.getNoticeInfo(notice_idx);
+		}
+		
+		
+		
+	//°Ô½Ã¹° ¼öÁ¤ÇÏ±â
+		public void modifyNoticeInfo(NoticeBean modifyNoticeBean) {
+			noticeMapper.modifyNoticeInfo(modifyNoticeBean);
+		}
+		
+		
+		
+	//°Ô½Ã¹° »èÁ¦
+		public void deleteNoticeInfo(int notice_idx) {
+			noticeMapper.deleteNoticeInfo(notice_idx);
+		}
+		
+		
+	
+	//ÀüÃ¼ °Ô½Ã¹° °³¼ö
+		public int getNoticeCnt(String notice_type) {
+			return noticeMapper.getNoticeCnt(notice_type);
 		}
 		
 		

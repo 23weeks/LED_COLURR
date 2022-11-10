@@ -3,7 +3,10 @@ package kr.co.led.service;
 import java.io.File;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.io.FilenameUtils;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -11,6 +14,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.co.led.beans.NoticeBean;
+import kr.co.led.beans.PageBean;
+import kr.co.led.beans.UserBean;
 import kr.co.led.dao.NoticeDao;
 
 @Service
@@ -21,13 +26,26 @@ public class NoticeService {
 	@Autowired
 	private NoticeDao noticeDao;
 	
+	@Resource(name="loginUserBean")
+	private UserBean loginUserBean;
 	
-	//ï¿½ì” èª˜ëª„ï¿? å¯ƒìˆì¤? ï¿½ë¾½æ¿¡ì’•ë±? 
+	
+	//ÀÌ¹ÌÁö °æ·Î ¾÷·Îµå 
 	@Value("${path.upload}")
 	private String path_upload;
 	
 	
-	//ï¿½ë™†ï¿½ì”ªï§ï¿½ ?º?ˆˆ?” æ¹²ï¿½
+	//ÆäÀÌÂ¡Ã³¸®
+	@Value("${page.listcnt}")
+	private int page_listcnt;
+	
+	@Value("${page.paginationcnt}")
+	private int page_paginationcnt;
+	
+	
+	
+	
+	//ÆÄÀÏ¸í ºÙÀÌ±â
 	private String saveUploadFile(MultipartFile upload_file) {
 		
 		String file_name = System.currentTimeMillis() + "_" +  					
@@ -45,7 +63,7 @@ public class NoticeService {
 	}
 	
 	
-	//æ¹²ï¿½ï¿½ë²æ¹²ï¿½
+	//±Û¾²±â
 	public void addNoticeInfo(NoticeBean writeNoticeBean) {
 		
 		MultipartFile upload_file=writeNoticeBean.getUpload_file();
@@ -54,21 +72,63 @@ public class NoticeService {
 			String file_name=saveUploadFile(upload_file);
 			writeNoticeBean.setNotice_img(file_name);
 		}
+		writeNoticeBean.setAdmin_id(loginUserBean.getUser_name());
 		
 		noticeDao.addNoticeInfo(writeNoticeBean);
 	}
 	
 	
-	//æ¹²ï¿½ ï§â‘¸ì¤‰è¹‚?‹¿ë¦?
-	public List<NoticeBean> getNoticeList() {
-		return noticeDao.getNoticeList();
-	}
+	//±Û¸ñ·Ï¿¡ ±Û ºÒ·¯¿À±â 
+		public List<NoticeBean> getNoticeList(String notice_type, int page) {
+			
+			int start = (page -1)*page_listcnt;
+			
+			RowBounds rowBounds = new RowBounds(start, page_listcnt);
+			
+			return noticeDao.getNoticeList(notice_type, rowBounds);
+		
+		}
+		
 	
 	
-	//æ¹²ï¿½ ï¿½ë¸¯ï¿½êµ¹è¹‚ë‹¿ë¦?
+	//±Û ÇÏ³ªº¸±â
 	public NoticeBean getNoticeInfo(int notice_idx) {
 		return noticeDao.getNoticeInfo(notice_idx);
 	}
 			
 		
+	
+	//°Ô½Ã¹° ¼öÁ¤ÇÏ±â
+	public void modifyNoticeInfo(NoticeBean modifyNoticeBean) {
+		
+		MultipartFile upload_file=modifyNoticeBean.getUpload_file();
+		
+		if(upload_file.getSize() > 0 ) {
+			String file_name=saveUploadFile(upload_file);
+			
+			modifyNoticeBean.setNotice_img(file_name);
+		}
+		
+		noticeDao.modifyNoticeInfo(modifyNoticeBean);
+	}
+	
+	
+	
+	//°Ô½Ã¹° »èÁ¦
+		public void deleteNoticeInfo(int notice_idx) {
+			noticeDao.deleteNoticeInfo(notice_idx);
+		}
+		
+		
+	//ÀüÃ¼ °Ô½Ã¹° °³¼ö
+	public PageBean getNoticeCnt(String notice_type, int currentPage) {
+		
+		int notice_cnt=noticeDao.getNoticeCnt(notice_type);
+		
+		//PageBean¿À¹ö·Îµù »ı¼ºÀÚ ´ã±â(NoticeCnt > notice_cnt(Áö±İ¿©±â¿¡¼­ ¼±¾ğÇÔ), noticePageCnt > page_listcnt(À§¿¡ properties²ø¾î¿È), paginationCnt > page_paginationcnt) 
+		PageBean pageBean=new PageBean(notice_cnt, currentPage, page_listcnt, page_paginationcnt);
+		
+		return pageBean;
+	}
+	
 }

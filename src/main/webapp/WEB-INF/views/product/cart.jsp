@@ -234,14 +234,17 @@
       orderSelected();
    }
    
-   $(document).ready(function() {
-      //장바구니 수량 스피너 호출
-      $(".spinner").spinner();
-      
-      $(".spinner").bind("spinstop", function() {
-         changeCnt();
-      });
-   });
+// 수량 버튼 조작
+	let quantity = $(".quantity_input").val();
+	$(".plus_btn").on("click", function(){
+		$(".quantity_input").val(++quantity);
+	});
+	$(".minus_btn").on("click", function(){
+		if(quantity > 1){
+			$(".quantity_input").val(--quantity);	
+		}
+	});
+	
    
    
    $(document).ready(function() {

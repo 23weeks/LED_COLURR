@@ -67,44 +67,68 @@
         </div>
       </div>
     </section>
-    <!--== End Page Title Area ==-->
-	<div class="container" style="margin-top:100px">
-		<div class="row">
-			<div class="col-sm-3"></div>
-			<div class="col-sm-6">
-				<div class="card shadow">
-					<div class="card-body">
-						<form:form action="${root }notice_writePro" method="post" modelAttribute="writeNoticeBean" enctype="multipart/form-data">
-						<div class="form-group">
-						<form:hidden path="notice_idx"/>
-						<form:hidden path="notice_type"/>
+    
+   <!--== Start Blog Area Wrapper ==-->
+    <section class="blog-details-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="blog-content-column">
+              <div class="blog-content-area no-sidebar">
+                <div class="post-details-content">
+                  <div class="post-details-body">
+                    <div class="content" style="text-align:center">
+                      
+                      <form:form action="${root }notice_write_pro" method="post" modelAttribute="writeNoticeBean" enctype="multipart/form-data" style="text-align:center">
+                  		
+                  		<form:hidden path="notice_idx"/>
 						<form:hidden path="admin_id"/>
-							<form:label path="notice_title">제목</form:label>
-							<form:input path="notice_title" class="form-control"/>
-							<form:errors path="notice_title" style="color:red"/>
+						
+						<div class="input-group">
+						<label class="form-label">공지 유형</label> &nbsp;&nbsp;&nbsp;
+                          <div class="input-group-append">
+                           <select name="notice_type"> 
+		                     <option value="notice" >notice</option>
+		                     <option value="event">event</option>
+		                   </select>
+                   		 </div>
 						</div>
-						<div class="form-group">
-							<form:label path="notice_context">내용</form:label>
-							<form:textarea path="notice_context" class="form-control" rows="10" style="resize:none"></form:textarea>
-							<form:errors path="notice_context" style="color:red"/>
-						</div>
-						<div class="form-group">
-							<form:label path="upload_file">첨부 이미지</form:label>
-							<form:input type="file" path="upload_file" class="form-control" />
-						</div>
-						<div class="form-group">
-							<div class="text-right">
-								<form:button type="submit" class="btn btn-primary">(관리자용)작성하기</form:button>
-							</div>
-						</div>
-						</form:form>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-3"></div>
-		</div>
-	</div>
- <!--== End Blog Area Wrapper ==-->
+						
+                        <div class="form-group">
+                   		  <form:input path="notice_title" class="form-control" placeholder="제목을 입력하세요"/>
+                   		  <form:errors path="notice_title" style="color:gray"/>
+                   		</div>
+                  		<p/>
+
+                        <div class="form-group">
+                   		  <form:textarea path="notice_context" class="form-control" rows="10" style="resize:none" placeholder="내용을 입력하세요"></form:textarea>
+                   		  <form:errors path="notice_context" style="color:gray"/>
+                   		</div> 
+                   		<p/>
+                   		
+                  		<div class="form-group">
+                    	  <form:input type="file" path="upload_file" class="form-control" accept="image/*"/>
+                   		</div>
+                   		<p/>
+                   		<p/>
+                   
+                   		<div class="form-group">
+                    	  <form:button type="submit" class="btn-theme btn btn-black" style="width:180px">작성하기</form:button>
+                    	  <a href="${root }notice_list?notice_type=${writeNoticeBean.notice_type}" class="btn-theme btn btn-black" style="width:180px">취소</a>
+                   		</div>
+                      </form:form>
+                      <!-- 여기 -->
+                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Blog Area Wrapper ==-->
  
 	
   </main>

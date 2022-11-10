@@ -41,7 +41,12 @@
                   </ul>
                 </li>
                 <li><a href="${root}board_list">현지</a></li>
-                <li><a href="${root}notice_list">하영</a></li>
+                <li class="has-submenu"><a href="#none">하영</a>
+                  <ul class="submenu-nav">
+                    <li><a href="${root }notice_list?notice_type=notice">Notice</a></li>
+                    <li><a href="${root }notice_list?notice_type=event">Event</a></li>
+                  </ul>
+                </li>
                 <li><a href="${root}order">결제</a></li>
               </ul>
             </div>
