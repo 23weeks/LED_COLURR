@@ -47,9 +47,9 @@
 <body>
 
 <!--wrapper start-->
-  <c:import url="/WEB-INF/views/include/top_menu.jsp"></c:import>
 <div class="wrapper page-blog-wrapper">
 
+  <c:import url="/WEB-INF/views/include/top_menu.jsp"></c:import>
   
   <main class="main-content">
     <!--== Start Page Title Area ==-->
@@ -58,8 +58,8 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="page-title-content">
-              <h2 class="title">Blog</h2>
-              <div class="bread-crumbs"><a href="${root }main">Home<span class="breadcrumb-sep">></span></a><a href="${root }main">Blog</a><span class="breadcrumb-sep">></span><span class="active">Blog Details</span></div>
+              <h2 class="title">My Page</h2>
+              <div class="bread-crumbs"><a href="index.html">Q&A<span class="breadcrumb-sep">></span></a><a href="blog.html">List</a><span class="breadcrumb-sep">></span><span class="active">Blog Details</span></div>
             </div>
           </div>
         </div>
@@ -78,72 +78,46 @@
                   <div class="post-details-body">
                     <div class="content" style="text-align:center">
                       
-                      
                       <!-- 여기 -->
                       <div class="category">
-                        <a href="blog.html">답변대기 / 답변완료</a>
+                      <c:if test="${readAnswerBean.answer_content != null }">
+                      <a href="${root }board_answer2?question_idx=${question_idx}&page=${page}">답변확인</a>  
+                      </c:if>
                       </div>
-                      <h4>제목</h4>
-                      <p class="author" style="font-size: 14px" >작성자</p>
-                      <input type="text" id="author" name="author" class="form-control" value="${readQuestionBean.writer_name }" readonly="readonly" />
+                      	
+                      <p/>
                       
-                      <p class="date" style="font-size: 14px">작성날짜</p>
-                      <input type="text" id="date" name="date" class="form-control" value="${readQuestionBean.question_date }" readonly="readonly" />
+                     <label for="question_title" >${readQuestionBean.question_title }</label><p/>
+                     <label for="writer" style="font-size: 14px">${readQuestionBean.writer_name } </label><p/>
+                     <label for="question_date" style="font-size: 14px">${readQuestionBean.question_date } </label><p/>
                       <hr />
+                     <label for="question_content">${readQuestionBean.question_content }</label>
+                     
                       <c:if test="${readQuestionBean.question_img != null }">
                       <ul class="meta">
-                        <li class="file">첨부 이미지</li>
+                        <li class="question_img">첨부 이미지</li>
                         <li> | </li>
                         <li><img src="${root }upload/${readQuestionBean.question_img}" width="20%"/></li>
                       </ul>
                       </c:if>
-                      
-                      <p class="question_content" style="text-align:left">글 내용</p>
-                      <textarea id="question_content" name="question_content" class="form-control" rows="10" disabled="disabled">"${readQuestionBean.question_content }"</textarea>
+                     
                       
                       <p class="m-0"></p>
-                      <hr />
-                      
-                	 <div>
-                        <<a href="${root }board_list" class="btn-theme btn btn-black" >목록보기</a> 
-                        <c:if test="${loginUserBean.user_idx == readContentBean.writer_name}">
-                      <a href="${root }board_modify?question_idx=${question_idx}" class="btn-theme btn btn-black">수정하기</a>
-                      <a href="${root }board_delete?question_idx=${question_idx}" class="btn-theme btn btn-black" >삭제하기</a>
-                      </c:if>
+                  <hr />
+                	   <div style="text-align:center" >
+                          <a href="${root }board_list" class="btn-theme btn btn-black" >목록보기</a> 
+                        <%-- <c:if test="${loginUserBean.user_idx == readQuestionBean.writer_name}"/>  --%>
+	                      <a href="${root }board_modify?question_idx=${question_idx}&page=${page}" class="btn-theme btn btn-black">수정하기</a>
+	                      <a href="${root }board_delete?question_idx=${question_idx}&page=${page}" class="btn-theme btn btn-black" >삭제하기</a>
+	                    </div>
                     </div>
                     
-                    </div>
-                    <div class="comments-area" style="margin:30px">
-                      <h2>답변 작성</h2>
-                      <div class="comments-form-wrap">
-                        <div class="clearfix"></div>
-                        <form action="#" method="post">
-                          <div class="comments-form-content">
-                            <div class="row row-gutter-20">
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <textarea class="form-control textarea" name="comment" rows="5" placeholder="답변을 작성해주세요"></textarea>
-                                </div>
-                              </div>
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <div class="comment-form-cookies"><input id="comment-cookies" name="comment-cookies" type="checkbox" value="yes"> <label for="comment-cookies">동의 체크</label></div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-12">
-                                <div class="form-group" style="text-align:center">
-                                  <button class="btn-theme btn btn-black" type="submit">제출</button>
-                                  
-                                  
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
+                    <%-- <c:if test= "${loginUserBean.user_idx == admin_id }"> --%>   
+                    <div style="text-align:right" >
+                    <a href="${root }board_answer?question_idx=${question_idx}&page=${page}">답글달기</a>
+                     </div>
+                      <%--  </c:if>  --%>
+               
                   </div>
                 </div>
               </div>
@@ -156,9 +130,9 @@
 
   </main>
 
+  <c:import url="/WEB-INF/views/include/bottom_info.jsp"></c:import>
   
 </div>
-  <c:import url="/WEB-INF/views/include/bottom_info.jsp"></c:import>
 
 <!--=======================Javascript============================-->
 

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var='root' value="${pageContext.request.contextPath}/"/> 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,9 +47,9 @@
 <body>
 
 <!--wrapper start-->
+  <c:import url="/WEB-INF/views/include/top_menu.jsp"></c:import>
 <div class="wrapper page-blog-wrapper">
 
-  <c:import url="/WEB-INF/views/include/top_menu.jsp"></c:import>
   
   <main class="main-content">
     <!--== Start Page Title Area ==-->
@@ -59,8 +58,8 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="page-title-content">
-              <h2 class="title">Q&A</h2>
-              <div class="bread-crumbs"><a href="index.html">Q&A<span class="breadcrumb-sep"></span></a><a href="blog.html">List</a></div>
+              <h2 class="title">Blog</h2>
+              <div class="bread-crumbs"><a href="index.html">Home<span class="breadcrumb-sep">></span></a><a href="blog.html">Blog</a><span class="breadcrumb-sep">></span><span class="active">Blog Details</span></div>
             </div>
           </div>
         </div>
@@ -79,33 +78,69 @@
                   <div class="post-details-body">
                     <div class="content" style="text-align:center">
                       
-                      <form:form action="${root }board_write_pro" method="post" modelAttribute="writeQuestionBean"  enctype="multipart/form-data" style="text-align:center">
-                       
-                        <div class="form-group">
-                          <form:input path="question_title" class="form-control" placeholder="제목을 입력하세요"/>
-                          <form:errors path="question_title" style="color: red" />
-                        </div>
-                        <p/>
                       
-                        <div class="form-group">
-                          <form:textarea path="question_content" class="form-control" placeholder="내용을 입력하세요" rows="10" style="resize:none" />
-                          <form:errors path="question_content" style="color: red" />
-                        </div> 
-                        <p/>
-                       
-                        <div class="form-group">
-                          <form:input type="file" path="upload_file" class="form-control" accept="image/*"/>
-                        </div>
-                         <p/>
-                         
-                         <p/>
-                      <div class="form-group">
-                          <form:button class="btn-theme btn btn-black" style="width:150px">작성하기</form:button> 
-                            <a href="${root }board_list" class="btn-theme btn btn-black" style="width:150px">취소</a>
-                      </div>
-                      
-                      </form:form>
                       <!-- 여기 -->
+                      <div class="category">
+                        <a href="blog.html">답변대기 / 답변완료</a>
+                      </div>
+                      <h4>제목</h4>
+                      <p class="author" style="font-size: 14px" >작성자</p>
+                      <input type="text" id="author" name="author" class="form-control" value="${readQuestionBean.user_name }" disabled="disabled" />
+                      
+                      <p class="date" style="font-size: 14px">작성날짜</p>
+                      <input type="text" id="date" name="date" class="form-control" value="${readQuestionBean.question_date }" disabled="disabled" />
+                      <hr />
+                      <c:if test="${readQuestionBean.question_img != null }">
+                      <ul class="meta">
+                        <li class="file">첨부 이미지</li>
+                        <li> | </li>
+                        <li><img src="${root }upload/${readQuestionBean.question_img}" width="20%"/></li>
+                      </ul>
+                      </c:if>
+                      
+                      <p class="question_content" style="text-align:left">글 내용</p>
+                      <textarea id="question_content" name="question_content" class="form-control" rows="10" disabled="disabled">"${readQuestionBean.question_content }"</textarea>
+                      
+                      <p class="m-0"></p>
+                      <hr />
+                      
+                 <div>
+                        <<a href="${root }board_list" class="btn-theme btn btn-black" >목록보기</a> 
+                      <a href="${root }board_modifyq?question_idx=${question_idx}" class="btn-theme btn btn-black">수정하기</a>
+                      <a href="${root }board_deleteq?question_idx=${question_idx}" class="btn-theme btn btn-black" >삭제하기</a>
+                    </div>
+                    
+                    </div>
+                    <div class="comments-area" style="margin:30px">
+                      <h2>답변 작성</h2>
+                      <div class="comments-form-wrap">
+                        <div class="clearfix"></div>
+                        <form action="#" method="post">
+                          <div class="comments-form-content">
+                            <div class="row row-gutter-20">
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <textarea class="form-control textarea" name="comment" rows="5" placeholder="답변을 작성해주세요" required=""></textarea>
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <div class="comment-form-cookies"><input id="comment-cookies" name="comment-cookies" type="checkbox" value="yes"> <label for="comment-cookies">동의 체크</label></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="form-group" style="text-align:center">
+                                  <button class="btn-theme btn btn-black" type="submit">제출</button>
+                                  
+                                  
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -119,9 +154,9 @@
 
   </main>
 
-  <c:import url="/WEB-INF/views/include/bottom_info.jsp"></c:import>
   
 </div>
+  <c:import url="/WEB-INF/views/include/bottom_info.jsp"></c:import>
 
 <!--=======================Javascript============================-->
 

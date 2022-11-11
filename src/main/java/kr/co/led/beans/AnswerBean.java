@@ -1,12 +1,17 @@
 package kr.co.led.beans;
 
+import javax.validation.constraints.NotBlank;
 
 public class AnswerBean {
 
 	private int answer_idx; 
 	private int question_idx; 
+	
+	@NotBlank
 	private String answer_content; 
 	private String admin_id;
+	
+	
 	public int getAnswer_idx() {
 		return answer_idx;
 	}

@@ -16,7 +16,7 @@ public class NoticeDao {
 	private NoticeMapper noticeMapper;
 	
 	
-	//±ÛÀÛ¼º
+	//ê¸€ì‘ì„±
 		public void addNoticeInfo(NoticeBean writeNoticeBean) {
 				noticeMapper.addNoticeInfo(writeNoticeBean);
 		}
@@ -24,35 +24,35 @@ public class NoticeDao {
 		
 		
 		
-	//±Û ¸ñ·Ïº¸±â
+	//ê¸€ ëª©ë¡ë³´ê¸°
 		public List<NoticeBean> getNoticeList(String notice_type, RowBounds rowBounds) {
 			return noticeMapper.getNoticeList(notice_type, rowBounds);
 		}
 
 		
 		
-	//±Û ÇÏ³ªº¸±â
+	//ê¸€ í•˜ë‚˜ë³´ê¸°
 		public NoticeBean getNoticeInfo(int notice_idx) {
 			return noticeMapper.getNoticeInfo(notice_idx);
 		}
 		
 		
 		
-	//°Ô½Ã¹° ¼öÁ¤ÇÏ±â
+	//ê²Œì‹œë¬¼ ìˆ˜ì •í•˜ê¸°
 		public void modifyNoticeInfo(NoticeBean modifyNoticeBean) {
 			noticeMapper.modifyNoticeInfo(modifyNoticeBean);
 		}
 		
 		
 		
-	//°Ô½Ã¹° »èÁ¦
+	//ê²Œì‹œë¬¼ ì‚­ì œ
 		public void deleteNoticeInfo(int notice_idx) {
 			noticeMapper.deleteNoticeInfo(notice_idx);
 		}
 		
 		
 	
-	//ÀüÃ¼ °Ô½Ã¹° °³¼ö
+	//ì „ì²´ ê²Œì‹œë¬¼ ê°œìˆ˜
 		public int getNoticeCnt(String notice_type) {
 			return noticeMapper.getNoticeCnt(notice_type);
 		}

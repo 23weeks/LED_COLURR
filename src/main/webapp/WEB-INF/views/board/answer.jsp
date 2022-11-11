@@ -1,108 +1,163 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<c:set var='root' value="${pageContext.request.contextPath}/"/>
+<c:set var='root' value="${pageContext.request.contextPath}/"/> 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Blog - Moren - Fashion Bootstrap 5 HTML Template</title>
+<title>COLURR</title>
 
-    <!--== Favicon ==-->
-    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+<!--== Favicon ==-->
+<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
 
-    <!--== Google Fonts ==-->
-    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface:400" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,600,700,900,900i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,600,700,900,900i" rel="stylesheet">
+<!--== Google Fonts ==-->
+<link href="https://fonts.googleapis.com/css?family=Abril+Fatface:400" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,600,700,900,900i" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,600,700,900,900i" rel="stylesheet">
 
-    <!--== Bootstrap CSS ==-->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
-    <!--== Font-awesome Icons CSS ==-->
-    <link href="assets/css/font-awesome.min.css" rel="stylesheet"/>
-    <!--== Icofont Min Icons CSS ==-->
-    <link href="assets/css/icofont.min.css" rel="stylesheet"/>
-    <!--== lastudioIcons CSS ==-->
-    <link href="assets/css/lastudioIcons.css" rel="stylesheet"/>
-    <!--== Animate CSS ==-->
-    <link href="assets/css/animate.css" rel="stylesheet"/>
-    <!--== Aos CSS ==-->
-    <link href="assets/css/aos.css" rel="stylesheet"/>
-    <!--== FancyBox CSS ==-->
-    <link href="assets/css/jquery.fancybox.min.css" rel="stylesheet"/>
-    <!--== Slicknav CSS ==-->
-    <link href="assets/css/slicknav.css" rel="stylesheet"/>
-    <!--== Swiper CSS ==-->
-    <link href="assets/css/swiper.min.css" rel="stylesheet"/>
-    <!--== Slick CSS ==-->
-    <link href="assets/css/slick.css" rel="stylesheet"/>
-    <!--== Main Style CSS ==-->
-    <link href="assets/css/style.css" rel="stylesheet" />
+<!--== Bootstrap CSS ==-->
+<link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+<!--== Font-awesome Icons CSS ==-->
+<link href="assets/css/font-awesome.min.css" rel="stylesheet"/>
+<!--== Icofont Min Icons CSS ==-->
+<link href="assets/css/icofont.min.css" rel="stylesheet"/>
+<!--== lastudioIcons CSS ==-->
+<link href="assets/css/lastudioIcons.css" rel="stylesheet"/>
+<!--== Animate CSS ==-->
+<link href="assets/css/animate.css" rel="stylesheet"/>
+<!--== Aos CSS ==-->
+<link href="assets/css/aos.css" rel="stylesheet"/>
+<!--== FancyBox CSS ==-->
+<link href="assets/css/jquery.fancybox.min.css" rel="stylesheet"/>
+<!--== Slicknav CSS ==-->
+<link href="assets/css/slicknav.css" rel="stylesheet"/>
+<!--== Swiper CSS ==-->
+<link href="assets/css/swiper.min.css" rel="stylesheet"/>
+<!--== Slick CSS ==-->
+<link href="assets/css/slick.css" rel="stylesheet"/>
+<!--== Main Style CSS ==-->
+<link href="assets/css/style.css" rel="stylesheet" />
 
 </head>
 
-
 <body>
 
-<c:import url="/WEB-INF/views/include/top_menu.jsp"></c:import>
+<!--wrapper start-->
+  <c:import url="/WEB-INF/views/include/top_menu.jsp"></c:import>
+<div class="wrapper page-blog-wrapper">
 
-<div class="container" >
-   <div class="row">         
-      <div class="col-sm-3"></div>
-      <div class="col-sm-6">
-         <div class="card shadow">
-            <div class="card-body">
-            <div class="form-group">
-            
-				<div style="text-align: center">
-						<h4 class="card-title">Q&A</h4>
-				</div>
-				
-				<form action="${root }answerq" method="get">
-					<div class="form-group">
-						<label for="board_writer_name">작성자</label>
-						<input type="text" id="board_writer_name" name="board_writer_name" class="form-control" value="조현지" disabled="disabled"/>
-					</div>
-					<div class="form-group">
-						<label for="board_date">작성날짜</label>
-						<input type="text" id="board_date" name="board_date" class="form-control" value="2022-10-24" disabled="disabled" />
-					</div>
-					<div class="form-group">
-						<label for="board_subject">제목</label>
-						<input type="text" id="board_subject" name="board_subject" class="form-control" value="문의1" disabled="disabled" />
-					</div>
-					<div class="form-group">
-						<label for="board_content">내용</label>
-						<textarea id="board_content" name="board_content" class="form-control" rows="10" style="resize:none" disabled="disabled">문의1</textarea>
-					</div>
-					<div class="form-group">
-						<label for="board_file">첨부 이미지</label>
-					<img src="${root }image/logo.png" width="20%"/>						
-					</div>
-					<div class="form-group">
-						<label for="board_content">답글달기</label>
-						<textarea id="board_content" name="board_content" class="form-control" rows="5" style="resize:none"></textarea>
-					</div>
+  
+  <main class="main-content">
+    <!--== Start Page Title Area ==-->
+    <section class="page-title-area bg-img" data-bg-img="assets/img/photos/bg-page1.jpg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="page-title-content">
+              <h2 class="title">Blog</h2>
+              <div class="bread-crumbs"><a href="${root }main">Home<span class="breadcrumb-sep">></span></a><a href="${root }main">Blog</a><span class="breadcrumb-sep">></span><span class="active">Blog Details</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Page Title Area ==-->
 
-					<div class="form-group">
-						<div style="text-align: right">
-							<a href="${root }index" type="submit" class="btn btn-outline-primary" onclick="alert('답변이 완료되었습니다.')">답변완료</a></button>
-							<a href="${root }board_readq" class="btn btn-outline-danger">취소</a>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	<div class="col-sm-3"></div>
-   </div>
+    <!--== Start Blog Area Wrapper ==-->
+    <section class="blog-details-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="blog-content-column">
+              <div class="blog-content-area no-sidebar">
+                <div class="post-details-content">
+                  <div class="post-details-body">
+                    
+                      <h2 style="text-align:center">답변대기</h2><p/>
+					<form:form action="${root }board_answer_pro" method="post" modelAttribute="writeAnswerBean" enctype="multipart/form-data" >
+                    <div class="content" style="text-align:left">
+                    <input type="hidden" name='page' value='${page }'/>
+                    <form:hidden path="question_idx" />
+                      <!-- 여기 -->
+                      <div class="content" style="text-align:center">
+                      
+                    
+                     <label for="question_title" >${readQuestionBean.question_title }</label><p/>
+                     <label for="writer" style="font-size: 14px">${readQuestionBean.writer_name } </label><p/>
+                     <label for="question_date" style="font-size: 14px">${readQuestionBean.question_date } </label><p/>
+                      <hr />
+                     <label for="question_content">${readQuestionBean.question_content }</label>
+                     
+                      <c:if test="${readQuestionBean.question_img != null }">
+                      <ul class="meta">
+                        <li class="question_img">첨부 이미지</li>
+                        <li> | </li>
+                        <li><img src="${root }upload/${readQuestionBean.question_img}" width="20%"/></li>
+                      </ul>
+                      </c:if>
+                      
+                      <p class="m-0"></p>
+                     
+                      <%-- </c:forEach> --%>
+	
+                    </div>
+                     <hr />
+                    <div class="comments-area" style="margin:30px">
+                    
+                      <h2>답변 작성</h2>
+                      <div class="comments-form-wrap">
+                        <div class="clearfix"></div>
+                        
+                          <div class="comments-form-content">
+                            <div class="row row-gutter-20">
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                                    
+                                  <form:textarea path="answer_content" class="form-control"  rows="5" placeholder="답변을 작성해주세요" style="resize:none" />
+                                </div>
+                              </div>
+                            </div>
+                            </div>
+                            
+                              <div class="col-md-12">
+                              <p>
+                              <div class="form-group">
+                                <div style="text-align:center">
+                                
+                               
+                                
+                                
+                                    <button class="btn-theme btn btn-black" style="width:150px" >제출하기</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </form:form>
+                      </div>
+                     
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+    </section>
+    <!--== End Blog Area Wrapper ==-->
+
+  </main>
+
+  
 </div>
-</div>
-<c:import url="/WEB-INF/views/include/bottom_info.jsp"></c:import>
+  <c:import url="/WEB-INF/views/include/bottom_info.jsp"></c:import>
+
 <!--=======================Javascript============================-->
 
 <!--=== Modernizr Min Js ===-->

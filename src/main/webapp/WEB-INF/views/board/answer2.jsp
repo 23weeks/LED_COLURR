@@ -48,9 +48,9 @@
 <body>
 
 <!--wrapper start-->
+  <c:import url="/WEB-INF/views/include/top_menu.jsp"></c:import>
 <div class="wrapper page-blog-wrapper">
 
-  <c:import url="/WEB-INF/views/include/top_menu.jsp"></c:import>
   
   <main class="main-content">
     <!--== Start Page Title Area ==-->
@@ -59,8 +59,8 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="page-title-content">
-              <h2 class="title">Q&A</h2>
-              <div class="bread-crumbs"><a href="index.html">Q&A<span class="breadcrumb-sep"></span></a><a href="blog.html">List</a></div>
+              <h2 class="title">Blog</h2>
+              <div class="bread-crumbs"><a href="${root }main">Home<span class="breadcrumb-sep">></span></a><a href="${root }board_list">Q&A</a><span class="breadcrumb-sep">></span><span class="active">Blog Details</span></div>
             </div>
           </div>
         </div>
@@ -77,51 +77,86 @@
               <div class="blog-content-area no-sidebar">
                 <div class="post-details-content">
                   <div class="post-details-body">
-                    <div class="content" style="text-align:center">
-                      
-                      <form:form action="${root }board_write_pro" method="post" modelAttribute="writeQuestionBean"  enctype="multipart/form-data" style="text-align:center">
-                       
-                        <div class="form-group">
-                          <form:input path="question_title" class="form-control" placeholder="제목을 입력하세요"/>
-                          <form:errors path="question_title" style="color: red" />
-                        </div>
-                        <p/>
-                      
-                        <div class="form-group">
-                          <form:textarea path="question_content" class="form-control" placeholder="내용을 입력하세요" rows="10" style="resize:none" />
-                          <form:errors path="question_content" style="color: red" />
-                        </div> 
-                        <p/>
-                       
-                        <div class="form-group">
-                          <form:input type="file" path="upload_file" class="form-control" accept="image/*"/>
-                        </div>
-                         <p/>
-                         
-                         <p/>
-                      <div class="form-group">
-                          <form:button class="btn-theme btn btn-black" style="width:150px">작성하기</form:button> 
-                            <a href="${root }board_list" class="btn-theme btn btn-black" style="width:150px">취소</a>
-                      </div>
-                      
-                      </form:form>
+                    
+                      <h2 style="text-align:center">답변완료</h2><p/>
+					
+                    <div class="content" style="text-align:left">
+                    <input type="hidden" name='page' value='${page }'/>
+                    <input type="hidden" name='question_idx' value='${question_idx }'/>
+                    
                       <!-- 여기 -->
+                      <div class="content" style="text-align:center">
+                  
+                     <label for="question_title" >${readQuestionBean.question_title }</label><p/>
+                     <label for="writer" style="font-size: 14px">${readQuestionBean.writer_name } </label><p/>
+                     <label for="question_date" style="font-size: 14px">${readQuestionBean.question_date } </label><p/>
+                      <hr />
+                     <label for="question_content">${readQuestionBean.question_content }</label>
+                     
+                      <c:if test="${readQuestionBean.question_img != null }">
+                      <ul class="meta">
+                        <li class="question_img">첨부 이미지</li>
+                        <li> | </li>
+                        <li><img src="${root }upload/${readQuestionBean.question_img}" width="20%"/></li>
+                      </ul>
+                      </c:if>
+                      
+                      <p class="m-0"></p>
+                     
+                      <%-- </c:forEach> --%>
+	
+                    </div>
+                     <hr />
+                    <div class="comments-area" style="margin:30px">
+                    
+                      <h2>답변 작성</h2>
+                      <div class="comments-form-wrap">
+                        <div class="clearfix"></div>
+                        
+                          <div class="comments-form-content">
+                            <div class="row row-gutter-20">
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                    
+                                    <label for="answer_content">${readAnswerBean.answer_content }</label> <hr/>
+                                   <%--  <textarea id="answer_content" name="answer_content" class="form-control" rows="5" readonly="readonly">${readAnswerBean.answer_content }</textarea>  --%>
+
+                                </div>
+                              </div>
+                            </div>
+                           </div>
+                           </div>
+                           </div> 
+                            
+                              <div class="col-md-12">
+                              <p>
+                              <div class="form-group">
+                                <div style="text-align:center" >
+                          			<a href="${root }board_list" class="btn-theme btn btn-black" style="width:140px">확인하기</a> 
+                          			
+                                
+                                </div>
+                                </div>
+                                </div>
+                                
+                                  </div>
+                                </div>
+                              </div>
+                            
+                          </div>
+                        
+                      </div>
+                     </div>
                     </div>
                   </div>
+                  </section>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+              
+         
     <!--== End Blog Area Wrapper ==-->
 
-  </main>
-
+ 
   <c:import url="/WEB-INF/views/include/bottom_info.jsp"></c:import>
-  
-</div>
 
 <!--=======================Javascript============================-->
 

@@ -74,7 +74,7 @@
           <div class="col-lg-12">
             <div class="page-title-content">
               <h2 class="title">Q&A</h2>
-              <div class="bread-crumbs"><a href="index.html">Home<span class="breadcrumb-sep">></span></a><span class="active">Q&A</span></div>
+              <div class="bread-crumbs"><a href="${root }main">Home<span class="breadcrumb-sep">></span></a><span class="active">Q&A</span></div>
             </div>
           </div>
         </div>
@@ -194,8 +194,8 @@
     </section>
     <!--== End Blog Area Wrapper ==-->
   </main>
+  </div>
 
-</div>
 <c:import url="/WEB-INF/views/include/bottom_info.jsp"></c:import>
 <!--=======================Javascript============================-->
 
