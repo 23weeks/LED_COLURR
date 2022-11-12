@@ -4,5 +4,6 @@ encoding//src/main/java/kr/co/led/controller/UserController.java=UTF-8
 encoding//src/main/java/kr/co/led/dao/NoticeDao.java=UTF-8
 encoding//src/main/java/kr/co/led/dao/OrderDao.java=UTF-8
 encoding//src/main/java/kr/co/led/dao/UserDao.java=UTF-8
+encoding//src/main/java/kr/co/led/interceptor/CheckWriterInterceptor.java=UTF-8
 encoding//src/main/java/kr/co/led/mapper/OrderMapper.java=UTF-8
 encoding//src/main/java/kr/co/led/service/UserService.java=UTF-8

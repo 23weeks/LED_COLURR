@@ -201,7 +201,7 @@ public class ServletAppContext implements WebMvcConfigurer {
          reg2.excludePathPatterns("/board_list", "/board_read", "/notice_list", "/notice_read"); //제외 : 로그인하지 않아도 이용할 수 있는 카테고리
       
       
-      CheckWriterInterceptor checkWriterInterceptor = new CheckWriterInterceptor(loginUserBean, questionService);
+      CheckWriterInterceptor checkWriterInterceptor = new CheckWriterInterceptor(loginUserBean, questionService, noticeService);
       InterceptorRegistration reg3 = registry.addInterceptor(checkWriterInterceptor);
       
       reg3.addPathPatterns("/board/modify", "/board/delete", "/notice/modify", "/notice/delete");

@@ -5,19 +5,23 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 
+import kr.co.led.beans.NoticeBean;
 import kr.co.led.beans.QuestionBean;
 import kr.co.led.beans.UserBean;
+import kr.co.led.service.NoticeService;
 import kr.co.led.service.QuestionService;
 
 public class CheckWriterInterceptor implements HandlerInterceptor{
 	
-	private UserBean loginUserBean; //·Î±×ÀÎ È¸¿øÁ¤º¸
-	private QuestionService questionService; //±Û ÀÛ¼º È¸¿ø Á¤º¸
+	private UserBean loginUserBean; //ë¡œê·¸ì¸ íšŒì›ì •ë³´
+	private QuestionService questionService; //ê¸€ ì‘ì„± íšŒì› ì •ë³´
+	private NoticeService noticeService;
 
-	public CheckWriterInterceptor(UserBean loginUserBean, QuestionService questionService) {
+	public CheckWriterInterceptor(UserBean loginUserBean, QuestionService questionService, NoticeService noticeService) {
 		super();
 		this.loginUserBean = loginUserBean;
 		this.questionService = questionService;
+		this.noticeService = noticeService;
 	}
 
 	@Override
@@ -29,12 +33,24 @@ public class CheckWriterInterceptor implements HandlerInterceptor{
 		
 		QuestionBean currentQuestionBean = questionService.getQuestionInfo(question_idx);
 		
+		String str2 = request.getParameter("notice_idx");
+		int notice_idx = Integer.parseInt(str2);
+		
+		NoticeBean currentNoticeBean = noticeService.getNoticeInfo(notice_idx);
+		
 		if(currentQuestionBean.getUser_idx() != loginUserBean.getUser_idx()) {
-			String contextPath=request.getContextPath(); //ÇöÀçÀÇ Àß¸øµÈ Á¢±Ù °æ·Î
-			response.sendRedirect(contextPath + "/board_not_writer");
-			return false;
-			
+				String contextPath = request.getContextPath(); //í˜„ì¬ì˜ ì˜ëª»ëœ ì ‘ê·¼ ê²½ë¡œ
+				response.sendRedirect(contextPath + "/board_not_writer");
+				return false;
 		}
+				
+		if(currentNoticeBean.getAdmin_id() != loginUserBean.getUser_id()) {
+				String contextPath = request.getContextPath(); //í˜„ì¬ì˜ ì˜ëª»ëœ ì ‘ê·¼ ê²½ë¡œ
+				response.sendRedirect(contextPath + "/notice_not_writer");
+				return false;
+					
+		}
+		
 		return true;
 	}
 	

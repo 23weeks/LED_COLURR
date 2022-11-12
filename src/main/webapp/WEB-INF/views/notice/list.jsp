@@ -48,9 +48,6 @@
 
 <body>
 
-<!--wrapper start-->
-<div class="wrapper">
-
   <!--== Start Preloader Content ==-->
   <div class="preloader-wrap">
     <div class="preloader">
@@ -94,7 +91,7 @@
             <div class="blog-content-column">
               <div class="blog-content-area no-sidebar">
                <!-- 게시판 시작 -->
-                <h2 id="board_title">Notice</h2>
+                <h2 id="board_title">${notice_type}</h2>
 				<table id='board_list' width=1500 align="center">
 					<thead>
 						<tr id="board_content_info">
