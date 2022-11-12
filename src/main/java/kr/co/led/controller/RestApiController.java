@@ -22,4 +22,13 @@ public class RestApiController {
 		
 	}
 
+	@GetMapping("user/checkUserEmailExist/{user_email}")
+	public String checkUserEmailExist(@PathVariable String user_email) {
+		
+		boolean chk=userService.checkUserEmailExist(user_email);
+		
+		return chk + "";
+		
+	}
+	
 }

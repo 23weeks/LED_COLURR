@@ -16,6 +16,10 @@ public class UserDao {
       return userMapper.checkUserIdExist(user_id); //sql        
    }
    
+   public String checkUserEmailExist(String user_email) {
+	      return userMapper.checkUserEmailExist(user_email);  
+	   }
+   
    public void addUserInfo(UserBean joinUserBean) {
       
       userMapper.addUserInfo(joinUserBean);

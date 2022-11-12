@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var='root' value="${pageContext.request.contextPath}/"/>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +12,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>COLURR</title>
+
+
+
+
+   <script src="assets/js/a.js"></script>
+
+
+
 
     <!--== Favicon ==-->
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
@@ -44,6 +53,7 @@
     <link href="assets/css/style.css" rel="stylesheet" />
 
 </head>
+
 
 <body>
 
@@ -106,10 +116,10 @@
                 <div class="action-top">
                   <div class="pro-qty-area">
                     <div class="pro-qty">
-                      <input type="text" id="quantity1" title="Quantity" value="1" />
+                      <input type="text" class="Quantity" id="quantity" title="Quantity" value="1" />
                     </div>
                   </div>
-                  <a class="btn-theme btn-black" href="${root}add_cart">Add to cart</a>
+                  <a onclick="clickCart()" class="btn-theme btn-black">add to cart</a>
                 </div>
                 <div class="action-bottom">
                   <a class="btn-wishlist" href="${root}add_wishlist"><i class="labtn-icon labtn-icon-wishlist"></i>Add to wishlist</a>

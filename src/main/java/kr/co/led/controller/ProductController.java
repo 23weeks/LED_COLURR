@@ -73,12 +73,11 @@ public class ProductController {
    @GetMapping("/product_detail")
    public String product_detail(@RequestParam("product_idx") int product_idx, Model model) {
 
-      System.out.println(product_idx);
-
       ProductBean showProductBean = productService.getProductInfo(product_idx);
 
       model.addAttribute("product_idx", product_idx);
       model.addAttribute("showProductBean", showProductBean);
+      model.addAttribute("loginUserBean", loginUserBean);
 
       return "product/detail";
    }
@@ -87,7 +86,7 @@ public class ProductController {
    public String cart(Model model) {
       
       int user_idx = 0;
-   
+      
       if(loginUserBean.isUserLogin() == false) {
          return "user/not_login";
          
@@ -101,38 +100,41 @@ public class ProductController {
       return "product/cart";
    }
    
+   
+   
    @ResponseBody
-   @PostMapping("/cart_add")
+   @GetMapping("/cart_add")
    public int cart_add(@ModelAttribute("cartList") CartListBean cartList) throws Exception {
 
+      System.out.println("--");
       int user_idx = 0;
 
       if (loginUserBean.isUserLogin() == false) {
          //로그인 하라는 제약 걸기
+         return 5;
          
-         
-      } else if (loginUserBean.isUserLogin() == true) {
+      } else {
          user_idx = loginUserBean.getUser_idx();
-      }
-
-      for (CartBean cartBean : cartList.getCartList()) {
-
-         if (cartBean.getProduct_amount() != 0) {
-            // 각 경우에 해당하는 member_id값 입력
-            cartBean.setUser_idx(user_idx);
-
-            // 같은 상품 있는지 확인하고 있으면 수량 증가 update
-            if (cartService.checkCart(cartBean) > 0) {
-               cartService.updateCart(cartBean);
-
-            // 같은 상품 없으면 add
-            } else {
-               cartService.addCart(cartBean);
+         
+         for (CartBean cartBean : cartList.getCartList()) {
+            System.out.println(cartBean.getProduct_idx());
+            if (cartBean.getProduct_amount() != 0) {
+               // 각 경우에 해당하는 member_id값 입력
+               cartBean.setUser_idx(user_idx);
+               
+               // 같은 상품 있는지 확인하고 있으면 수량 증가 update
+               if (cartService.checkCart(cartBean) > 0) {
+                  cartService.updateCart(cartBean);
+                  return 1;
+                  // 같은 상품 없으면 add
+               } else {
+                  cartService.addCart(cartBean);
+                  return 1;
+               }
             }
          }
       }
-      int count = cartService.countCart(user_idx);
-      return count;
+      return 1;
    }
    
    @ResponseBody
@@ -174,6 +176,12 @@ public class ProductController {
          cartService.deleteCartSelected(cartBean);
       }
       return 1;
+   }
+   
+   @GetMapping("add_cart1")
+   public String add_cart1(@RequestParam("quantity") String quantity) {
+      System.out.println(quantity+111);
+      return "";
    }
    
    @PostMapping("/cart_changeCnt")

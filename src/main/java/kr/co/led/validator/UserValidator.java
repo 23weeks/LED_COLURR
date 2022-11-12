@@ -35,6 +35,9 @@ public class UserValidator implements Validator{
 			errors.rejectValue("user_id", "DontCheckUserIdExist");
 			errors.rejectValue("agree", "DontCheckUserIdExist");
 		}
+		if(postUserBean.isUserEmailExist() == false) {
+			errors.rejectValue("user_email", "DontCheckUserEmailExist");
+		}
 	  }//out if
 	}
 }

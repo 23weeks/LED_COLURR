@@ -7,6 +7,57 @@
 <html lang="en">
 
 <head>
+
+<!-- kakao api -->
+<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js"
+  integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL" crossorigin="anonymous"></script>
+<script>
+  Kakao.init('82d2895877c0cf0d28eec7bc67f9e05d'); // 사용하려는 앱의 JavaScript 키 입력
+</script>
+<script>
+  function loginWithKakao() {
+    Kakao.Auth.authorize({
+      redirectUri: 'http://localhost:9987/LED_COLURR/join',
+      state: 'userme',
+    });
+  }
+
+  function requestUserInfo() {
+    Kakao.API.request({
+      url: '/v2/user/me',
+    })
+      .then(function(res) {
+        alert(JSON.stringify(res));
+      })
+      .catch(function(err) {
+        alert(
+          'failed to request user information: ' + JSON.stringify(err)
+        );
+      });
+  }
+
+  // 아래는 데모를 위한 UI 코드입니다.
+  displayToken()
+  function displayToken() {
+    var token = getCookie('authorize-access-token');
+
+    if(token) {
+      Kakao.Auth.setAccessToken(token);
+      document.querySelector('#token-result').innerText = 'login success, ready to request API';
+      document.querySelector('button.api-btn').style.visibility = 'visible';
+    }
+  }
+
+  function getCookie(name) {
+    var parts = document.cookie.split(name + '=');
+    if (parts.length === 2) { return parts[1].split(';')[0]; }
+  }
+  
+</script>
+
+
+<!-- 카카오 코드 끝 --> 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,11 +98,10 @@
 </head>
 
 <body>
-
 <!--wrapper start-->
-  <c:import url="/WEB-INF/views/include/top_menu.jsp"/>
 <div class="wrapper">
 
+  <c:import url="/WEB-INF/views/include/top_menu.jsp"/>
   
   <main class="main-content">
     <!--== Start Page Title Area ==-->
@@ -61,7 +111,7 @@
           <div class="col-lg-12">
             <div class="page-title-content">
               <h2 class="title">My Account</h2>
-              <div class="bread-crumbs"><a href="${root }main">Home<span class="breadcrumb-sep">></span></a><span class="active">Login</span></div>
+              <div class="bread-crumbs"><a href="index.html">Home<span class="breadcrumb-sep">></span></a><span class="active">Login</span></div>
             </div>
           </div>
         </div>
@@ -102,14 +152,44 @@
                             <div class="col-md-12" style="text-align:center">
                               <div class="form-group mb-0 form-group-info">
                                 <button class="btn btn-theme btn-black" type="submit" style="margin:20px">Log in</button><br />
-                                <a class="btn-forgot" href="#" style="text-align:left">Lost your password?</a>
+                                <a class="btn-forgot" href="#" style="text-align:left">Lost your password?</a><br>
+                        
+                        <!-- 네이버 로그인 영역 시작 -->
+
+
+
+<div id="naver_id_login"></div>
+<script type="text/javascript"
+      src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+      charset="utf-8"></script>
+
+<script type="text/javascript">
+      var clientId = "lO7A3a3XAiVKMdaA3_CC "; //클라이언트 ID 넣기 
+      var callbackUrl = "http://localhost:9987/LED_COLURR/join"; // 콜백 URL 넣기
+      var naver_id_login = new naver_id_login(clientId, callbackUrl);
+      var state = naver_id_login.getUniqState();
+      naver_id_login.setButton("white", 3, 40);
+      naver_id_login.setDomain("http://localhost:9987");
+      naver_id_login.setState(state);
+      naver_id_login.init_naver_id_login();
+</script>
+
+ <a id="kakao-login-btn" href="javascript:loginWithKakao()">
+  <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222"
+    alt="카카오 로그인 버튼" /></a>
+    <!-- kakao -->
+<button class="api-btn" onclick="requestUserInfo()" style="visibility:hidden">사용자 정보 가져오기</button>
+
+
+
+                        
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </form:form>
-                  </div>
+                  </div>                
             </div>
           </div>
         </div>
@@ -118,9 +198,9 @@
     <!--== End Contact Area ==-->
   </main>
 
+  <c:import url="/WEB-INF/views/include/bottom_info.jsp"/>
   
 </div>
-  <c:import url="/WEB-INF/views/include/bottom_info.jsp"/>
 
 <!--=======================Javascript============================-->
 

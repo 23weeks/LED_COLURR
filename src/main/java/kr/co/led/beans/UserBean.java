@@ -35,6 +35,8 @@ public class UserBean {
 	private String agree;
 	
 	private boolean userIdExist;
+	
+	private boolean userEmailExist;
 
 	private boolean userLogin;
 
@@ -42,8 +44,20 @@ public class UserBean {
 	
 	public UserBean() {
 		this.userIdExist = false;
+		this.userEmailExist = false;
 		this.userLogin = false;
 	}
+
+	public boolean isUserEmailExist() {
+		return userEmailExist;
+	}
+
+
+	public void setUserEmailExist(boolean userEmailExist) {
+		this.userEmailExist = userEmailExist;
+	}
+
+
 
 	public boolean isUserIdExist() {
 		return userIdExist;
