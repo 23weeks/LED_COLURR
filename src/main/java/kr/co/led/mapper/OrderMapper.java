@@ -10,8 +10,10 @@ import kr.co.led.beans.OrderBean;
 
 public interface OrderMapper {
 	
-		@Insert("insert into pay_table (pay_id,pay_date,pay_method,pay_company,pay_number,pay_amount,pay_sum) "
-				+ "values(#{pay_id},#{pay_date},#{pay_method},#{pay_company},#{pay_number},#{pay_amount},#{pay_sum})")
+	
+	
+		@Insert("insert into pay_table (user_idx, order_idx, order_date, order_method, odrer_company, order_number, order_amount, order_sum) "
+				+ "values (#{user_idx}, #{order_idx}, #{order_date}, #{order_method}, #{odrer_company}, #{order_number}, #{order_amount}, #{order_sum})")
 		void insert_into(OrderBean databean);
 	
 		//=======================================
@@ -27,13 +29,13 @@ public interface OrderMapper {
 
 		
 		//주문기록
-		@Select("select * from order_table order by pay_date desc")
+		@Select("select * from order_table order by order_date desc")
 		List<OrderBean> getPayAll();
 
 
-           @Select("select * from pay_table "+
-    		   "where pay.pay_id=#{pay_id} "+
-    		   "order by pay_date desc")
+           @Select("select * from order_table "+
+    		   "where user_idx = #{user_idx} "+
+    		   "order by order_date desc")
           List<OrderBean> getCardList(String id);
     	
        

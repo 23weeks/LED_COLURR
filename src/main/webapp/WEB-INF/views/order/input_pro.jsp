@@ -4,9 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>COLURR</title>
 </head>
+<script>
+alert('구매완료');
+history.go(-2);
+</script>
 <body>
-
 </body>
 </html>

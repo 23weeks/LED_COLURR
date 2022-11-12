@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.led.beans.OrderBean;
+import kr.co.led.beans.PayBean;
 import kr.co.led.beans.UserBean;
 import kr.co.led.mapper.OrderMapper;
 import kr.co.led.service.OrderService;
@@ -33,9 +34,7 @@ public class OrderController {
 // ================================================
 	//======±¸ÇöÁß=======
 	@GetMapping("/order")
-	public String order(@ModelAttribute("orderInfoBean") OrderBean orderInfoBean,
-						Model model) {
-		
+	public String order() {
 		return "order/pay";
 	}
 	//=================
@@ -63,6 +62,12 @@ public class OrderController {
 	@GetMapping("/kakaopay")
 	public String kakaopay() {
 		return "order/kakaopay";
+	}
+	
+	@PostMapping("/input_pro")
+	public String input_pro(OrderBean orderBean) {
+		orderMapper.insert_into(orderBean);
+		return "order/input_pro";
 	}
 	
 	@GetMapping("/read_data")
