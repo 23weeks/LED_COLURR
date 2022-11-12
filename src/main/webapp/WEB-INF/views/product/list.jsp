@@ -95,8 +95,16 @@
                           <div class="product-action-btn">
                           <form:form method="post" action="${root}cart_add" modelAttribute="addCartBean">
                             <input type="hidden" name="product_idx" value="${obj.product_idx}"> 
-                          <input type="hidden" name="product_amount" value=1> 
-                            <form:button class="btn-add-cart btn-theme">Add to cart</form:button>
+                          <input type="hidden" name="product_amount" value=1>
+                            <c:choose>
+                              <c:when test="${obj.product_instock == 0}">
+                                <form:button class="btn-add-cart btn-theme" disabled='true'>Sold Out</form:button>
+                              </c:when>
+                              <c:otherwise>
+                                <form:button class="btn-add-cart btn-theme">Add to cart</form:button>
+                              </c:otherwise>
+                            </c:choose>
+                            
                            </form:form>
                             <a class="btn-wishlist" href="shop-wishlist.html">
                               <i class="lastudioicon-heart-2"></i>

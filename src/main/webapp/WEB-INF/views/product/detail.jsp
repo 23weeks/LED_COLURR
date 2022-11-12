@@ -115,7 +115,15 @@
                         <form:input id="quantity1" path="product_amount" title="Quantity" value="1" />
                       </div>
                     </div>
-                    <button type="submit" class="btn-theme btn-black">Add to cart</button>
+                    <c:choose>
+                      <c:when test="${showProductBean.product_instock == 0}">
+                        <form:button class="btn-add-cart btn-theme" disabled='true'>Sold Out</form:button>
+                      </c:when>
+                              
+                      <c:otherwise>
+                        <form:button class="btn-add-cart btn-theme">Add to cart</form:button>
+                      </c:otherwise>
+                    </c:choose>
                   </div>
                 </form:form>
                 <div class="action-bottom">
