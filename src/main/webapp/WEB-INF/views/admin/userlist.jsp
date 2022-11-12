@@ -8,7 +8,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bootstrap Simple Data Table</title>
+<title>COLURR</title>
 <link href="https://fonts.googleapis.com/css?family=Roboto"
 	rel="stylesheet">
 <link rel="stylesheet"
@@ -25,18 +25,6 @@
 
 
 <style>
-
-/* .footer-font {
-	font-family: 'Cafe24Dongdong' !important;
-}
-
-.header-font {
-	font-family: 'Cafe24Dongdong' !important;
-} 
- 
-body > div > div {
-	font-family: 'Roboto', sans-serif !important;
-} */
 
 footer p a span {
     color: #FF9F46;
@@ -278,7 +266,6 @@ a:link {
 </script>
 </head>
 <body>
-<c:import url='/WEB-INF/views/include/header_menu11.jsp' />
 
 	<div class="container">
 		<div class="table-responsive">
@@ -294,7 +281,7 @@ a:link {
 						<div class="col-sm-4">
 							<div class="search-box">
 								<i class="material-icons">&#xE8B6;</i> <input id="searchUser_id"
-									name="searchUser_id" type="text" onkeyup="enterkey();"
+									name="searchUser_id" type="text" onkeyup="enterkey()"
 									class="form-control" placeholder="SearchByID&hellip; "><br>
 							</div>
 						</div>
@@ -444,7 +431,6 @@ a:link {
 		</div>
 	</div>
 	<!-- footer  -->
-	<c:import url='/WEB-INF/views/include/footer_menu2.jsp' />
 	
 </body>
 </html>

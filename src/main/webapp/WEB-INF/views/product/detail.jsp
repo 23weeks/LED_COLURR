@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var='root' value="${pageContext.request.contextPath}/"/>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,14 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>COLURR</title>
-
-
-
-
-   <script src="assets/js/a.js"></script>
-
-
-
 
     <!--== Favicon ==-->
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
@@ -53,7 +45,6 @@
     <link href="assets/css/style.css" rel="stylesheet" />
 
 </head>
-
 
 <body>
 
@@ -106,21 +97,27 @@
               <h4 class="title">${showProductBean.product_name}</h4>
               <div class="product-rating">
                 <div class="review">
-                  <p><span></span>99 in stock</p>
+                  <p><span></span>${showProductBean.product_instock}</p>
                 </div>
               </div>
               <div class="prices">
-                <span class="price">${showProductBean.product_price}</span>
+                <span class="price"><fmt:formatNumber value="${showProductBean.product_price}" pattern="###,###"/> won</span>
               </div>
               <div class="quick-product-action">
-                <div class="action-top">
-                  <div class="pro-qty-area">
-                    <div class="pro-qty">
-                      <input type="text" class="Quantity" id="quantity" title="Quantity" value="1" />
+               <form:form method="post" action="${root}cart_add" modelAttribute="addCartBean">
+                 <input type="hidden" name="product_idx" value="${product_idx}"> 
+                 <input type="hidden" name="product_name" value="${showProductBean.product_name}"> 
+                 <input type="hidden" name="product_price" value="${showProductBean.product_price}"> 
+                 <input type="hidden" name="product_img1" value="${showProductBean.product_img1}"> 
+                  <div class="action-top">
+                    <div class="pro-qty-area">
+                      <div class="pro-qty">
+                        <form:input id="quantity1" path="product_amount" title="Quantity" value="1" />
+                      </div>
                     </div>
+                    <button type="submit" class="btn-theme btn-black">Add to cart</button>
                   </div>
-                  <a onclick="clickCart()" class="btn-theme btn-black">add to cart</a>
-                </div>
+                </form:form>
                 <div class="action-bottom">
                   <a class="btn-wishlist" href="${root}add_wishlist"><i class="labtn-icon labtn-icon-wishlist"></i>Add to wishlist</a>
                 </div>

@@ -42,7 +42,7 @@ public interface CartMapper {
          + "join product p "
          + "on c.product_idx = p.product_idx "
          + "where user_idx = #{user_idx} "
-         + "group by c.product_idx, product_name, product_price, product_img1, product_amount")
+         + "group by c.product_idx")
    List<CartListBean> cartList(int user_idx);
    
    //카트 전체 삭제

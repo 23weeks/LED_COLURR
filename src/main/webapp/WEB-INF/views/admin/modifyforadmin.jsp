@@ -172,7 +172,7 @@ function reloadWindow(){
 												style="width: 40%; display: inline;" placeholder="우편번호"
 												path="postcode" type="text" readonly="true" />
 											<button type="button" class="btn btn-default"
-												onclick="execPostCode();">
+												onclick="execPostCode()">
 												<i class="fa fa-search"></i> 우편번호 찾기
 											</button>
 										</div>

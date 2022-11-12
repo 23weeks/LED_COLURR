@@ -14,6 +14,7 @@ public class ProductBean {
    private String product_colortype;
    private String product_img1;
    private String product_img2;
+   private int product_instock;
    
    
 }

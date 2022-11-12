@@ -48,6 +48,16 @@
                   </ul>
                 </li>
                 <li><a href="${root}order">결제</a></li>
+                <c:choose>
+                  <c:when test="${loginUserBean.user_idx == 1}">
+                    <li class="has-submenu"><a href="#none">관리자페이지</a>
+                      <ul class="submenu-nav">
+                        <li><a href="${root }admin_userlist">회원관리</a></li>
+                        <li><a href="${root }admin_siteInfo">사이트정보</a></li>
+                      </ul>
+                    </li>
+                  </c:when>
+                </c:choose>
               </ul>
             </div>
           </div>
@@ -83,10 +93,10 @@
             <div class="header-action-account d-none d-xxl-block">
               <c:choose>
                 <c:when test="${loginUserBean.userLogin == true }">
-                 <div class="header-action-account d-none d-xxl-block">
-                   <a href="${root}logout">Sign Out</a>
-                 </div>
-               </c:when>
+                  <div class="header-action-account d-none d-xxl-block">
+                    <a href="${root}logout">Sign Out</a>
+                  </div>
+                </c:when>
               <c:otherwise>
                 <div class="header-action-account d-none d-xxl-block">
                    <a href="${root}join">Sign Up</a>

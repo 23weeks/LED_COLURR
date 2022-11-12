@@ -24,7 +24,6 @@
 
 <body>
 
-<c:import url='/WEB-INF/views/include/header_menu11.jsp' />
 
 <div class="container bootstrap snippets bootdey">
 <div class="row">
@@ -137,7 +136,6 @@
 </div>
 </div>
 <!-- footer  -->
-<c:import url='/WEB-INF/views/include/footer_menu2.jsp' />
 </body>
 	
 <style type="text/css">

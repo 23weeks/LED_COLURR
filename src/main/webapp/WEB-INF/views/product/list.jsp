@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var='root' value="${pageContext.request.contextPath}/"/>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -89,10 +90,14 @@
                         <div class="content-inner">                  
                           <h4 class="title"><a href="${root}product_detail?product_idx=${obj.product_idx}">${obj.product_name}</a></h4>
                           <div class="prices">
-                            <span class="price">${obj.product_price} &nbsp; won</span>
+                            <span class="price"><fmt:formatNumber value="${obj.product_price}" pattern="###,###"/> &nbsp; won</span>
                           </div>
                           <div class="product-action-btn">
-                            <a class="btn-add-cart btn-theme" href="shop-cart.html">Add to cart</a>
+                          <form:form method="post" action="${root}cart_add" modelAttribute="addCartBean">
+                            <input type="hidden" name="product_idx" value="${obj.product_idx}"> 
+                          <input type="hidden" name="product_amount" value=1> 
+                            <form:button class="btn-add-cart btn-theme">Add to cart</form:button>
+                           </form:form>
                             <a class="btn-wishlist" href="shop-wishlist.html">
                               <i class="lastudioicon-heart-2"></i>
                             </a>
