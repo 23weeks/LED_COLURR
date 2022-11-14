@@ -37,19 +37,19 @@ public interface CartMapper {
    Integer countCart(int user_idx);
    
    //카트 목록
-   @Select("select c.product_idx, product_name, product_price, product_img1, product_amount, (product_price*product_amount) as total "
+   @Select("select c.product_idx, product_name, product_price, product_img1, product_amount, (product_price*product_amount) as subtotal "
          + "from cart c "
          + "join product p "
          + "on c.product_idx = p.product_idx "
          + "where user_idx = #{user_idx} "
-         + "group by c.product_idx")
+         + "group by c.product_idx, product_name, product_price, product_img1, product_amount")
    List<CartListBean> cartList(int user_idx);
    
    //카트 전체 삭제
    @Delete("delete from cart where user_idx = #{user_idx}")
    void deleteCartAll(int user_idx);
    
-   //체크박스로 선택한 상품 삭제
+   //선택한 상품 삭제
    @Delete("delete from cart where user_idx = #{user_idx} and product_idx = #{product_idx}")
    void deleteCartSelected(CartBean cartBean);
    

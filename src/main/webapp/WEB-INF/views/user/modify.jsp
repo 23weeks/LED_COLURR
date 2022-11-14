@@ -135,7 +135,7 @@
                             <div class="col-md-12">
                              <div class="col-md-12" style="text-align:right">
                               <div class="form-group mb-0 form-group-info">
-                                <a class="btn-forgot" href="${root}delete">회원탈퇴</a>
+                                <a class="btn-forgot" href="${root}delete?user_idx=${user_idx}">회원탈퇴</a>
                               </div>
                               <div class="form-group" align="left">
                                 <label for="user_name" class="form-label" >Name *</label>
@@ -148,11 +148,10 @@
                                 <div class="input-group">
                                   <form:input class="form-control" path="user_id" readonly="true"/>
                                   <div class="input-group-append">
-                          		  </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-
                             <div class="col-md-12">
                               <div class="form-group mb-0">
                                 <label for="user_pw" class="form-label mt-15">Password *</label>
@@ -166,13 +165,6 @@
                                 <label for="user_pw2" class="form-label mt-15">Password Confirm *</label>
                                 <form:password class="form-control" path="user_pw2"/>
                                 <form:errors path="user_pw2" style='color:red'/>
-                              </div>
-                            </div>
-                  
-                            <div class="col-md-12">
-                              <div class="form-group mb-0">
-                                <label for="user_grade" class="form-label mt-15">Grade(등급) *</label>
-                                <form:input class="form-control" path="user_grade" readonly="true"/>
                               </div>
                             </div>
                             <div class="col-md-12">
@@ -192,13 +184,13 @@
                                 <label for="user_email" class="form-label mt-15">Address *</label><br />
                                 <div>
                                   <form:input path="sample6_postcode" readonly="true"/>
-								  <input type="button" class="btn-post-code" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"/><br>
-								  <div style="margin-top:10px">
-								    <form:input path="sample6_address" readonly="true"/>
-								    <form:input path="sample6_detailAddress" readonly="true"/>
-								    <form:input path="sample6_extraAddress" readonly="true"/>
-								  </div> <br />						  
-								</div>
+                          <input type="button" class="btn-post-code" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"/><br>
+                          <div style="margin-top:10px">
+                            <form:input path="sample6_address" readonly="true"/>
+                            <form:input path="sample6_detailAddress" readonly="true"/>
+                            <form:input path="sample6_extraAddress" readonly="true"/>
+                          </div> <br />                    
+                        </div>
                               </div>
                             </div>
                             <p />

@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.led.beans.UserBean;
@@ -21,142 +19,141 @@ import kr.co.led.service.UserService;
 import kr.co.led.validator.UserValidator;
 
 @Controller
-//@RequestMapping("/user")
 public class UserController {
 
-	@Autowired
-	UserService userService;
+   @Autowired
+   UserService userService;
 
-	@Resource(name = "loginUserBean")
-	private UserBean loginUserBean;
+   @Resource(name = "loginUserBean")
+   private UserBean loginUserBean;
 
-	@GetMapping("/login")
-	public String login(@ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean,
-			@RequestParam(value = "fail", defaultValue = "false") boolean fail, Model model) {
+   @GetMapping("/login")
+   public String login(@ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean,
+         @RequestParam(value = "fail", defaultValue = "false") boolean fail, Model model) {
 
-		model.addAttribute("fail", fail); //실패 아니얌
+      model.addAttribute("fail", fail); // 실패 아니얌
 
-		return "user/login";
-	}
+      return "user/login";
+   }
 
-	@PostMapping("/login_pro")
-	public String tempLoginUserBean(@Valid @ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean,
-			BindingResult result) {
+   @PostMapping("/login_pro")
+   public String tempLoginUserBean(@Valid @ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean,
+         BindingResult result) {
 
-		if (result.hasErrors()) {
-			return "user/login";
-		}
+      if (result.hasErrors()) {
+         return "user/login";
+      }
 
-		userService.getLoginUserInfo(tempLoginUserBean);
+      userService.getLoginUserInfo(tempLoginUserBean);
 
-		if (loginUserBean.isUserLogin() == true) {
-			return "user/login_success";
-		} else {
-			return "user/login_fail"; //아이디 비번 검증	
-		}
-	}
+      if (loginUserBean.isUserLogin() == true) {
+         return "user/login_success";
+      } else {
+         return "user/login_fail"; // 아이디 비번 검증
+      }
+   }
 
-	@GetMapping("/join")
-	public String join(@ModelAttribute("joinUserBean") UserBean joinUserBean) {
+   @GetMapping("/join")
+   public String join(@ModelAttribute("joinUserBean") UserBean joinUserBean) {
 
-		return "user/join";
-	}
+      return "user/join";
+   }
 
-	@PostMapping("/join_pro")
-	public String Join(@Valid @ModelAttribute("joinUserBean") UserBean joinUserBean, BindingResult result) {
+   @PostMapping("/join_pro")
+   public String Join(@Valid @ModelAttribute("joinUserBean") UserBean joinUserBean, BindingResult result) {
 
-		if (result.hasErrors()) {
-			return "user/join";
-		}
+      if (result.hasErrors()) {
+         return "user/join";
+      }
 
-		userService.addUserInfo(joinUserBean);
+      userService.addUserInfo(joinUserBean);
 
-		return "user/join_success";
-	}
-    
-	/* 정보수정 */
-	@GetMapping("/modify")
-	public String modify(@ModelAttribute("modifyUserBean") UserBean modifyUserBean, Model model) {
-		
-		userService.getModifyUserInfo(modifyUserBean); //수정하지 않아도 되는 id, name
-		
-		return "user/modify";
-	}
+      return "user/join_success";
+   }
 
-	@PostMapping("/user_modify_pro")
-	public String modify(@Valid @ModelAttribute("modifyUserBean") UserBean modifyUserBean, BindingResult result) {
+   /* 정보수정 */
 
-		if (result.hasErrors()) {
-			
-			return "user/modify";
-		}
-		userService.modifyUserInfo(modifyUserBean);
-		
-		
-		return "user/modify_success";
-	}
+   @GetMapping("/check_pw")
+   public String check_pw(@ModelAttribute("checkPW") UserBean checkPW) {
 
-	/* 회원 탈퇴 */
-	@GetMapping("/delete")
-	public String delete(@ModelAttribute("deleteUserBean") UserBean deleteUserBean,
-			             @RequestParam(value = "fail", defaultValue = "false") boolean fail, Model model) {
-		
-		model.addAttribute("fail", fail); //실패 아니얌
-		
-		return "user/delete";
-	}
-	
-	/*@PostMapping("/user_delete_pro")
-	public String delete(@Valid @ModelAttribute("deleteUserBean") UserBean deleteUserBean, BindingResult result) {
+      userService.getModifyUserInfo(checkPW);
 
-		if (result.hasErrors()) {
-			
-			return "user/delete";
-		
-		}else if (deleteUserBean.isDelete() == true) {
-	
-			userService.deleteUserInfo(deleteUserBean);
-	}
-		return "user/delete_success";
-	}*/
-	@PostMapping("/user_delete_pro")
-	public String delete(@Valid @ModelAttribute("deleteUserBean") UserBean deleteUserBean, BindingResult result) {
-		
-		if (result.hasErrors()) {
-			
-			return "user/delete";
-			
-		}			
-			userService.deleteUserInfo(deleteUserBean);
-			loginUserBean.setUserLogin(false);
-			return "user/delete_success";		
-	}
+      return "user/check_pw";
+   }
+   
+   @PostMapping("/check_pw_pro")
+   public String check_pw_pro(@ModelAttribute("checkPW") UserBean checkPW, Model model) {
+      
+      if(checkPW.getUser_pw().equals(loginUserBean.getUser_pw())) {
+         int user_idx=loginUserBean.getUser_idx();
+         model.addAttribute("user_idx", user_idx);
+         return "redirect:/user_modify";
+      }
+      
+      return "user/check_pw_fail";
+   }
 
-	@GetMapping("/mypage")
-	public String mypage() {
-		return "user/mypage";
-	}
-	
-	@GetMapping("/logout")
-	public String logout() {
-		
-		loginUserBean.setUserLogin(false);
+   @GetMapping("/user_modify")
+   public String modify(@ModelAttribute("modifyUserBean") UserBean modifyUserBean,
+                  @RequestParam("user_idx") int user_idx, Model model) {
+      
+      userService.getModifyUserInfo(modifyUserBean); // 수정하지 않아도 되는 id, name
+      
+      user_idx=loginUserBean.getUser_idx();
+      model.addAttribute("user_idx", user_idx);
 
-		return "user/logout";
-	}
+      return "user/modify";
+   }
 
-	@GetMapping("/not_login")
-	public String not_login() {
-	
-		return "user/not_login";
-}
-	
-	// UserValidator ��û
-	@InitBinder
-	public void initBinder(WebDataBinder binder) {
-		UserValidator validator1 = new UserValidator();
-		binder.addValidators(validator1);
-	}
+   @PostMapping("/user_modify_pro")
+   public String modify(@Valid @ModelAttribute("modifyUserBean") UserBean modifyUserBean, BindingResult result) {
 
+      if (result.hasErrors()) {
+
+         return "user/modify";
+      }
+      userService.modifyUserInfo(modifyUserBean);
+
+      loginUserBean.setUser_pw(modifyUserBean.getUser_pw());
+      loginUserBean.setUser_pw2(modifyUserBean.getUser_pw2());
+      
+      return "user/modify_success";
+   }
+
+   /* 회원 탈퇴 */
+   @GetMapping("/delete")
+   public String delete(@RequestParam("user_idx") int user_idx) {
+
+      userService.deleteUserInfo(user_idx);
+      loginUserBean.setUserLogin(false);
+
+      return "user/delete";
+   }
+
+   @GetMapping("/mypage")
+   public String mypage() {
+      return "user/mypage";
+   }
+
+   @GetMapping("/logout")
+   public String logout() {
+
+      loginUserBean.setUserLogin(false);
+
+      return "user/logout";
+   }
+
+   @GetMapping("/not_login")
+   public String not_login() {
+
+      return "user/not_login";
+   }
+
+   // UserValidator   û
+   @InitBinder
+   public void initBinder(WebDataBinder binder) {
+      UserValidator validator1 = new UserValidator();
+      binder.addValidators(validator1);
+   }
 
 }

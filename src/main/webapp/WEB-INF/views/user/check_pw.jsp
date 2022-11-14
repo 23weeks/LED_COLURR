@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <c:set var='root' value="${pageContext.request.contextPath}/"/>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Blog - Moren - Fashion Bootstrap 5 HTML Template</title>
+    <title>COLURR</title>
 
     <!--== Favicon ==-->
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
@@ -45,61 +46,67 @@
 
 </head>
 
-
 <body>
+<!--wrapper start-->
+<div class="wrapper">
 
-<c:import url="/WEB-INF/views/include/top_menu.jsp"></c:import>
+  <c:import url="/WEB-INF/views/include/top_menu.jsp"/>
+  
+  <main class="main-content">
+    <!--== Start Page Title Area ==-->
+    <section class="page-title-area bg-overlay-black2-6 bg-img" data-bg-img="assets/img/photos/bg-page2.jpg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="page-title-content">
+              <h2 class="title">My Page</h2>
+              <div class="bread-crumbs"><a href="index.html">Home<span class="breadcrumb-sep">></span></a><span class="active">Check</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Page Title Area ==-->
 
-<div class="container" >
-   <div class="row">         
-      <div class="col-sm-3"></div>
-      <div class="col-sm-6">
-         <div class="card shadow">
-            <div class="card-body">
-            <div class="form-group">
-					
-					<div style="text-align: center">
-						<h4 class="card-title">Q&A</h4>
+    <!--== Start Contact Area ==-->
+    <div class="account-login-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 m-auto">
+            <div class="login-bottom">
+                  <div class="login-form">
+                    <form:form class="login-form-wrapper" action="${root }check_pw_pro" method="post" modelAttribute="checkPW">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="row">
+                            <h4 style="text-align:center">비밀번호를 입력해주세요</h4>
+                            <div class="col-md-12">
+                              <div class="form-group mb-0">
+                                <input type="password" class="form-control" id="password" name="user_pw">
+                              </div>
+                            </div>
+                            <div class="col-md-12" style="text-align:center">
+                              <div class="form-group mb-0 form-group-info">
+                                <button class="btn btn-theme btn-black" type="submit" style="margin:20px">Enter</button><br />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form:form>
+                  </div>                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--== End Contact Area ==-->
+  </main>
 
-					</div>
-					
-					<form:form action="${root }board_question_pro" method="post" modelAttribute="writeQuestionBean" enctype="multipart/form-data">
-					
-					<div class="form-group">
-						<form:label path="user_idx">작성자</form:label>
-						<form:input path="user_idx" class="form-control" readonly="true" />
-					</div>
-					
-					<div class="form-group">
-						<form:label path="question_title">제목</form:label>
-						<form:input path="question_title" class="form-control"/>
-						<form:errors path="question_title" style="color: red" />
-					</div>
-					<div class="form-group">
-						<form:label path="question_content">내용</form:label>
-						<form:textarea path="question_content" class="form-control" rows="10" style="resize:none" />
-						<form:errors path="question_content" style="color: red" />
-					</div>
-					<div class="form-group">
-						<form:label path="upload_file">첨부 이미지</form:label>
-						<form:input type="file" path="upload_file" class="form-control" accept="image/*"/>
-					</div>
-					<div class="form-group">
-						<div style="text-align: right">
-						<form:button class="btn btn-outline-secondary" style="margin-top:10px ">작성하기</form:button>
-						</div>
-					</div>
-					</form:form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-3"></div>
-	</div>
- </div>
+  <c:import url="/WEB-INF/views/include/bottom_info.jsp"/>
+  
+</div>
 
-
-<c:import url="/WEB-INF/views/include/bottom_info.jsp"></c:import>
 <!--=======================Javascript============================-->
 
 <!--=== Modernizr Min Js ===-->
@@ -145,6 +152,3 @@
 </body>
 
 </html>
-
-
-

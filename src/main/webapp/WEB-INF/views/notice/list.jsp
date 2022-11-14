@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Blog - Moren - Fashion Bootstrap 5 HTML Template</title>
+    <title>COLURR</title>
 
     <!--== Favicon ==-->
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
@@ -48,6 +48,9 @@
 
 <body>
 
+<!--wrapper start-->
+<div class="wrapper">
+
   <!--== Start Preloader Content ==-->
   <div class="preloader-wrap">
     <div class="preloader">
@@ -66,10 +69,10 @@
 <c:import url="/WEB-INF/views/include/top_menu.jsp"></c:import>
 
 
+  <main class="main-content">
 
   
-  <main class="main-content">
-    <!--== Start Page Title Area ==-->
+     <!--== Start Page Title Area ==-->
     <section class="page-title-area bg-img" data-bg-img="assets/img/photos/bg-page1.jpg">
       <div class="container">
         <div class="row">
@@ -84,70 +87,108 @@
     </section>
     <!--== End Page Title Area ==-->
     
-	<section class="blog-area blog-grid-area">
+   <section class="blog-area blog-grid-area">
       <div class="container">
         <div class="row">
           <div class="col-12">
             <div class="blog-content-column">
               <div class="blog-content-area no-sidebar">
                <!-- 게시판 시작 -->
-                <h2 id="board_title">${notice_type}</h2>
-				<table id='board_list' width=1500 align="center">
-					<thead>
-						<tr id="board_content_info">
-							<th>글번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>작성날짜</th>
-						</tr>
-					</thead>
-					
-					<tr />
-					
-					<tbody>
-						<c:forEach var='obj' items="${noticeList }">
-							<tr id="board_content">
-								<td>${obj.notice_idx }</td>
-								<td><a href="${root }notice_read?notice_type=${'obj.notice_type'}&notice_idx=${obj.notice_idx}">${obj.notice_title }</a></td>
-								<td>${obj.admin_id}</td>
-								<td>${obj.notice_date}</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-				<!-- 게시판 끝 -->
+                <h2 id="board_title" style="text-transform:uppercase;" >${notice_type}</h2>
+            <table id='board_list' width=1500 align="center">
+               <thead>
+                  <tr id="board_content_info">
+                     <th>글번호</th>
+                     <th>제목</th>
+                     <th>작성자</th>
+                     <th>작성날짜</th>
+                  </tr>
+               </thead>
+               
+               <tr />
+               
+               <tbody>
+                  <c:forEach var='obj' items="${noticeList }">
+                     <tr id="board_content">
+                        <td>${obj.notice_idx }</td>
+                        <td><a href="${root }notice_read?notice_type=${notice_type}&notice_idx=${obj.notice_idx}&page=${page}">${obj.notice_title }</a></td>
+                        <td>${obj.admin_id}</td>
+                        <td>${obj.notice_date}</td>
+                     </tr>
+                  </c:forEach>
+               </tbody>
+            </table>
+            <!-- 게시판 끝 -->
                 
                 
                 <div class="pagination-area">
                   <nav>
                     <ul class="page-numbers">
-                      <li>
-                        <a class="page-number active" href="${root }notice_list">1</a>
-                      </li>
-                      <li>
-                        <a class="page-number" href="${root }notice_list">2</a>
-                      </li>
-                      <li>
-                        <a class="page-number" href="${root }notice_list">3</a>
-                      </li>
-                      <li>
-                        <a class="page-number next" href="${root }notice_list">
-                          <i class="icofont-long-arrow-right"></i>
-                        </a>
-                      </li>
+                    
+                    
+                    <!-- 이전 버튼 -->
+                       <c:choose>
+                     <c:when test="${pageBean.prevPage <= 0 }">
+                        <li class="page-number disabled">                      
+                                <a href="#" class="page-link" style="color:gray"> < </a>
+                        </li>
+                     </c:when>                    
+   
+                     <c:otherwise>
+                        <li class="page-number">                             
+                                <a href="${root }notice_list?notice_type=${notice_type}&page=${pageBean.prevPage}" class="page-link" style="color:black"><</a>
+                        </li>
+                     </c:otherwise>
+                       </c:choose>
+                    
+                    
+                    <!-- 페이지 버튼 -->
+                       <c:forEach var='idx' begin="${pageBean.min }" end="${pageBean.max }">
+                          <c:choose>
+                        <c:when test="${idx == pageBean.currentPage }">            <!-- ★★★★[css 요청] 현재페이지 나타내는 스타일 -->
+                                <li class="page-number active">                  
+                              <a href="${root }notice_list?notice_type=${notice_type}&page=${idx }" class="page-link" style="color:#C2A18A">${idx }</a>
+                           </li>
+                        </c:when>                    
+      
+                        <c:otherwise>
+                           <li class="page-number">
+                              <a href="${root }notice_list?notice_type=${notice_type}&page=${idx }" class="page-link" style="color:black">${idx }</a>
+                           </li>
+                        </c:otherwise>
+                          </c:choose>
+                       </c:forEach>
+                    
+                    
+                    <!-- 다음 버튼 -->
+                       <c:choose>
+                     <c:when test="${pageBean.max >= pageBean.pageCnt }">
+                             <li class="page-number disabled">                  <!-- ★★★★[css 요청] 비활성화 -->
+                                <a href="#" class="page-link" style="color:gray">></a>
+                             </li>
+                     </c:when>                    
+   
+                     <c:otherwise>
+                        <li class="page-number">                  
+                           <a href="${root }notice_list?notice_type=${notice_type}&page=${pageBean.nextPage}" class="page-link" style="color:black">></a>               
+                        </li>
+                     </c:otherwise>
+                       </c:choose>
+                    
                     </ul>
                   </nav>
                 </div>
-                	
+                   
               </div>
             </div>
           </div>
         </div>
+        
             <div class="action-top">
-	 		 <div class="pro-qty-area">
-	 		 </div>
-			 <a class="btn-theme btn-black" href="${root }notice_write?notice_type=${notice_type}">(관리자용)글쓰기</a>
-			</div>
+           <div class="pro-qty-area">
+           </div>
+          <a class="btn-theme btn-black" href="${root }notice_write?notice_type=${notice_type}">(관리자용)글쓰기</a>
+         </div>
       </div>
     </section>
    

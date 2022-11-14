@@ -192,44 +192,33 @@
                 <div id="accordion">
                   <div class="card">
                     <div class="card-header" id="direct_bank_transfer">
-                      <h4 class="title" data-bs-toggle="collapse" data-bs-target="#itemOne" aria-controls="itemOne" aria-expanded="false">결제방법1</h4>
+                      <h3 class="title" data-bs-toggle="collapse" data-bs-target="#itemOne" aria-controls="itemOne" aria-expanded="false">Payment 1</h3>
                     </div>
                     <div id="itemOne" class="collapse" aria-labelledby="direct_bank_transfer" data-bs-parent="#accordion">
                       <div class="card-body">
-                        <p>결제방법1</p>
+                        <p>Deposit without bankbook</p>
                       </div>
                     </div>
                   </div>
 
                   <div class="card">
                     <div class="card-header" id="check_payments">
-                      <h5 class="title" data-bs-toggle="collapse" data-bs-target="#itemTwo" aria-controls="itemTwo" aria-expanded="true">결제방법2</h5>
+                      <h3 class="title" data-bs-toggle="collapse" data-bs-target="#itemTwo" aria-controls="itemTwo" aria-expanded="true">Payment 2</h3>
                     </div>
                     <div id="itemTwo" class="collapse show" aria-labelledby="check_payments" data-bs-parent="#accordion">
                       <div class="card-body">
-                        <p>결제방법2</p>
+                        <p>Card</p>
                       </div>
                     </div>
                   </div>
 
                   <div class="card">
                     <div class="card-header" id="cash_on_delivery">
-                      <h5 class="title" data-bs-toggle="collapse" data-bs-target="#itemThree" aria-controls="itemThree" aria-expanded="false">결제방법3</h5>
+                      <h3 class="title" data-bs-toggle="collapse" data-bs-target="#itemThree" aria-controls="itemThree" aria-expanded="false">Payment 3</h3>
                     </div>
                     <div id="itemThree" class="collapse" aria-labelledby="cash_on_delivery" data-bs-parent="#accordion">
                       <div class="card-body">
-                        <p>결제방법3</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="card">
-                    <div class="card-header" id="Pay_Pal">
-                      <h5 class="title" data-bs-toggle="collapse" data-bs-target="#item4" aria-controls="item4" aria-expanded="false">결제방법4<img src="assets/img/icons/paypal.png" alt=""> <a href="#/"></a></h5>
-                    </div>
-                    <div id="item4" class="collapse" aria-labelledby="Pay_Pal" data-bs-parent="#accordion">
-                      <div class="card-body">
-                        <p>결제방법4</p>
+                        <p>kakaopay</p>
                       </div>
                     </div>
                   </div>

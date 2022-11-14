@@ -9,15 +9,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.led.beans.OrderBean;
-import kr.co.led.beans.PayBean;
 import kr.co.led.beans.UserBean;
 import kr.co.led.mapper.OrderMapper;
+import kr.co.led.service.KakaoPay;
 import kr.co.led.service.OrderService;
+
+import lombok.Setter;
+import lombok.extern.java.Log;
 
 @Controller
 public class OrderController {
@@ -31,13 +33,36 @@ public class OrderController {
 	@Resource(name="loginUserBean")
 	private UserBean loginUserBean;
 	
+	//=================================카카오페이
+	@Setter(onMethod_ = @Autowired)
+    private KakaoPay kakaopay;
+	
+	@GetMapping("/kakaoPay")
+    public String kakaoPayGet() {
+        return "order/kakaoPay";
+    }
+    
+    @PostMapping("/kakaoPay")
+    public String kakaoPay() {
+        
+        return "redirect:" + kakaopay.kakaoPayReady();
+ 
+    }
+    
+    
+    
+    @GetMapping("/kakaoPaySuccess")
+    public void kakaoPaySuccess(@RequestParam("pg_token") String pg_token, Model model) {
+       
+        model.addAttribute("info", kakaopay.kakaoPayInfo(pg_token));
+        
+    }
+    
 // ================================================
-	//======구현중=======
 	@GetMapping("/order")
 	public String order() {
-		return "order/pay";
+		return "order/order";
 	}
-	//=================
 	
 	@GetMapping("/input_card")
 	public String input_card(HttpSession session, Model model) {
@@ -57,11 +82,6 @@ public class OrderController {
 		System.out.println(loginUserBean.getUser_name());
 		model.addAttribute("userid", userid);
 		return "order/input_cash";
-	}
-	
-	@GetMapping("/kakaopay")
-	public String kakaopay() {
-		return "order/kakaopay";
 	}
 	
 	@PostMapping("/input_pro")

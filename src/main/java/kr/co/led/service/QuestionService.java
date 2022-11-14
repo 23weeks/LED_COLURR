@@ -86,9 +86,6 @@ public class QuestionService {
 	   
 	   
 	   public QuestionBean getQuestionInfo(int question_idx) {
-		   
-		   
-		   
 		   return questionDao.getQuestionInfo(question_idx);
 	   }
 	   

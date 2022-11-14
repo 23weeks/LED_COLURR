@@ -17,8 +17,8 @@ public class UserDao {
    }
    
    public String checkUserEmailExist(String user_email) {
-	      return userMapper.checkUserEmailExist(user_email);  
-	   }
+         return userMapper.checkUserEmailExist(user_email);  
+      }
    
    public void addUserInfo(UserBean joinUserBean) {
       
@@ -37,8 +37,8 @@ public class UserDao {
       userMapper.modifyUserInfo(modifyUserBean);
    }
     
-    public void deleteUserInfo(UserBean deleteUserInfo) {
-       userMapper.deleteUserInfo(deleteUserInfo);
+    public void deleteUserInfo(int user_idx) {
+       userMapper.deleteUserInfo(user_idx);
     }
     public UserBean getDeleteUserInfo(int user_idx) {
        return userMapper.getDeleteUserInfo(user_idx);

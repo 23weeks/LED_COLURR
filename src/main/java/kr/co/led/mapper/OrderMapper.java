@@ -12,7 +12,7 @@ public interface OrderMapper {
 	
 	
 	
-		@Insert("insert into pay_table (user_idx, order_idx, order_date, order_method, odrer_company, order_number, order_amount, order_sum) "
+		@Insert("insert into order_table (user_idx, order_idx, order_date, order_method, odrer_company, order_number, order_amount, order_sum) "
 				+ "values (#{user_idx}, #{order_idx}, #{order_date}, #{order_method}, #{odrer_company}, #{order_number}, #{order_amount}, #{order_sum})")
 		void insert_into(OrderBean databean);
 	

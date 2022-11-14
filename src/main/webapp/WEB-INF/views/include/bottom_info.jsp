@@ -166,60 +166,6 @@
   </div>
   <!--== End Aside Search Menu ==-->
 
-  <!--== Start Sidebar Cart Menu ==-->
-  <aside class="sidebar-cart-modal">
-    <div class="sidebar-cart-inner">
-      <div class="sidebar-cart-content">
-        <a class="cart-close" href="javascript:void(0);"><i class="lastudioicon-e-remove"></i></a>
-        <div class="sidebar-cart">
-          <h4 class="sidebar-cart-title">Shopping Cart</h4>
-          <div class="product-cart">
-            <div class="product-cart-item">
-              <div class="product-img">
-                <a href="shop.html"><img src="assets/img/shop/cart/1.jpg" alt=""></a>
-              </div>
-              <div class="product-info">
-                <h4 class="title"><a href="shop.html">I’m a Unicorn Earrings</a></h4>
-                <span class="info">1 × £69.00</span>
-              </div>
-              <div class="product-delete"><a href="#/">×</a></div>
-            </div>
-            <div class="product-cart-item">
-              <div class="product-img">
-                <a href="shop.html"><img src="assets/img/shop/cart/2.jpg" alt=""></a>
-              </div>
-              <div class="product-info">
-                <h4 class="title"><a href="shop.html">Knit cropped cardigan</a></h4>
-                <span class="info">1 × £29.90</span>
-              </div>
-              <div class="product-delete"><a href="#/">×</a></div>
-            </div>
-          </div>
-          <div class="cart-total">
-            <h4>Subtotal: <span class="money">£98.90</span></h4>
-          </div>
-          <div class="shipping-info">
-            <div class="loading-bar">
-              <div class="load-percent"></div>
-              <div class="label-free-shipping">
-                <div class="free-shipping svg-icon-style">
-                  <span class="svg-icon" id="svg-icon-shipping" data-svg-icon="assets/img/icons/shop1.svg"></span>
-                </div>
-                <p>Spend £101.10 to get Free Shipping</p>
-              </div>
-            </div>
-          </div>
-          <div class="cart-checkout-btn">
-            <a class="btn-theme" href="shop-cart.html">View cart</a>
-            <a class="btn-theme" href="shop-checkout.html">Checkout</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </aside>
-  <div class="sidebar-cart-overlay"></div>
-  <!--== End Sidebar Cart Menu ==-->
-
   <!--== Start Side Menu ==-->
   <aside class="off-canvas-wrapper">
     <div class="off-canvas-inner">

@@ -81,7 +81,7 @@
                       
                       <table class="mypage-table" style="width: 1000px; text-align:center; margin-left: 80px">
                         <tr height="250px">
-                          <td onclick="location.href='${root}modify'">
+                          <td onclick="location.href='${root}check_pw'">
                             <img src="assets/img/mypage/user.png" style="width:120px; margin-bottom:20px"/><br />
                             <h6>회원정보 수정</h6>
                           </td>

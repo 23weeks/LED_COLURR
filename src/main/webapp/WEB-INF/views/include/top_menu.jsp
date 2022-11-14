@@ -23,7 +23,7 @@
           <div class="header-align">
             <div class="header-navigation-area">
               <ul class="main-menu nav justify-content-center position-relative">
-                <li><a href="${root}about">About</a></li>
+                <li><a href="${root}kakaoPay">About</a></li>
                 <li class="has-submenu"><a href="${root}product_list?product_gender=Men">Men</a>
                   <ul class="submenu-nav">
                     <li><a href="${root}product_type_list?product_gender=Men&product_colortype=Spring_Warm">Spring Warm</a></li>
@@ -83,9 +83,8 @@
                 </c:otherwise>
               </c:choose>
             </div>
-            <div class="header-action-cart">
-              <button class="btn-cart cart-icon">
-                <span class="cart-count">2</span>
+            <div>
+              <button class="btn-cart cart-icon" onclick="location.href='${root}cart'">
                 <i class="lastudioicon-shopping-cart-2"></i>
               </button>
             </div>

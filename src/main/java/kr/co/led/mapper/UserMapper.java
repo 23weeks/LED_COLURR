@@ -20,29 +20,29 @@ public interface UserMapper {
    String checkUserEmailExist(String user_email);
    
    @Insert("insert into user_table(user_idx, user_name, user_id, user_pw, user_pw2, user_grade, user_gender, user_phone, user_email, sample6_postcode, sample6_address, sample6_detailAddress, sample6_extraAddress) "+
-	         "values(user_seq.nextval, #{user_name}, #{user_id}, #{user_pw}, #{user_pw2}, '일반', #{user_gender}, #{user_phone}, #{user_email}, #{sample6_postcode}, #{sample6_address}, #{sample6_detailAddress}, #{sample6_extraAddress})")
-	   void addUserInfo(UserBean joinUserBean);
+            "values(user_seq.nextval, #{user_name}, #{user_id}, #{user_pw}, #{user_pw2}, '일반', #{user_gender}, #{user_phone}, #{user_email}, #{sample6_postcode}, #{sample6_address}, #{sample6_detailAddress}, #{sample6_extraAddress})")
+      void addUserInfo(UserBean joinUserBean);
    
-   @Select("select user_idx, user_name "
+   @Select("select * "
          + "from user_table "
          + "where user_id=#{user_id} and user_pw=#{user_pw}")           
    UserBean getLoginUserInfo(UserBean tempLoginUserBean);
    
-   @Select("select user_id, user_name, user_grade, user_phone, user_email, sample6_postcode, sample6_address, sample6_detailAddress, sample6_extraAddress "+
+   @Select("select user_id, user_pw, user_name, user_grade, user_phone, user_email, sample6_postcode, sample6_address, sample6_detailAddress, sample6_extraAddress "+
          "from user_table " + 
          "where user_idx = #{user_idx}")
    UserBean getModifyUserInfo(int user_idx);
    
    
    @Update("update user_table "
-   		+ "set user_pw=#{user_pw}, user_pw2=#{user_pw2}, user_phone=#{user_phone}, user_email=#{user_email}, sample6_postcode=#{sample6_postcode}, sample6_address=#{sample6_address}, sample6_detailAddress=#{sample6_detailAddress}, sample6_extraAddress=#{sample6_extraAddress} "
-   		+ "where user_idx=#{user_idx}")
+         + "set user_pw=#{user_pw}, user_pw2=#{user_pw2}, user_phone=#{user_phone}, user_email=#{user_email}, sample6_postcode=#{sample6_postcode}, sample6_address=#{sample6_address}, sample6_detailAddress=#{sample6_detailAddress}, sample6_extraAddress=#{sample6_extraAddress} "
+         + "where user_idx=#{user_idx}")
    void modifyUserInfo(UserBean modifyUserBean);
    
-   @Delete("delete from user_table where user_id=#{user_id} and user_pw=#{user_pw}")
-   void deleteUserInfo(UserBean deleteUserBean);
+   @Delete("delete from user_table where user_idx=#{user_idx}")
+   void deleteUserInfo(int user_idx);
 
-   @Select("select user_idx from user_table where user_id=#{user_id}")
+   @Select("select user_idx from user_table where user_idx=#{user_idx}")
    UserBean getDeleteUserInfo(int user_idx);
    
 

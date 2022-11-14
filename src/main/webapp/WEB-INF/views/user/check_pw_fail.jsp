@@ -3,6 +3,6 @@
 <c:set var='root' value="${pageContext.request.contextPath}/"/>
 
 <script>
-   alert('장바구니에 추가했습니다.')
+   alert('비밀번호가 일치하지 않습니다.')
    history.go(-1)
 </script>

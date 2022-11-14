@@ -89,7 +89,7 @@
                        --%>
                       <!-- notice 카테고리 > 누르면 list로 이동  -->
 	                  <div class="notice_type">
-	                  	<a href="${root }notice_list?notice_type=${readNoticeBean.notice_type}">${readNoticeBean.notice_type}</a>	
+	                  	<a href="${root }notice_list?notice_type=${readNoticeBean.notice_type}" style="text-transform:uppercase;">${readNoticeBean.notice_type}</a>	
 	                  </div>
 	                      
                       <!-- 제목 -->
@@ -123,7 +123,7 @@
 		                <a href="${root }notice_list?notice_type=${readNoticeBean.notice_type}&page=${page}" class="btn-theme btn btn-black">목록보기</a>
 		                <c:if test="${loginUserBean.user_name == readNoticeBean.admin_id }">
 		                	<a href="${root }notice_modify?notice_type=${readNoticeBean.notice_type}&notice_idx=${notice_idx}&page=${page}" class="btn-theme btn btn-black">수정하기</a>
-		                 	<a href="${root }notice_delete?notice_type=${notice_type}&notice_idx=${readNoticeBean.notice_idx}" class="btn-theme btn btn-black">삭제하기</a>
+		                 	<a href="${root }notice_delete?notice_type=${readNoticeBean.notice_type}&notice_idx=${notice_idx}" class="btn-theme btn btn-black">삭제하기</a>
 	                 	 </c:if>
 	                 </div>
 	                

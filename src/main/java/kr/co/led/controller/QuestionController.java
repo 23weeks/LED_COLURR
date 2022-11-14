@@ -56,6 +56,9 @@ public class QuestionController {
 			 			 Model model) {
 
 		QuestionBean readQuestionBean = questionService.getQuestionInfo(question_idx);
+		
+		System.out.println(readQuestionBean.getQuestion_content());
+		System.out.println(readQuestionBean.getQuestion_date());
 		AnswerBean readAnswerBean = answerService.getAnswerInfo(question_idx);
 		
 		model.addAttribute("question_idx", question_idx);

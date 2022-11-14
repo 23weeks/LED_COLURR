@@ -192,7 +192,7 @@ public class ServletAppContext implements WebMvcConfigurer {
         CheckLoginInterceptor checkLoginInterceptor=new CheckLoginInterceptor(loginUserBean);
         InterceptorRegistration reg2=registry.addInterceptor(checkLoginInterceptor);
          
-        reg2.addPathPatterns("/user_modify", "/user_logout", "/board_answer", "/board_write", "notice_delete", "notice_write",
+        reg2.addPathPatterns("/user_modify", "/user_logout", "/board_answer", "/board_write", "/notice_delete", "/notice_write",
         		 			"/order");
         reg2.excludePathPatterns("/board_list", "/board_read", "/notice_list", "/notice_read"); //제외 : 로그인하지 않아도 이용할 수 있는 카테고리
       
