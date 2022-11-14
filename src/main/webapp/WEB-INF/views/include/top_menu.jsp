@@ -23,7 +23,7 @@
           <div class="header-align">
             <div class="header-navigation-area">
               <ul class="main-menu nav justify-content-center position-relative">
-                <li><a href="${root}kakaoPay">About</a></li>
+                <li><a href="${root}checkout">About</a></li>
                 <li class="has-submenu"><a href="${root}product_list?product_gender=Men">Men</a>
                   <ul class="submenu-nav">
                     <li><a href="${root}product_type_list?product_gender=Men&product_colortype=Spring_Warm">Spring Warm</a></li>
