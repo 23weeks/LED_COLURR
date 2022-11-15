@@ -60,7 +60,7 @@
           <div class="col-lg-12">
             <div class="page-title-content">
               <h2 class="title">My Page</h2>
-              <div class="bread-crumbs"><a href="index.html">main</a></div>
+              <div class="bread-crumbs"><a href="${root }main">main</a></div>
             </div>
           </div>
         </div>
@@ -102,7 +102,7 @@
                             <img src="assets/img/mypage/order.png" style="width:120px; margin-bottom:20px"/><br />
                             <h6>주문내역</h6>
                           </td>
-                          <td onclick="location.href='${root}main'">
+                          <td onclick="location.href='${root}board_list'">
                             <img src="assets/img/mypage/qna.png" style="width:120px; margin-bottom:20px"/><br />
                             <h6>1:1문의</h6>
                           </td>

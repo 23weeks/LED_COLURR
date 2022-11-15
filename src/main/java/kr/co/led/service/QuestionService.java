@@ -77,11 +77,11 @@ public class QuestionService {
 	   }
 	   
 	  //페이지 당 번호
-	   public List<QuestionBean> getQuestionList(int page){
+	   public List<QuestionBean> getQuestionList(int user_idx , int page){
 		   int start = (page -1) * page_listcnt;
 		   RowBounds rowBounds = new RowBounds(start, page_listcnt);
 		   
-		   return questionDao.getQuestionList(rowBounds);
+		   return questionDao.getQuestionList(user_idx, rowBounds);
 	   }
 	   
 	   

@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Blog - Moren - Fashion Bootstrap 5 HTML Template</title>
+    <title>COLURR</title>
 
     <!--== Favicon ==-->
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
@@ -115,14 +115,15 @@
                </thead>
                <tr />
                <tbody>
-               <c:forEach var='obj'  items="${questionList }">
-                  <tr id="board_content">
-                     <td>${obj.question_idx }</td>
-                     <td><a href="${root }board_read?question_idx=${obj.question_idx}&page=${page}">${obj.question_title }</a></td>
-                     <td>${obj.writer_name }</td>
-                     <td>${obj.question_date }</td>
-                  </tr>
-                  </c:forEach>
+                 
+                   <c:forEach var='obj' items="${questionList }">
+	                 <tr id="board_content">
+	                   <td>${obj.question_idx }</td>
+	                   <td><a href="${root }board_read?question_idx=${obj.question_idx}&page=${page}">${obj.question_title }</a></td>
+	                   <td>${obj.writer_name }</td>
+	                   <td>${obj.question_date }</td>
+	                 </tr>
+                   </c:forEach>
                  
                </tbody>
                </table>

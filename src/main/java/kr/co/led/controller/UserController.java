@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import kr.co.led.beans.QuestionBean;
 import kr.co.led.beans.UserBean;
+import kr.co.led.service.QuestionService;
 import kr.co.led.service.UserService;
 import kr.co.led.validator.UserValidator;
 
@@ -27,6 +29,9 @@ public class UserController {
    @Resource(name = "loginUserBean")
    private UserBean loginUserBean;
 
+   @Autowired
+	private QuestionService questionService;
+   
    @GetMapping("/login")
    public String login(@ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean,
          @RequestParam(value = "fail", defaultValue = "false") boolean fail, Model model) {
@@ -132,7 +137,7 @@ public class UserController {
 
    @GetMapping("/mypage")
    public String mypage() {
-      return "user/mypage";
+	   return "user/mypage";
    }
 
    @GetMapping("/logout")

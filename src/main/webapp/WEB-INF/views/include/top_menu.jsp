@@ -40,8 +40,7 @@
                     <li><a href="${root}product_type_list?product_gender=Women&product_colortype=Winter_Cool">Winter Cool</a></li>
                   </ul>
                 </li>
-                <li><a href="${root}board_list">현지</a></li>
-                <li class="has-submenu"><a href="#none">하영</a>
+                <li class="has-submenu"><a href="#none">Notice</a>
                   <ul class="submenu-nav">
                     <li><a href="${root }notice_list?notice_type=notice">Notice</a></li>
                     <li><a href="${root }notice_list?notice_type=event">Event</a></li>
@@ -72,7 +71,7 @@
             <div class="header-action-login">
               <c:choose>
                 <c:when test="${loginUserBean.userLogin == true }">
-                   <button class="btn-login" onclick="location.href='${root}mypage'">
+                   <button class="btn-login" onclick="location.href='${root}mypage?user_idx=${loginUserBean.user_idx }'">
                       <i class="lastudioicon-single-01-2"></i>
                   </button>
                 </c:when>

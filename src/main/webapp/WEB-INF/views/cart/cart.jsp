@@ -89,26 +89,26 @@
                   <tbody>
                     <c:forEach var="list" items="${cartList }">
                       <tr>
-	                	<td class="pro-remove"><a class="lastudioicon-e-remove" href="${root}cart_deleteSelected?product_idx=${list.product_idx}" ></a></td>
+                      <td class="pro-remove"><a class="lastudioicon-e-remove" href="${root}cart_deleteSelected?product_idx=${list.product_idx}" ></a></td>
                         <td class="pro-name" style="width:100px"><span><a href="${root}product_detail?product_idx=${list.product_idx}">${list.product_name}</a></span></td>
                         <td class="pro-price" style="width:80px"><span><fmt:formatNumber value="${list.product_price}" pattern="###,###"/></span></td>
                         <td class="pro-quantity" style="width:100px">
                           <form:form method="post" action="${root}cartCnt_update" modelAttribute="cntUpdateBean">
-			                <input type="hidden" name="product_idx" value="${list.product_idx}">  
-			                <input type="hidden" name="product_price" value="${list.product_price}">  
-		                    <div class="action-top">
-		                      <div class="pro-qty-area">
-		                        <div class="pro-qty">
-		                          <form:input id="quantity" path="product_amount" title="Quantity" value="${list.product_amount}" />
-		                        </div>
-		                        <form:button style="width:30px; height:20px; font-size:10px; border:none; border-radius:5px; background-color:#d6cab8">OK</form:button>
-		                      </div>
-		                    </div>
-		                  </form:form>
+                         <input type="hidden" name="product_idx" value="${list.product_idx}">  
+                         <input type="hidden" name="product_price" value="${list.product_price}">  
+                          <div class="action-top">
+                            <div class="pro-qty-area">
+                              <div class="pro-qty">
+                                <form:input id="quantity" path="product_amount" title="Quantity" value="${list.product_amount}" />
+                              </div>
+                              <form:button style="width:30px; height:20px; font-size:10px; border:none; border-radius:5px; background-color:#d6cab8">OK</form:button>
+                            </div>
+                          </div>
+                        </form:form>
                         </td> 
                         <td class="pro-subtotal"><span><fmt:formatNumber value="${list.subtotal}" pattern="###,###"/></span></td>
-	                  </tr>	
-                	</c:forEach>
+                     </tr>   
+                   </c:forEach>
                   </tbody>
                 </table>  
               </div>
@@ -143,7 +143,7 @@
                   </tbody>
                 </table>
               </div>
-              <a class="btn-theme" href="shop-checkout.html">Proceed to Checkout</a>
+              <a class="btn-theme" href="${root}order">Proceed to Checkout</a>
             </div>
           </div>
         </div>

@@ -22,8 +22,8 @@ public class QuestionDao {
 	
 	
 	// 게시글 모두 가져오기
-	public List<QuestionBean> getQuestionList(RowBounds rowBounds){
-		return questionMapper.getQuestionList(rowBounds);
+	public List<QuestionBean> getQuestionList(int user_idx, RowBounds rowBounds){
+		return questionMapper.getQuestionList(user_idx, rowBounds);
 	}
 	
 	//게시글 하나 가져오기
