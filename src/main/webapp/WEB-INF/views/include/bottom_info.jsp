@@ -152,10 +152,10 @@
         <div class="search-note">
           <p>Start typing and press Enter to search</p>
         </div>
-        <form action="#" method="post">
+        <form action="product_search_list?search=${search}" method="get">
           <div class="search-form position-relative">
             <label for="search-input" class="sr-only">Search</label>
-            <input type="search" class="form-control" placeholder="Search" id="search-input">
+            <input type="search" class="form-control" name="search" placeholder="Search" id="search-input">
             <button class="search-button"><i class="lastudioicon-zoom-1"></i></button>
           </div>
         </form>
@@ -165,6 +165,8 @@
     <a href="javascript:;" class="search-close"><i class="lastudioicon-e-remove"></i></a>
   </div>
   <!--== End Aside Search Menu ==-->
+
+
 
   <!--== Start Side Menu ==-->
   <aside class="off-canvas-wrapper">

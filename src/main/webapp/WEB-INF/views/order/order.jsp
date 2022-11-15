@@ -147,7 +147,7 @@
                   </tr>
                   <tr class="final-total">
                     <th>Total</th>
-                    <td><span class="total-amount"><fmt:formatNumber value="${allTotal}" pattern="###,###"/>&nbsp; won</span></td>
+                    <td><span class="total-amount" id="alltotal"><fmt:formatNumber value="${allTotal}" pattern="###,###" />&nbsp; won</span></td>
                   </tr>
                 </tfoot>
               </table>

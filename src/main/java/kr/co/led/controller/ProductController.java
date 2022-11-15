@@ -79,5 +79,19 @@ public class ProductController {
       return "product/detail";
    }
    
+   @GetMapping("/product_search_list")
+   public String product_search_list(@RequestParam("search") String product_search,
+         @ModelAttribute("addCartBean") CartListBean addCartBean, Model model) {
+
+	   String search = "%" + product_search + "%";
+	   
+      List<ProductBean> productList = productService.getSearchProductList(search);
+      
+      model.addAttribute("search", search);
+      model.addAttribute("productList", productList);
+
+      return "product/search_list";
+   }
+   
 
 }

@@ -55,7 +55,7 @@
   
   <main class="main-content site-wrapper-reveal">
     <!--== Start Page Title Area ==-->
-    <div class="page-title-area page-title-area2">
+    <div class="page-title-area page-title-area2" >
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -115,20 +115,28 @@
                         <form:input id="quantity1" path="product_amount" title="Quantity" value="1" />
                       </div>
                     </div>
+                  </div>
                     <c:choose>
                       <c:when test="${showProductBean.product_instock == 0}">
                         <form:button class="btn-add-cart btn-theme" disabled='true'>Sold Out</form:button>
                       </c:when>
-                              
                       <c:otherwise>
                         <form:button class="btn-add-cart btn-theme">Add to cart</form:button>
                       </c:otherwise>
                     </c:choose>
-                  </div>
+                   
                 </form:form>
-                <div class="action-bottom">
-                  <a class="btn-wishlist" href="${root}add_wishlist"><i class="labtn-icon labtn-icon-wishlist"></i>Add to wishlist</a>
-                </div>
+               
+               <form:form method="post" action="${root}wishList_add" modelAttribute="addWishListBean">
+                             <input type="hidden" name="product_idx" value="${product_idx}">
+                             
+                             <button type="submit" class="btn-add-cart btn-theme">
+                            Add to wishlist
+                            </button>
+                          </form:form> 
+                    </div>
+            </div>
+         
               </div>
               <div class="product-categorys">
                 <div class="product-category">

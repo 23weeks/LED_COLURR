@@ -29,5 +29,9 @@ public class ProductDao {
    public ProductBean getProductInfo(int product_idx) {
       return productMapper.getProductInfo(product_idx);
    }
+ 
+   public List<ProductBean> getSearchProductList(String search) {
+	   return productMapper.getSearchProductList(search);
+   }
    
 }

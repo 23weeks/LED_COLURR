@@ -33,6 +33,7 @@ import kr.co.led.mapper.OrderMapper;
 import kr.co.led.mapper.ProductMapper;
 import kr.co.led.mapper.QuestionMapper;
 import kr.co.led.mapper.UserMapper;
+import kr.co.led.mapper.WishListMapper;
 import kr.co.led.service.NoticeService;
 import kr.co.led.service.QuestionService;
 
@@ -158,6 +159,13 @@ public class ServletAppContext implements WebMvcConfigurer {
 		return factoryBean;
 	}
 		
+	 @Bean
+     public MapperFactoryBean<WishListMapper> getWishListMapper(SqlSessionFactory factory) throws Exception{
+        MapperFactoryBean<WishListMapper> factoryBean = new MapperFactoryBean<WishListMapper>(WishListMapper.class);
+        factoryBean.setSqlSessionFactory(factory);
+        return factoryBean;
+     }
+
 	@Bean
     public ReloadableResourceBundleMessageSource messageSource() {
          ReloadableResourceBundleMessageSource res = new ReloadableResourceBundleMessageSource();

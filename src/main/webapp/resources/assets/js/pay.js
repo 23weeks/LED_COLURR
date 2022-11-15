@@ -1,5 +1,13 @@
 function payment () {
         var IMP = window.IMP; // 생략가능
+		var alltotal = $("#alltotal").val();
+		var user_email = $("cf_email").val();
+		var user_phone = $("cf_phone").val();
+		var user_zip = $("cf_zip").val();
+		var user_address = $("cf_street_address").val();
+		var user_name = $("cf_name").val();
+		
+		
         IMP.init("imp73760842"); 
         // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
         // i'mport 관리자 페이지 -> 내정보 -> 가맹점식별코드
@@ -8,12 +16,12 @@ function payment () {
             pay_method: 'card',
             merchant_uid: 'ORD20180131-0000011',
             name: 'COLURR : CheckOut(t)',
-            amount: 99000, 
-            buyer_email: 'soldesk510@soldesk.com',
-            buyer_name: '솔데스크',
-            buyer_tel: '010-1234-5678',
-            buyer_addr: '서울특별시 종로구 관철동',
-            buyer_postcode: '123-456',
+            amount: 100, 
+            buyer_email: 'user_email',
+            buyer_name: 'user_name',
+            buyer_tel: 'user_phone',
+            buyer_addr: 'user_address',
+            buyer_postcode: 'user_zip',
             m_redirect_url: 'https://www.colurr.com/order/checkout_complete'
             /*  
                 모바일 결제시,

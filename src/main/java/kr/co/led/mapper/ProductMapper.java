@@ -24,6 +24,8 @@ public interface ProductMapper {
          + "from product where product_idx=#{product_idx}")
    ProductBean getProductInfo(int product_idx);
    
-   
+   @Select("select product_idx, product_name, product_price, product_gender, product_colortype, product_img1, product_instock "
+	         + "from product where product_name like #{search}")
+ List<ProductBean> getSearchProductList(String search);
    
 }

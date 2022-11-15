@@ -30,4 +30,8 @@ public class ProductService {
       return productDao.getProductInfo(product_idx);
    }
    
+   public List<ProductBean> getSearchProductList(String search) {
+	   return productDao.getSearchProductList(search);
+   }
+   
 }

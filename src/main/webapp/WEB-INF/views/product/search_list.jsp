@@ -55,13 +55,13 @@
   
   <main class="main-content">
     <!--== Start Page Title Area ==-->
-    <section class="page-title-area bg-img" data-bg-img="assets/img/shop2.png">
+    <section class="page-title-area bg-img" data-bg-img="assets/img/photos/bg-page1.jpg">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="page-title-content">
               <h2 class="title">Shop</h2>
-              <div class="bread-crumbs"><a href="index.html">${product_gender}</a></div>
+              <div class="bread-crumbs">Search</div>
             </div>
           </div>
         </div>
@@ -77,7 +77,6 @@
             <div class="row">
                <div class="col-12 product-items-list">
                   <c:forEach var="obj" items="${productList}">
-                  
                     <!-- Start Product Item -->
                     <div class="product-item ">
                       <div class="product-thumb">
@@ -93,23 +92,22 @@
                             <span class="price"><fmt:formatNumber value="${obj.product_price}" pattern="###,###"/> &nbsp; won</span>
                           </div>
                           <div class="product-action-btn">
-                             
                           <form:form method="post" action="${root}cart_add" modelAttribute="addCartBean">
                             <input type="hidden" name="product_idx" value="${obj.product_idx}"> 
-                             <input type="hidden" name="product_amount" value=1> 
-                            <form:button class="btn-add-cart btn-theme">Add to cart</form:button>
-                          </form:form> 
-                         
-                          <form:form method="post" action="${root}wishList_add" modelAttribute="addWishListBean">
-                             <input type="hidden" name="product_idx" value="${obj.product_idx}">
-                             <div  style="border:0px; outline:none; cursor:pointer; border-width: 0px; background-color=#FFFFFF">
-                             <button type="submit" class="btn-add-cart btn-theme">
-                            <i class="lastudioicon-heart-2"></i>
-                            </button>
-                            </div>
+                          <input type="hidden" name="product_amount" value=1>
+                            <c:choose>
+                              <c:when test="${obj.product_instock == 0}">
+                                <form:button class="btn-add-cart btn-theme" disabled='true'>Sold Out</form:button>
+                              </c:when>
+                              <c:otherwise>
+                                <form:button class="btn-add-cart btn-theme">Add to cart</form:button>
+                              </c:otherwise>
+                            </c:choose>
                             
-                          </form:form>         
-                   
+                           </form:form>
+                            <a class="btn-wishlist" href="shop-wishlist.html">
+                              <i class="lastudioicon-heart-2"></i>
+                            </a>
                           </div>
                         </div>
                       </div>

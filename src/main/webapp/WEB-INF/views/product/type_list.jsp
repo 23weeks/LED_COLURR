@@ -55,7 +55,7 @@
   
   <main class="main-content">
     <!--== Start Page Title Area ==-->
-    <section class="page-title-area bg-img" data-bg-img="assets/img/photos/bg-page1.jpg">
+    <section class="page-title-area bg-img" data-bg-img="assets/img/shop2.png">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -96,19 +96,20 @@
                            <form:form method="post" action="${root}cart_add" modelAttribute="addCartBean">
                              <input type="hidden" name="product_idx" value="${obj.product_idx}"> 
                            <input type="hidden" name="product_amount" value=1> 
-                             <c:choose>
-                              <c:when test="${obj.product_instock == 0}">
-                                <form:button class="btn-add-cart btn-theme" disabled='true'>Sold Out</form:button>
-                              </c:when>
-                              
-                              <c:otherwise>
-                                <form:button class="btn-add-cart btn-theme">Add to cart</form:button>
-                              </c:otherwise>
-                            </c:choose>
+                             <form:button class="btn-add-cart btn-theme">Add to cart</form:button>
                            </form:form>
-                            <a class="btn-wishlist" href="shop-wishlist.html">
-                              <i class="lastudioicon-heart-2"></i>
-                            </a>
+                            
+                           <form:form method="post" action="${root}wishList_add" modelAttribute="addWishListBean">
+                             <input type="hidden" name="product_idx" value="${obj.product_idx}">
+                             <div  style="border:0px; outline:none; cursor:pointer; border-width: 0px; background-color=#FFFFFF">
+                             <button type="submit" class="btn-add-cart btn-theme">
+                            <i class="lastudioicon-heart-2"></i>
+                            </button>
+                            </div>
+                          </form:form>     
+
+      
+   
                           </div>
                         </div>
                       </div>

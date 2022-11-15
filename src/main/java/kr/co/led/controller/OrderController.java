@@ -133,8 +133,4 @@ public class OrderController {
       return "order/order_list";
    }
 
-   @GetMapping("/checkout")
-   public String checkout() {
-	   return "order/checkout";
-   }
 }

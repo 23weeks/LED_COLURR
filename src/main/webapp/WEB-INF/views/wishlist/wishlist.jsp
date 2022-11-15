@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var='root' value="${pageContext.request.contextPath}/"/>
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -49,85 +49,74 @@
 <body>
 
 <!--wrapper start-->
-<div class="wrapper shop-fullwidth-wrapper">
+<div class="wrapper page-wishlist-wrapper">
 
   <c:import url="/WEB-INF/views/include/top_menu.jsp"></c:import>
   
   <main class="main-content">
     <!--== Start Page Title Area ==-->
-    <section class="page-title-area bg-img" data-bg-img="assets/img/shop2.png">
+    <section class="page-title-area bg-img" data-bg-img="assets/img/photos/bg-page5.jpg">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="page-title-content">
-              <h2 class="title">Shop</h2>
-              <div class="bread-crumbs"><a href="index.html">${product_gender}</a></div>
+              <h2 class="title">Wishlist</h2>
+              <div class="bread-crumbs"><a href="index.html">Home<span class="breadcrumb-sep">></span></a><span class="active">Wishlist</span></div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!--== End Page Title Area ==-->
 
-    <!--== Start Products Area Wrapper ==-->
-    <div class="product-area shop-fullwidth-area style-two">
+    <!--== Start Cart Area Wrapper ==-->
+    <div class="product-area wishlist-page-area" style="margin-bottom:170px">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <div class="row">
-               <div class="col-12 product-items-list">
-                  <c:forEach var="obj" items="${productList}">
-                  
-                    <!-- Start Product Item -->
-                    <div class="product-item ">
-                      <div class="product-thumb">
-                        <a href="${root}product_detail?product_idx=${obj.product_idx}">
-                          <img src="assets/img/product/${obj.product_img1}">
-                          <span class="thumb-overlay"></span>
-                        </a>
-                      </div>
-                      <div class="product-info">
-                        <div class="content-inner">                  
-                          <h4 class="title"><a href="${root}product_detail?product_idx=${obj.product_idx}">${obj.product_name}</a></h4>
-                          <div class="prices">
-                            <span class="price"><fmt:formatNumber value="${obj.product_price}" pattern="###,###"/> &nbsp; won</span>
-                          </div>
-                          <div class="product-action-btn">
-                             
-                          <form:form method="post" action="${root}cart_add" modelAttribute="addCartBean">
-                            <input type="hidden" name="product_idx" value="${obj.product_idx}"> 
-                             <input type="hidden" name="product_amount" value=1> 
-                            <form:button class="btn-add-cart btn-theme">Add to cart</form:button>
-                          </form:form> 
-                         
-                          <form:form method="post" action="${root}wishList_add" modelAttribute="addWishListBean">
-                             <input type="hidden" name="product_idx" value="${obj.product_idx}">
-                             <div  style="border:0px; outline:none; cursor:pointer; border-width: 0px; background-color=#FFFFFF">
-                             <button type="submit" class="btn-add-cart btn-theme">
-                            <i class="lastudioicon-heart-2"></i>
-                            </button>
-                            </div>
-                            
-                          </form:form>         
-                   
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- End Product Item -->
-                  
-                </c:forEach>
+            <div class="wishlist-table-wrap">
+              <div class="wishlist-table table-responsive">
+                <table>
+                  <thead>
+                    <tr>
+                      <th class="pro-remove"> </th>
+                      <th class="pro-name">Product</th>
+                      <th class="pro-stock-status">Stock Status</th>
+                      <th class="pro-price">Price</th>
+                      <th class="pro-action"> </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+               <c:forEach var="list" items="${wishList }">
+                      <tr>
+                       <form:form method="post" action="${root}cart_add" modelAttribute="addCartBean">
+                         <input type="hidden" name="product_idx" value="${list.product_idx}">  
+                         <input type="hidden" name="product_price" value="${list.product_price}">
+                         <input type="hidden" name="product_amount" title="Quantity" value="1" />
+                         <td class="pro-remove"><a class="lastudioicon-e-remove" href="${root}wishlist_deleteSelected?product_idx=${list.product_idx}" ></a></td>
+                         <td class="pro-name" style="width:100px"><span><a href="${root}product_detail?product_idx=${list.product_idx}">${list.product_name}</a></span></td>
+                         <td class="pro-stock-status" style="width:100px"><span>${list.stock_status}</span></td>
+                         <td class="pro-price" style="width:80px"><span><fmt:formatNumber value="${list.product_price}" pattern="###,###"/></span></td>
+                         <td class="pro-action"><form:button class="btn-theme btn-black">Add to cart</form:button></td>
+                        </form:form>
+                      </tr>
+                    </c:forEach>
+                  </tbody>
+                </table>
               </div>
+            </div>
+            <div class="coupon-action">
+              <button class="button" onclick="location.href='${root}wishlist_deleteAll'" style="text-align:left">Delete All</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!--== End Products Area Wrapper ==-->
+    <!--== End Cart Area Wrapper ==-->
+
   </main>
 
   <c:import url="/WEB-INF/views/include/bottom_info.jsp"></c:import>
-  
+   
   <!--== End Side Menu ==-->
 </div>
 
