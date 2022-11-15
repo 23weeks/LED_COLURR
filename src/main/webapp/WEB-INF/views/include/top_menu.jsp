@@ -23,7 +23,7 @@
           <div class="header-align">
             <div class="header-navigation-area">
               <ul class="main-menu nav justify-content-center position-relative">
-                <li><a href="${root}kakaoPay">About</a></li>
+                <li><a href="${root}main">About</a></li>
                 <li class="has-submenu"><a href="${root}product_list?product_gender=Men">Men</a>
                   <ul class="submenu-nav">
                     <li><a href="${root}product_type_list?product_gender=Men&product_colortype=Spring_Warm">Spring Warm</a></li>
@@ -40,20 +40,18 @@
                     <li><a href="${root}product_type_list?product_gender=Women&product_colortype=Winter_Cool">Winter Cool</a></li>
                   </ul>
                 </li>
-                <li><a href="${root}board_list">현지</a></li>
-                <li class="has-submenu"><a href="#none">하영</a>
+                <li class="has-submenu"><a href="#none">Notice</a>
                   <ul class="submenu-nav">
                     <li><a href="${root }notice_list?notice_type=notice">Notice</a></li>
                     <li><a href="${root }notice_list?notice_type=event">Event</a></li>
                   </ul>
                 </li>
-                <li><a href="${root}order">결제</a></li>
                 <c:choose>
                   <c:when test="${loginUserBean.user_idx == 1}">
-                    <li class="has-submenu"><a href="#none">관리자페이지</a>
+                    <li class="has-submenu"><a href="#none">Admin</a>
                       <ul class="submenu-nav">
-                        <li><a href="${root }admin_userlist">회원관리</a></li>
-                        <li><a href="${root }admin_siteInfo">사이트정보</a></li>
+                        <li><a href="${root }admin_userlist">User List</a></li>
+                        <li><a href="${root }admin_siteInfo">Site Info</a></li>
                       </ul>
                     </li>
                   </c:when>
