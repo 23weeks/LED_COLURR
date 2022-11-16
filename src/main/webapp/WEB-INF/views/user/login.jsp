@@ -153,11 +153,12 @@
                               <div class="form-group mb-0 form-group-info">
                                 <button class="btn btn-theme btn-black" type="submit" style="margin:20px">Log in</button><br />
                                 <a class="btn-forgot" href="#" style="text-align:left">Lost your password?</a><br>
+                                <a id="kakao-login-btn" href="javascript:loginWithKakao()">
+  <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="170" style="margin:20px"
+    alt="카카오 로그인 버튼" />
+</a>
                         
                         <!-- 네이버 로그인 영역 시작 -->
-
-
-
 <div id="naver_id_login"></div>
 <script type="text/javascript"
       src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
@@ -174,11 +175,10 @@
       naver_id_login.init_naver_id_login();
 </script>
 
- <a id="kakao-login-btn" href="javascript:loginWithKakao()">
-  <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222"
-    alt="카카오 로그인 버튼" /></a>
-    <!-- kakao -->
+<p id="token-result"></p>
 <button class="api-btn" onclick="requestUserInfo()" style="visibility:hidden">사용자 정보 가져오기</button>
+
+ 
 
 
 
