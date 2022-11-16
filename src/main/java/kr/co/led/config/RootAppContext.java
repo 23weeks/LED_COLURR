@@ -30,5 +30,9 @@ public class RootAppContext {
 		return new WishListBean();
    }
 	
-	
+	@Bean("adminBean")
+	@SessionScope
+	public UserBean adminBean() {
+		return new UserBean();
+   }
 }

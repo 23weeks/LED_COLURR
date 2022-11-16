@@ -22,9 +22,6 @@ import kr.co.led.service.OrderService;
 public class OrderController {
 
    @Autowired
-   private OrderService orderService;
-
-   @Autowired
    private CartService cartService;
 
    @Resource(name = "loginUserBean")
@@ -32,8 +29,6 @@ public class OrderController {
 
    @Resource(name = "cartListBean")
    CartListBean cartListBean;
-
-   // =================================카카오페이
    
 // ================================================
    @GetMapping("/order")
@@ -89,48 +84,11 @@ public class OrderController {
 
       return "order/order";
    }
+   
+   		@GetMapping("checkout_complete")
+   		public String checkout_complete() {
+   			return "order/checkout_complete";
+   		}
 
-   @GetMapping("/input_card")
-   public String input_card(HttpSession session, Model model) {
-
-      session.setAttribute("id", loginUserBean.getUser_name());
-      String userid = loginUserBean.getUser_name();
-      System.out.println(loginUserBean.getUser_name());
-      model.addAttribute("userid", userid);
-      return "order/input_card";
-   }
-
-   @GetMapping("/input_cash")
-   public String input_cash(HttpSession session, Model model) {
-      session.setAttribute("id", loginUserBean.getUser_name());
-      String userid = loginUserBean.getUser_name();
-      System.out.println(loginUserBean.getUser_name());
-      model.addAttribute("userid", userid);
-      return "order/input_cash";
-   }
-
-   @PostMapping("/input_pro")
-   public String input_pro(OrderBean orderBean) {
-      orderService.insertOrder(orderBean);
-      return "order/input_pro";
-   }
-
-   @GetMapping("/read_data")
-   public String read_data(Model model) {
-      List<OrderBean> list = orderService.select_data();
-
-      model.addAttribute("list", list);
-
-      return "order/read_data";
-   }
-
-   @GetMapping("/order_list")
-   public String pay(Model model) {
-
-      List<OrderBean> orderList = orderService.getPayAll();
-      model.addAttribute("orderList", orderList);
-
-      return "order/order_list";
-   }
 
 }

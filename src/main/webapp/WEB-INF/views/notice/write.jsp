@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Blog - Moren - Fashion Bootstrap 5 HTML Template</title>
+    <title>COLURR</title>
 
     <!--== Favicon ==-->
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
@@ -54,19 +54,23 @@
 
 
   <main class="main-content">
-    <!--== Start Page Title Area ==-->
+  
+  
+   <!--== Start Page Title Area ==-->
     <section class="page-title-area bg-img" data-bg-img="assets/img/photos/bg-page1.jpg">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="page-title-content">
-              <h2 class="title">Notice</h2>
-              <div class="bread-crumbs"><a href="${root }notice_list">하영 Notice<span class="breadcrumb-sep">></span></a><span class="active">(관리자용)Write</span></div>
+              <h2 class="title" style="text-transform:uppercase;">${writeNoticeBean.notice_type}</h2>
+              <div class="bread-crumbs"><a href="${root }notice_list">NOTICE<span class="breadcrumb-sep">></span></a><span class="active">${writeNoticeBean.notice_type}</span></div>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <!--== End Page Title Area ==-->
+
     
    <!--== Start Blog Area Wrapper ==-->
     <section class="blog-details-area">
@@ -88,8 +92,8 @@
 						<label class="form-label">공지 유형</label> &nbsp;&nbsp;&nbsp;
                           <div class="input-group-append">
                            <select name="notice_type"> 
-		                     <option value="notice" >notice</option>
-		                     <option value="event">event</option>
+		                     <option value="notice" >Notice</option>
+		                     <option value="event">Event</option>
 		                   </select>
                    		 </div>
 						</div>

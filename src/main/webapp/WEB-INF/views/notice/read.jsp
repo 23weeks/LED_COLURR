@@ -50,7 +50,7 @@
 <!--wrapper start-->
   <c:import url="/WEB-INF/views/include/top_menu.jsp"></c:import>
 
-<div class="wrapper page-blog-wrapper">
+<!-- <div class="wrapper page-blog-wrapper"> -->
 
   
   <main class="main-content">
@@ -60,8 +60,8 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="page-title-content">
-              <h2 class="title">Blog</h2>
-              <div class="bread-crumbs"><a href="${root }main">Home<span class="breadcrumb-sep">></span></a><a href="${root }notice_list">Blog</a><span class="breadcrumb-sep">></span><span class="active">Blog Details</span></div>
+              <h2 class="title" style="text-transform:uppercase;">${readNoticeBean.notice_type}</h2>
+              <div class="bread-crumbs"><a href="${root }notice_list">NOTICE<span class="breadcrumb-sep">></span></a><span class="active">${readNoticeBean.notice_type}</span></div>
             </div>
           </div>
         </div>
@@ -105,13 +105,14 @@
                       <!-- 첨부파일 -->
                       <c:if test="${readNoticeBean.notice_img != null}">
 	                   <ul class="meta">
-	                  	<li class="notice_img">첨부파일</li>
-	                  	<li> | </li>
-	                  	<li><img src="${root }upload/${readNoticeBean.notice_img }" width="20%"/></li>		
+	                  	<li class="notice_img" span style="width:200px" >첨부파일</li>
+	                  	<!-- <li span style="width:100px"> | </li> -->
+	                  	<li><img src="${root }upload/${readNoticeBean.notice_img }" width="80%"/></li>		
 	                   </ul>
 	                  </c:if>
 	                      
-	                  <!-- 내용 -->    
+	                  <!-- 내용 -->   
+	                  <p span style="width:200px"> </p>
 	                  <p style="text-align:left">${readNoticeBean.notice_context }</p>			
                       <p class="notice_context"></p>
                       <hr />

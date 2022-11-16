@@ -23,9 +23,11 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import kr.co.led.beans.UserBean;
+import kr.co.led.interceptor.CheckAdminInterceptor;
 import kr.co.led.interceptor.CheckLoginInterceptor;
 import kr.co.led.interceptor.CheckWriterInterceptor;
 import kr.co.led.interceptor.TopMenuInterceptor;
+import kr.co.led.mapper.AdminMapper;
 import kr.co.led.mapper.AnswerMapper;
 import kr.co.led.mapper.CartMapper;
 import kr.co.led.mapper.NoticeMapper;
@@ -70,6 +72,8 @@ public class ServletAppContext implements WebMvcConfigurer {
    	@Autowired
    	private QuestionService questionService;
 
+   	@Autowired
+   	private UserBean adminBean;
    
     // Controller의 메서드가 반환하는 jsp의 이름 앞뒤에 경로와 확장자를 붙혀주도록 설정한다.
     @Override
@@ -166,6 +170,13 @@ public class ServletAppContext implements WebMvcConfigurer {
         return factoryBean;
      }
 
+	 @Bean
+	 public MapperFactoryBean<AdminMapper> getAdminMapper(SqlSessionFactory factory) throws Exception{
+		 MapperFactoryBean<AdminMapper> factoryBean = new MapperFactoryBean<AdminMapper>(AdminMapper.class);
+		 factoryBean.setSqlSessionFactory(factory);
+		 return factoryBean;
+	 }
+
 	@Bean
     public ReloadableResourceBundleMessageSource messageSource() {
          ReloadableResourceBundleMessageSource res = new ReloadableResourceBundleMessageSource();
@@ -208,7 +219,12 @@ public class ServletAppContext implements WebMvcConfigurer {
         CheckWriterInterceptor checkWriterInterceptor = new CheckWriterInterceptor(loginUserBean, questionService, noticeService);
         InterceptorRegistration reg3 = registry.addInterceptor(checkWriterInterceptor);
       
-        reg3.addPathPatterns("/board/modify", "/board/delete", "/notice/modify", "/notice/delete");
-      	}
+        reg3.addPathPatterns("/board_modify", "/board_delete", "/notice_modify", "/notice_delete");
+      	
+    
+    	CheckAdminInterceptor checkAdminInterceptor = new CheckAdminInterceptor(adminBean);
+    	InterceptorRegistration reg4 = registry.addInterceptor(checkAdminInterceptor);
 
+    	reg4.addPathPatterns("admin_userlist", "admin_siteInfo");
+    }
 }

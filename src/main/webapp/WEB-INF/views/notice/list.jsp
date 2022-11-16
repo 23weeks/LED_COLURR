@@ -78,8 +78,8 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="page-title-content">
-              <h2 class="title">Notice</h2>
-              <div class="bread-crumbs"><a href="${root }notice_list">하영 Notice<span class="breadcrumb-sep">></span></a><span class="active">Notice</span></div>
+              <h2 class="title" style="text-transform:uppercase;">${notice_type}</h2>
+              <div class="bread-crumbs"><a href="${root }notice_list">NOTICE<span class="breadcrumb-sep">></span></a><span class="active">${notice_type}</span></div>
             </div>
           </div>
         </div>

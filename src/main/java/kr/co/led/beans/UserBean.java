@@ -39,13 +39,24 @@ public class UserBean {
 	private boolean userEmailExist;
 
 	private boolean userLogin;
+	
+	private boolean adminLogin;
 
 	
 	
+	public boolean isAdminLogin() {
+		return adminLogin;
+	}
+
+	public void setAdminLogin(boolean adminLogin) {
+		this.adminLogin = adminLogin;
+	}
+
 	public UserBean() {
 		this.userIdExist = false;
 		this.userEmailExist = false;
 		this.userLogin = false;
+		this.adminLogin = false;
 	}
 
 	public boolean isUserEmailExist() {

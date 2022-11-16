@@ -51,7 +51,6 @@
                     <li class="has-submenu"><a href="#none">Admin</a>
                       <ul class="submenu-nav">
                         <li><a href="${root }admin_userlist">User List</a></li>
-                        <li><a href="${root }admin_siteInfo">Site Info</a></li>
                       </ul>
                     </li>
                   </c:when>

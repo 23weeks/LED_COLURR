@@ -26,11 +26,11 @@ public class UserController {
    @Autowired
    UserService userService;
 
+   @Resource(name = "adminBean")
+   private UserBean adminBean;
+   
    @Resource(name = "loginUserBean")
    private UserBean loginUserBean;
-
-   @Autowired
-	private QuestionService questionService;
    
    @GetMapping("/login")
    public String login(@ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean,
@@ -38,6 +38,11 @@ public class UserController {
 
       model.addAttribute("fail", fail); // 실패 아니얌
 
+      //관리자idx일 경우 
+      if(loginUserBean.getUser_idx() == 1) {
+    	  adminBean.setAdminLogin(true);
+      }
+      
       return "user/login";
    }
 
@@ -144,7 +149,7 @@ public class UserController {
    public String logout() {
 
       loginUserBean.setUserLogin(false);
-
+      adminBean.setAdminLogin(false);
       return "user/logout";
    }
 
