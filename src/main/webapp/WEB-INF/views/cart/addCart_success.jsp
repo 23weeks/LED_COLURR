@@ -4,5 +4,5 @@
 
 <script>
    alert('장바구니에 상품이 추가되었습니다.')
-   location.href='${root}wishlist'
+   history.go(-1)
 </script>
