@@ -152,7 +152,6 @@
                             <div class="col-md-12" style="text-align:center">
                               <div class="form-group mb-0 form-group-info">
                                 <button class="btn btn-theme btn-black" type="submit" style="margin:20px">Log in</button><br />
-                                <a class="btn-forgot" href="#" style="text-align:left">Lost your password?</a><br>
                                 <a id="kakao-login-btn" href="javascript:loginWithKakao()">
   <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="170" style="margin:20px"
     alt="카카오 로그인 버튼" />
