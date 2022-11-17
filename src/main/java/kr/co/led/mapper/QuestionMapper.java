@@ -16,8 +16,8 @@ public interface QuestionMapper {
 	
 	@SelectKey(statement="select question_seq.nextval from dual", keyProperty = "question_idx", before=true, resultType=int.class)
 	//jdbcType=VARCHAR : 이미지를 입력하지 않았을때 null값이 아닌 error가 발생하므로 varchar로 항상 설정한다.
-	@Insert("insert into question(question_idx, user_idx, question_type, question_title, question_content, question_date, question_img) " +
-			"values (#{question_idx}, #{user_idx}, #{question_type, jdbcType=VARCHAR}, #{question_title}, #{question_content}, sysdate, #{question_img, jdbcType=VARCHAR})")
+	@Insert("insert into question(question_idx, user_idx, question_type, question_title, question_content, question_date) " +
+			"values (#{question_idx}, #{user_idx}, #{question_type, jdbcType=VARCHAR}, #{question_title}, #{question_content}, sysdate)")
 	void addQuestionInfo(QuestionBean writeQuestionBean);
 	
 	
@@ -30,15 +30,14 @@ public interface QuestionMapper {
 	
 	//게시판 하나 가져오기
 	@Select("select to_char(qt.question_date, 'yyyy-mm-dd') as question_date, "
-			+ "qt.question_title, qt.question_content, qt.question_img "
+			+ "qt.question_title, qt.question_content "
 			+ "from question qt "
 			+ "where question_idx = #{question_idx}")
 	QuestionBean getQuestionInfo(int question_idx);
 	
 	//수정
 	@Update("update question " +
-			"set question_title=#{question_title}, question_content=#{question_content}, " +
-			"question_img=#{question_img, jdbcType=VARCHAR} " +
+			"set question_title=#{question_title}, question_content=#{question_content} " +
 			"where question_idx=#{question_idx}")
 	void modifyQuestionInfo(QuestionBean modifyQuestionBean);
 	

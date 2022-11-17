@@ -81,7 +81,7 @@
                       <!-- 여기 -->
                       <div class="category">
                       <c:if test="${readAnswerBean.answer_content != null }">
-                      <a href="${root }board_answer2?question_idx=${question_idx}&page=${page}">답변확인</a>  
+                      <a href="${root }admin_answer?question_idx=${question_idx}&page=${page}">답변확인</a>  
                       </c:if>
                       </div>
                       	
@@ -104,7 +104,10 @@
                     </div>
                     
                     <%-- <c:if test= "${loginUserBean.user_idx == admin_id }"> --%>   
-                    
+                    <div style="text-align:right" >
+                      
+                    	<a href="${root }board_answer?question_idx=${question_idx}&page=${page}">답글달기</a>
+                     </div>
                       <%--  </c:if>  --%>
                
                   </div>

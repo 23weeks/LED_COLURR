@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.led.beans.PageBean;
 import kr.co.led.beans.ProductBean;
+import kr.co.led.beans.QuestionBean;
 import kr.co.led.beans.UserBean;
 import kr.co.led.dao.AdminDao;
 
@@ -37,5 +38,18 @@ public class AdminService {
 	
 	public void modifyProductStock(ProductBean modifyStockBean) {
 		adminDao.modifyProductStock(modifyStockBean);
+	}
+	
+	//페이지 당 번호
+	public List<QuestionBean> getQuestionList(int user_idx , int page){
+	   int start = (page -1) * page_listcnt;
+	   RowBounds rowBounds = new RowBounds(start, page_listcnt);
+		   
+	   return adminDao.getQuestionList(user_idx, rowBounds);
+	}
+	   
+	   
+	public QuestionBean getQuestionInfo(int question_idx) {
+	   return adminDao.getQuestionInfo(question_idx);
 	}
 }

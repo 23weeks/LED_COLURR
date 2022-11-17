@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.led.beans.ProductBean;
+import kr.co.led.beans.QuestionBean;
 import kr.co.led.beans.UserBean;
 import kr.co.led.mapper.AdminMapper;
 
@@ -46,4 +47,13 @@ public class AdminDao {
 		adminMapper.modifyProductStock(modifyStockBean);
 	}
 
+	// 게시글 모두 가져오기
+	public List<QuestionBean> getQuestionList(int user_idx, RowBounds rowBounds){
+		return adminMapper.getQuestionList(user_idx, rowBounds);
+		}
+	
+	//게시글 하나 가져오기
+	public QuestionBean getQuestionInfo(int question_idx) {
+		return adminMapper.getQuestionInfo(question_idx);
+		}
 }

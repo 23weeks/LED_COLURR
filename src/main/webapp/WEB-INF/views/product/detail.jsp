@@ -124,6 +124,7 @@
                         <form:button class="btn-add-cart btn-theme">Add to cart</form:button>
                       </c:otherwise>
                     </c:choose>
+                  </div>
                 </form:form>
                 <form:form method="post" action="${root}wishList_add" modelAttribute="addWishListBean">
                   <input type="hidden" name="product_idx" value="${product_idx}">
