@@ -88,7 +88,7 @@
                       <p/>
                       
                      <label for="question_title" >${readQuestionBean.question_title }</label><p/>
-                     <label for="writer" style="font-size: 14px">${readQuestionBean.writer_name } </label><p/>
+                     <label for="writer" style="font-size: 14px">${readQuestionBean.user_name } </label><p/>
                      <label for="question_date" style="font-size: 14px">${readQuestionBean.question_date } </label><p/>
                       <hr />
                      <label for="question_content">${readQuestionBean.question_content }</label>

@@ -47,13 +47,9 @@ public class AdminDao {
 		adminMapper.modifyProductStock(modifyStockBean);
 	}
 
-	// 게시글 모두 가져오기
-	public List<QuestionBean> getQuestionList(int user_idx, RowBounds rowBounds){
-		return adminMapper.getQuestionList(user_idx, rowBounds);
-		}
+	//전체 문의
+	public List<QuestionBean> getAllQuestion() {
+		return adminMapper.getAllQuestion();
+	}
 	
-	//게시글 하나 가져오기
-	public QuestionBean getQuestionInfo(int question_idx) {
-		return adminMapper.getQuestionInfo(question_idx);
-		}
 }

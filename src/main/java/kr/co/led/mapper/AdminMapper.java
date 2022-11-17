@@ -46,23 +46,13 @@ public interface AdminMapper {
 		   + "set product_instock = #{product_instock} "
 		   + "where product_idx = #{product_idx}")
    void modifyProductStock(ProductBean modifyStockBean);
+  
+   //=============================================
    
- //게시판 모두 가져오기
- 	@Select("select question_idx, question_title, ut.user_name as writer_name, to_char(question_date, 'yyyy-mm-dd') as question_date " +
-             "from question qt, user_table ut "
-             + "where qt.user_idx=ut.user_idx and qt.user_idx = #{user_idx}")
- 	List<QuestionBean> getQuestionList(int user_idx, RowBounds rowBounds);
- 	
- 	//게시판 하나 가져오기
- 		@Select("select to_char(qt.question_date, 'yyyy-mm-dd') as question_date, "
- 				+ "qt.question_title, qt.question_content "
- 				+ "from question qt "
- 				+ "where question_idx = #{question_idx}")
- 		QuestionBean getQuestionInfo(int question_idx);
- 		
- 		//카운트 나누기? 
- 		@Select("select count(*) from question")
- 		int getQuestionCnt(int question_idx);
- 		
- 	
+   //1대1문의 전체 끌어오기
+   @Select("select question_idx, question_title, ut.user_name as user_name, to_char(question_date, 'yyyy-mm-dd') as question_date "
+   		+ "from question qt, user_table ut "
+   		+ "where qt.user_idx = ut.user_idx "
+   		+ "order by question_idx desc")
+   List<QuestionBean> getAllQuestion();
 }

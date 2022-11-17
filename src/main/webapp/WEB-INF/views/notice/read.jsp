@@ -101,7 +101,7 @@
                          
                      <!-- 내용 -->   
                      <p style="width:200px"> </p>
-                     <p style="text-align:center">${readNoticeBean.notice_context }</p>         
+                     <textarea>${readNoticeBean.notice_context }</textarea>         
                       <p class="notice_context"></p>
                       <hr />
                      

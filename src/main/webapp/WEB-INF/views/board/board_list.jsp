@@ -51,21 +51,6 @@
 <!--wrapper start-->
 <div class="wrapper page-blog-wrapper">
 
-  <!--== Start Preloader Content ==-->
-  <div class="preloader-wrap">
-    <div class="preloader">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
-  <!--== End Preloader Content ==-->
-
-  
-  
   <main class="main-content">
     <!--== Start Page Title Area ==-->
     <section class="page-title-area bg-img" data-bg-img="assets/img/photos/bg-page1.jpg">
@@ -120,7 +105,7 @@
 	                 <tr id="board_content">
 	                   <td>${obj.question_idx }</td>
 	                   <td><a href="${root }board_read?question_idx=${obj.question_idx}&page=${page}">${obj.question_title }</a></td>
-	                   <td>${obj.writer_name }</td>
+	                   <td>${obj.user_name }</td>
 	                   <td>${obj.question_date }</td>
 	                 </tr>
                    </c:forEach>

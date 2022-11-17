@@ -96,11 +96,11 @@
                <tr />
                <tbody>
                  
-                   <c:forEach var='obj' items="${questionList }">
+                   <c:forEach var='obj' items="${qnaList }">
 	                 <tr id="board_content">
 	                   <td>${obj.question_idx }</td>
-	                   <td><a href="${root }admin_answer?question_idx=${obj.question_idx}&page=${page}">${obj.question_title }</a></td>
-	                   <td>${obj.writer_name }</td>
+	                   <td><a href="${root }admin_answer?question_idx=${obj.question_idx}">${obj.question_title }</a></td>
+	                   <td>${obj.user_name }</td>
 	                   <td>${obj.question_date }</td>
 	                 </tr>
                    </c:forEach>
@@ -112,61 +112,6 @@
             
             <!-- 게시판 끝 -->
                 
-               <!-- 페이징 처리 -->
-                <div class="pagination-area">
-                  <nav>
-                    <ul class="page-numbers">
-                    	<!-- 이전페이지가 1이하이면 비활성화 -->
-						<c:choose>
-							<c:when test="${pageBean.prevPage <= 0 }">
-							
-							<li class="page-number disabled">
-								<a href="#" class="page-link">이전</a>
-							</li>
-							</c:when>
-							
-							<c:otherwise>
-							<li class="page-number">
-								<a href="${root }board_list?page=${pageBean.prevPage}" class="page-link">이전</a>
-							</li>
-							</c:otherwise>
-						</c:choose>	
-						
-						
-						<c:forEach var='idx' begin="${pageBean.min }" end='${pageBean.max }'>
-						<!-- 현재페이지면 active(부트스트랩) 적용 -->
-						<c:choose>
-							<c:when test="${idx == pageBean.currentPage }">
-							<li class="page-number active">
-								<a href="${root }admin_qnaList?page=${idx}" class="page-link">${idx }</a>
-							</li>
-							</c:when>
-							<c:otherwise>
-							<li class="page-number">
-								<a href="${root }admin_qnaList?page=${idx}" class="page-link">${idx }</a>
-							</li>
-							</c:otherwise>
-						</c:choose>
-						</c:forEach>
-						
-							
-						<!-- Max값이 전체페이지보다 크거나 같으면 비활성화   disabled(부트스트랩) -->
-						<c:choose>
-						<c:when test="${pageBean.max >= pageBean.pageCnt }">
-						<li class="page-number disabled">
-							<a href="#" class="page-link">다음</a>
-						</li>
-						</c:when>
-						<c:otherwise>
-						<li class="page-number">
-							<a href="${root }admin_qnaList?page=${pageBean.nextPage}" class="page-link">다음</a>
-						</li>
-						</c:otherwise>
-						</c:choose>	
-						
-					</ul>
-                  </nav>
-                </div>
               </div>
             </div>
           </div>

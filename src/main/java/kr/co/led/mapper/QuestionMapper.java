@@ -22,7 +22,7 @@ public interface QuestionMapper {
 	
 	
 	//게시판 모두 가져오기
-	@Select("select question_idx, question_title, ut.user_name as writer_name, to_char(question_date, 'yyyy-mm-dd') as question_date " +
+	@Select("select question_idx, question_title, ut.user_name as user_name, to_char(question_date, 'yyyy-mm-dd') as question_date " +
             "from question qt, user_table ut "
             + "where qt.user_idx=ut.user_idx and qt.user_idx = #{user_idx}")
 	List<QuestionBean> getQuestionList(int user_idx, RowBounds rowBounds);

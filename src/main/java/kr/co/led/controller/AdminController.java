@@ -2,20 +2,36 @@ package kr.co.led.controller;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import kr.co.led.beans.PageBean;
 import kr.co.led.beans.ProductBean;
+import kr.co.led.beans.QuestionBean;
 import kr.co.led.beans.UserBean;
 import kr.co.led.service.AdminService;
+import kr.co.led.service.AnswerService;
+import kr.co.led.service.QuestionService;
 
 @Controller
 public class AdminController {
 
+	@Autowired
+	private QuestionService questionService;
+
+	@Autowired
+	private AnswerService answerService;
+
+	@Resource(name = "loginUserBean")
+	private UserBean loginUserBean;
+	
 	@Autowired
 	private AdminService adminService;
 
@@ -64,5 +80,13 @@ public class AdminController {
 		
 		return "redirect:/admin_productlist";
 	}
-
+	
+	@GetMapping("admin_qnalist")
+	public String admin_qnalist(Model model) {
+		
+		List<QuestionBean> qnaList = adminService.getAllQuestion();
+		
+		model.addAttribute("qnaList", qnaList);
+		return "admin/qnaList";
+	}
 }

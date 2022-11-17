@@ -99,7 +99,7 @@
 						
 						<div class="form-group">
                      <form:label path="question_date">작성날짜</form:label>
-                     <form:input path="question_date" class="form-control" readonly="readonly"/>
+                     <form:input path="question_date" class="form-control" readonly="true"/>
                   </div>
                   
                   
@@ -109,13 +109,6 @@
                      <form:errors path="question_content" style="color:red"/>
                   </div>
                   
-                  <div class="form-group">
-                     <label for="board_file">첨부 이미지</label>
-                     <c:if test="${modifyQuestionBean.question_img != null}">
-                        <img src="${root }upload/${modifyQuestionBean.question_img}" width="20%"/>   
-                     </c:if>   
-                     <form:input type="file" path="upload_file" class="form-control" accept="image/*"/>
-                  </div>
 						<p/>
 						<div class="form-group">
 							<div style="text-align: center">

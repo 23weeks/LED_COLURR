@@ -93,11 +93,7 @@
                         </div> 
                         <p/>
                        
-                        <div class="form-group">
-                          <form:input type="file" path="upload_file" class="form-control" accept="image/*"/>
-                        </div>
-                         <p/>
-                         
+                        
                          <p/>
                       <div class="form-group">
                           <form:button class="btn-theme btn btn-black" style="width:150px">작성하기</form:button> 

@@ -54,7 +54,6 @@ public class QuestionController {
 
 		AnswerBean readAnswerBean = answerService.getAnswerInfo(question_idx);
 		
-		System.out.println(readQuestionBean.getWriter_name());
 		
 		model.addAttribute("question_idx", question_idx);
 

@@ -40,16 +40,7 @@ public class AdminService {
 		adminDao.modifyProductStock(modifyStockBean);
 	}
 	
-	//페이지 당 번호
-	public List<QuestionBean> getQuestionList(int user_idx , int page){
-	   int start = (page -1) * page_listcnt;
-	   RowBounds rowBounds = new RowBounds(start, page_listcnt);
-		   
-	   return adminDao.getQuestionList(user_idx, rowBounds);
-	}
-	   
-	   
-	public QuestionBean getQuestionInfo(int question_idx) {
-	   return adminDao.getQuestionInfo(question_idx);
+	public List<QuestionBean> getAllQuestion() {
+		return adminDao.getAllQuestion();
 	}
 }

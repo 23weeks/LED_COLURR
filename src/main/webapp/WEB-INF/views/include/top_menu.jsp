@@ -52,6 +52,7 @@
                       <ul class="submenu-nav">
                         <li><a href="${root }admin_userlist">User List</a></li>
                         <li><a href="${root }admin_productlist">Product List</a></li>
+                        <li><a href="${root }admin_qnalist">Q&A List</a></li>
                       </ul>
                     </li>
                   </c:when>

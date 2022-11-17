@@ -23,7 +23,7 @@ public class QuestionBean {
 	private String question_type;
 	private MultipartFile upload_file; //첨부이미지 저장(브라우저에서 처리)
 	private int user_idx;
-	private String writer_name;
+	private String user_name;
 	private String question_date;
 	private String question_img;
 
