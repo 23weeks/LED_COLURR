@@ -59,7 +59,7 @@
           <div class="col-lg-12">
             <div class="page-title-content">
               <h2 class="title">My Page</h2>
-              <div class="bread-crumbs"><a href="index.html">Q&A<span class="breadcrumb-sep">></span></a><a href="blog.html">List</a><span class="breadcrumb-sep">></span><span class="active">Blog Details</span></div>
+              <div class="bread-crumbs"><a href="${root }Main">Q&A<span class="breadcrumb-sep">></span></a><a href="${root }board_list">List</a><span class="breadcrumb-sep">></span><span class="active">Answer</span></div>
             </div>
           </div>
         </div>
@@ -99,7 +99,7 @@
                           <a href="${root }board_list" class="btn-theme btn btn-black" >목록보기</a> 
                         <%-- <c:if test="${loginUserBean.user_idx == readQuestionBean.writer_name}"/>  --%>
 	                      <a href="${root }board_modify?question_idx=${question_idx}&page=${page}" class="btn-theme btn btn-black">수정하기</a>
-	                      <a href="${root }board_delete?question_idx=${question_idx}&page=${page}" class="btn-theme btn btn-black" >삭제하기</a>
+	                      <a href="${root }board_delete?question_idx=${question_idx}&page=${page}" class="btn-theme btn btn-black">삭제하기</a>
 	                    </div>
                     </div>
                     

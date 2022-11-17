@@ -54,12 +54,12 @@
   
   <main class="main-content">
     <!--== Start Page Title Area ==-->
-    <section class="page-title-area bg-img" data-bg-img="assets/img/photos/bg-page1.jpg">
+    <section class="page-title-area bg-img" data-bg-img="assets/img/photos/m3.jpg">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="page-title-content">
-              <h2 class="title">Blog</h2>
+              <h2 class="title">Answer</h2>
               <div class="bread-crumbs"><a href="${root }main">Home<span class="breadcrumb-sep">></span></a><a href="${root }board_list">Q&A</a><span class="breadcrumb-sep">></span><span class="active">Blog Details</span></div>
             </div>
           </div>
@@ -78,7 +78,7 @@
                 <div class="post-details-content">
                   <div class="post-details-body">
                     
-                      <h2 style="text-align:center">답변 대기</h2><p/>
+                      <h2 style="text-align:center">답변 완료</h2><p/>
                
                     <div class="content" style="text-align:left">
                     <input type="hidden" name='page' value='${page }'/>

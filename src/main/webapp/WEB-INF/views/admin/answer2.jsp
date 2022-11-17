@@ -59,8 +59,8 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="page-title-content">
-              <h2 class="title">Blog</h2>
-              <div class="bread-crumbs"><a href="${root }main">Home<span class="breadcrumb-sep">></span></a><a href="${root }board_list">Q&A</a><span class="breadcrumb-sep">></span><span class="active">Blog Details</span></div>
+              <h2 class="title">Answer</h2>
+              <div class="bread-crumbs"><a href="${root }main">Home<span class="breadcrumb-sep">></span></a><a href="${root }admin_qnaList">Q&A</a><span class="breadcrumb-sep">></span><span class="active">Blog Details</span></div>
             </div>
           </div>
         </div>
@@ -78,7 +78,7 @@
 									<div class="post-details-content">
 										<div class="post-details-body">
 
-											<h2 style="text-align: center">답변완료</h2>
+											<h2 style="text-align: center">답변 대기</h2>
 											<p />
 
 											<div class="content" style="text-align: left">

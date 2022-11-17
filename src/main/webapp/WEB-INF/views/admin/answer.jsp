@@ -58,8 +58,8 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="page-title-content">
-              <h2 class="title">My Page</h2>
-              <div class="bread-crumbs"><a href="#none">Q&A<span class="breadcrumb-sep">></span></a><a href="${root }admin_qnaList">List</a><span class="breadcrumb-sep">></span><span class="active">Blog Details</span></div>
+              <h2 class="title">Admin Page</h2>
+              <div class="bread-crumbs"><a href="#none">Q&A<span class="breadcrumb-sep">></span></a><a href="${root }admin_qnaList">List</a><span class="breadcrumb-sep">></span><span class="active">Answer</span></div>
             </div>
           </div>
         </div>
