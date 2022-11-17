@@ -88,37 +88,37 @@
                       <form:hidden path="notice_idx"/>
                        --%>
                       <!-- notice 카테고리 > 누르면 list로 이동  -->
-	                  <div class="notice_type">
-	                  	<a href="${root }notice_list?notice_type=${readNoticeBean.notice_type}" style="text-transform:uppercase;">${readNoticeBean.notice_type}</a>	
-	                  </div>
-	                      
+                     <div class="notice_type">
+                        <a href="${root }notice_list?notice_type=${readNoticeBean.notice_type}" style="text-transform:uppercase;">${readNoticeBean.notice_type}</a>   
+                     </div>
+                         
                       <!-- 제목 -->
-                      <h4>${readNoticeBean.notice_title }</h4>			 			
-                      	
-                      <!-- 작성날짜 -->	
-                      <p class="notice_date" style="font-size: 14px">${readNoticeBean.notice_date }</p> 	
+                      <h4>${readNoticeBean.notice_title }</h4>                   
+                         
+                      <!-- 작성날짜 -->   
+                      <p class="notice_date" style="font-size: 14px">${readNoticeBean.notice_date }</p>    
                       <hr />
-                      
-	                  <!-- 내용 -->   
-	                  <p span style="width:200px"> </p>
-	                  <p style="text-align:left">${readNoticeBean.notice_context }</p>			
+                         
+                     <!-- 내용 -->   
+                     <p style="width:200px"> </p>
+                     <p style="text-align:center">${readNoticeBean.notice_context }</p>         
                       <p class="notice_context"></p>
                       <hr />
                      
                      
                      
                      <!-- 하단 버튼 -->
-	                 <div>
-		                <a href="${root }notice_list?notice_type=${readNoticeBean.notice_type}&page=${page}" class="btn-theme btn btn-black">목록보기</a>
-		                <c:if test="${admin_idx == 1 && loginUserBean.userLogin == true}">
-		                	<a href="${root }notice_modify?notice_type=${readNoticeBean.notice_type}&notice_idx=${notice_idx}&page=${page}" class="btn-theme btn btn-black">수정하기</a>
-		                 	<a href="${root }notice_delete?notice_type=${readNoticeBean.notice_type}&notice_idx=${notice_idx}&page=${page}" class="btn-theme btn btn-black">삭제하기</a>
-	                 	 </c:if>
-	                 </div>
-	                
-	                
-	                <%-- </form:form> --%>
-	                
+                    <div>
+                      <a href="${root }notice_list?notice_type=${readNoticeBean.notice_type}&page=${page}" class="btn-theme btn btn-black">목록보기</a>
+                      <c:if test="${admin_idx == 1 && loginUserBean.userLogin == true}">
+                         <a href="${root }notice_modify?notice_type=${readNoticeBean.notice_type}&notice_idx=${notice_idx}&page=${page}" class="btn-theme btn btn-black">수정하기</a>
+                          <a href="${root }notice_delete?notice_type=${readNoticeBean.notice_type}&notice_idx=${notice_idx}&page=${page}" class="btn-theme btn btn-black">삭제하기</a>
+                        </c:if>
+                    </div>
+                   
+                   
+                   <%-- </form:form> --%>
+                   
                    </div>
                     
                     

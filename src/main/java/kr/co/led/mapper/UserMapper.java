@@ -20,7 +20,7 @@ public interface UserMapper {
    String checkUserEmailExist(String user_email);
    
    @Insert("insert into user_table(user_idx, user_name, user_id, user_pw, user_pw2, user_grade, user_gender, user_phone, user_email, sample6_postcode, sample6_address, sample6_detailAddress, sample6_extraAddress) "+
-            "values(user_seq.nextval, #{user_name}, #{user_id}, #{user_pw}, #{user_pw2}, '¿œπ›', #{user_gender}, #{user_phone}, #{user_email}, #{sample6_postcode}, #{sample6_address}, #{sample6_detailAddress}, #{sample6_extraAddress})")
+            "values(user_seq.nextval, #{user_name}, #{user_id}, #{user_pw}, #{user_pw2}, 'silver', #{user_gender}, #{user_phone}, #{user_email}, #{sample6_postcode}, #{sample6_address}, #{sample6_detailAddress}, #{sample6_extraAddress})")
       void addUserInfo(UserBean joinUserBean);
    
    @Select("select * "

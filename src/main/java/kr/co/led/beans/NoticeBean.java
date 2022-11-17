@@ -11,20 +11,19 @@ import lombok.Setter;
 @Setter
 public class NoticeBean {
 
-	
-	private int notice_idx;
-	private String notice_type;
-	
-	@NotBlank
-	private String notice_title;
-	
-	@NotBlank
-	private String notice_context;
-	
-	private MultipartFile upload_file;
-	private String notice_img;
-	private String notice_date;	
-	
-	
+   
+   private int notice_idx;
+   private String notice_type;
+   
+   @NotBlank
+   private String notice_title;
+   
+   @NotBlank
+   private String notice_context;
+   
+   private MultipartFile upload_file;
+   private String notice_img;
+   private String notice_date;   
+   
+   
 }
-

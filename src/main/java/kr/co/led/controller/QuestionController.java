@@ -52,10 +52,10 @@ public class QuestionController {
 
 		QuestionBean readQuestionBean = questionService.getQuestionInfo(question_idx);
 
-		System.out.println(readQuestionBean.getQuestion_content());
-		System.out.println(readQuestionBean.getQuestion_date());
 		AnswerBean readAnswerBean = answerService.getAnswerInfo(question_idx);
-
+		
+		System.out.println(readQuestionBean.getWriter_name());
+		
 		model.addAttribute("question_idx", question_idx);
 
 		model.addAttribute("readAnswerBean", readAnswerBean);
@@ -133,9 +133,6 @@ public class QuestionController {
 	@GetMapping("/board_answer")
 	public String answer(@ModelAttribute("writeAnswerBean") AnswerBean writeAnswerBean, @RequestParam("page") int page,
 			@RequestParam("question_idx") int question_idx, Model model) {
-		// @RequestParam("answer_idx") int answer_idx,
-		// @ModelAttribute("modifyAnswerBean") AnswerBean modifyAnswerBean, Model model)
-		// {
 
 		QuestionBean readQuestionBean = questionService.getQuestionInfo(question_idx);
 		model.addAttribute("readQuestionBean", readQuestionBean);

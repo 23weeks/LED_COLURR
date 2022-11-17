@@ -13,33 +13,31 @@ import kr.co.led.beans.AnswerBean;
 public interface AnswerMapper {
 
 	@SelectKey(statement="select answer_seq.nextval from dual", keyProperty = "answer_idx", before=true, resultType=int.class)
-	@Insert("insert into answer(answer_idx, question_idx, answer_content, admin_id) " +
-			"values (#{answer_idx}, #{question_idx}, #{answer_content}, 'admin')")
+	@Insert("insert into answer(answer_idx, question_idx, answer_content) " +
+			"values (#{answer_idx}, #{question_idx}, #{answer_content})")
     void addAnswerInfo(AnswerBean writeAnswerBean);
-	
-	
 	
 	 //답글 전체 가져오기
 	  
-	 @Select ("select answer_idx, question_idx, answer_content, admin_id " +
+	 @Select ("select answer_idx, question_idx, answer_content " +
 	 "from answer") List<AnswerBean> getanswerList();
 	
 	
 	
 	//답글 필요한거만 가져오기
-	@Select("select answer_idx, question_idx, answer_content, admin_id " +
+	@Select("select answer_idx, question_idx, answer_content " +
 			"from answer where question_idx = #{question_idx}")
 	AnswerBean getAnswerInfo(int question_idx);
 	
 	//수정
 	@Update("update answer " +
 			"set answer_content=#{answer_content} " +
-			"where admin_id and question_idx=#{question_idx}")
+			"where question_idx=#{question_idx}")
 	void modifyAnswerInfo(AnswerBean modifyAnswerBean);
 	
 	//삭제
 	@Delete("delete from answer " +
-			"where admin_id and answer_idx=#{answer_idx}")
+			"where answer_idx=#{answer_idx}")
 	void deleteAnswerInco(int answer_idx);
 			
 	

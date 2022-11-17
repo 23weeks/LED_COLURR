@@ -12,7 +12,7 @@
 <title>COLURR</title>
 
 <!--== Favicon ==-->
-<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="assets/img/prelogo.png" type="image/x-icon" />
 
 <!--== Google Fonts ==-->
 <link href="https://fonts.googleapis.com/css?family=Abril+Fatface:400" rel="stylesheet">

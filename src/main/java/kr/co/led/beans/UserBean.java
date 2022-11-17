@@ -3,9 +3,8 @@ package kr.co.led.beans;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-
 public class UserBean {
-	
+
 	@Size(min = 2, max = 4)
 	@Pattern(regexp = "[°¡-ÆR]*")
 	private String user_name;
@@ -33,17 +32,15 @@ public class UserBean {
 	private String sample6_extraAddress;
 
 	private String agree;
-	
+
 	private boolean userIdExist;
-	
+
 	private boolean userEmailExist;
 
 	private boolean userLogin;
-	
+
 	private boolean adminLogin;
 
-	
-	
 	public boolean isAdminLogin() {
 		return adminLogin;
 	}
@@ -63,12 +60,9 @@ public class UserBean {
 		return userEmailExist;
 	}
 
-
 	public void setUserEmailExist(boolean userEmailExist) {
 		this.userEmailExist = userEmailExist;
 	}
-
-
 
 	public boolean isUserIdExist() {
 		return userIdExist;
@@ -198,7 +192,4 @@ public class UserBean {
 		this.agree = agree;
 	}
 
-
-
-	
 }

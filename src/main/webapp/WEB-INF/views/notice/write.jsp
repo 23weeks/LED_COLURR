@@ -84,42 +84,42 @@
                     <div class="content" style="text-align:center">
                       
                       <form:form action="${root }notice_write_pro" method="post" modelAttribute="writeNoticeBean" enctype="multipart/form-data" style="text-align:center">
-                  		
-                  		<form:hidden path="notice_idx"/>
-						<%-- <form:hidden path="admin_id"/> --%>
-						
-						<div class="input-group">
-						<label class="form-label">공지 유형</label> &nbsp;&nbsp;&nbsp;
+                        
+                        <form:hidden path="notice_idx"/>
+                  <%-- <form:hidden path="admin_id"/> --%>
+                  
+                  <div class="input-group">
+                  <label class="form-label">공지 유형</label> &nbsp;&nbsp;&nbsp;
                           <div class="input-group-append">
                            <select name="notice_type"> 
-		                     <option value="notice" >Notice</option>
-		                     <option value="event">Event</option>
-		                   </select>
-                   		 </div>
-						</div>
-						
+                           <option value="notice" >Notice</option>
+                           <option value="event">Event</option>
+                         </select>
+                          </div>
+                  </div>
+                  
                         <div class="form-group">
-                   		  <form:input path="notice_title" class="form-control" placeholder="제목을 입력하세요"/>
-                   		  <form:errors path="notice_title" style="color:gray"/>
-                   		</div>
-                  		<p/>
+                           <form:input path="notice_title" class="form-control" placeholder="제목을 입력하세요"/>
+                           <form:errors path="notice_title" style="color:gray"/>
+                         </div>
+                        <p/>
 
                         <div class="form-group">
-                   		  <form:textarea path="notice_context" class="form-control" rows="10" style="resize:none" placeholder="내용을 입력하세요"></form:textarea>
-                   		  <form:errors path="notice_context" style="color:gray"/>
-                   		</div> 
-                   		<p/>
-                   		
-                  		<div class="form-group">
-                    	  <%-- <form:input type="file" path="upload_file" class="form-control" accept="image/*"/> --%>
-                   		</div>
-                   		<p/>
-                   		<p/>
+                           <form:textarea path="notice_context" class="form-control" rows="10" style="resize:none" placeholder="내용을 입력하세요"></form:textarea>
+                           <form:errors path="notice_context" style="color:gray"/>
+                         </div> 
+                         <p/>
+                         
+                        <div class="form-group">
+                         <%-- <form:input type="file" path="upload_file" class="form-control" accept="image/*"/> --%>
+                         </div>
+                         <p/>
+                         <p/>
                    
-                   		<div class="form-group">
-                    	  <form:button type="submit" class="btn-theme btn btn-black" style="width:180px">작성하기</form:button>
-                    	  <a href="${root }notice_list?notice_type=${writeNoticeBean.notice_type}" class="btn-theme btn btn-black" style="width:180px">취소</a>
-                   		</div>
+                         <div class="form-group">
+                         <form:button type="submit" class="btn-theme btn btn-black" style="width:180px">작성하기</form:button>
+                         <a href="${root }notice_list?notice_type=${writeNoticeBean.notice_type}" class="btn-theme btn btn-black" style="width:180px">취소</a>
+                         </div>
                       </form:form>
                       <!-- 여기 -->
                     
@@ -134,7 +134,7 @@
     </section>
     <!--== End Blog Area Wrapper ==-->
  
-	
+   
   </main>
   
   

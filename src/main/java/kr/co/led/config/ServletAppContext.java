@@ -51,30 +51,30 @@ import kr.co.led.service.QuestionService;
 @PropertySource("/WEB-INF/properties/db.properties")
 public class ServletAppContext implements WebMvcConfigurer {
    
-	@Value("${db.classname}")
-   	private String db_classname;
+   @Value("${db.classname}")
+      private String db_classname;
    
-   	@Value("${db.url}")
-   	private String db_url;
+      @Value("${db.url}")
+      private String db_url;
    
-   	@Value("${db.username}")
-   	private String db_username;
+      @Value("${db.username}")
+      private String db_username;
    
-   	@Value("${db.password}")
-   	private String db_password;
+      @Value("${db.password}")
+      private String db_password;
    
-   	@Resource(name="loginUserBean")
-   	private UserBean loginUserBean;
+      @Resource(name="loginUserBean")
+      private UserBean loginUserBean;
    
-   	@Resource(name="adminBean")
-   	private UserBean adminBean;
+      @Autowired
+      private NoticeService noticeService;
    
-   	@Autowired
-   	private NoticeService noticeService;
-   
-   	@Autowired
-   	private QuestionService questionService;
+      @Autowired
+      private QuestionService questionService;
 
+      @Autowired
+      private UserBean adminBean;
+   
     // Controller의 메서드가 반환하는 jsp의 이름 앞뒤에 경로와 확장자를 붙혀주도록 설정한다.
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
@@ -119,89 +119,89 @@ public class ServletAppContext implements WebMvcConfigurer {
          MapperFactoryBean<UserMapper> factoryBean = new MapperFactoryBean<UserMapper>(UserMapper.class);
          factoryBean.setSqlSessionFactory(factory);
          return factoryBean;
-   	}
+      }
       
     @Bean
     public MapperFactoryBean<QuestionMapper> getQuestionMapper(SqlSessionFactory factory) throws Exception{
-    	MapperFactoryBean<QuestionMapper> factoryBean = new MapperFactoryBean<QuestionMapper>(QuestionMapper.class);
-    	factoryBean.setSqlSessionFactory(factory);
-    	return factoryBean;
-   	}
-		
-	@Bean
-	public MapperFactoryBean<AnswerMapper> getAnswerMapper(SqlSessionFactory factory) throws Exception{
-		MapperFactoryBean<AnswerMapper> factoryBean = new MapperFactoryBean<AnswerMapper>(AnswerMapper.class);
-		factoryBean.setSqlSessionFactory(factory);
-		return factoryBean;
-	}
+       MapperFactoryBean<QuestionMapper> factoryBean = new MapperFactoryBean<QuestionMapper>(QuestionMapper.class);
+       factoryBean.setSqlSessionFactory(factory);
+       return factoryBean;
+      }
       
-	@Bean
-	public MapperFactoryBean<NoticeMapper> getNoticeMapper(SqlSessionFactory factory) throws Exception{
-		MapperFactoryBean<NoticeMapper> factoryBean = new MapperFactoryBean<NoticeMapper>(NoticeMapper.class);
-		factoryBean.setSqlSessionFactory(factory);
-		return factoryBean;
-	}
-		
-	@Bean
-	public MapperFactoryBean<ProductMapper> getProductMapper(SqlSessionFactory factory) throws Exception {
-	    MapperFactoryBean<ProductMapper> factoryBean = new MapperFactoryBean<ProductMapper>(ProductMapper.class);
-	    factoryBean.setSqlSessionFactory(factory);
-	    return factoryBean;
+   @Bean
+   public MapperFactoryBean<AnswerMapper> getAnswerMapper(SqlSessionFactory factory) throws Exception{
+      MapperFactoryBean<AnswerMapper> factoryBean = new MapperFactoryBean<AnswerMapper>(AnswerMapper.class);
+      factoryBean.setSqlSessionFactory(factory);
+      return factoryBean;
+   }
+      
+   @Bean
+   public MapperFactoryBean<NoticeMapper> getNoticeMapper(SqlSessionFactory factory) throws Exception{
+      MapperFactoryBean<NoticeMapper> factoryBean = new MapperFactoryBean<NoticeMapper>(NoticeMapper.class);
+      factoryBean.setSqlSessionFactory(factory);
+      return factoryBean;
+   }
+      
+   @Bean
+   public MapperFactoryBean<ProductMapper> getProductMapper(SqlSessionFactory factory) throws Exception {
+       MapperFactoryBean<ProductMapper> factoryBean = new MapperFactoryBean<ProductMapper>(ProductMapper.class);
+       factoryBean.setSqlSessionFactory(factory);
+       return factoryBean;
     }
 
-	@Bean
-	public MapperFactoryBean<OrderMapper> getOrderMapper(SqlSessionFactory factory) throws Exception{
-		MapperFactoryBean<OrderMapper> factoryBean = new MapperFactoryBean<OrderMapper>(OrderMapper.class);
-		factoryBean.setSqlSessionFactory(factory);
-		return factoryBean;
-	}
+   @Bean
+   public MapperFactoryBean<OrderMapper> getOrderMapper(SqlSessionFactory factory) throws Exception{
+      MapperFactoryBean<OrderMapper> factoryBean = new MapperFactoryBean<OrderMapper>(OrderMapper.class);
+      factoryBean.setSqlSessionFactory(factory);
+      return factoryBean;
+   }
 
-	@Bean
-	public MapperFactoryBean<CartMapper> getCartMapper(SqlSessionFactory factory) throws Exception{
-		MapperFactoryBean<CartMapper> factoryBean = new MapperFactoryBean<CartMapper>(CartMapper.class);
-		factoryBean.setSqlSessionFactory(factory);
-		return factoryBean;
-	}
-		
-	 @Bean
+   @Bean
+   public MapperFactoryBean<CartMapper> getCartMapper(SqlSessionFactory factory) throws Exception{
+      MapperFactoryBean<CartMapper> factoryBean = new MapperFactoryBean<CartMapper>(CartMapper.class);
+      factoryBean.setSqlSessionFactory(factory);
+      return factoryBean;
+   }
+      
+    @Bean
      public MapperFactoryBean<WishListMapper> getWishListMapper(SqlSessionFactory factory) throws Exception{
         MapperFactoryBean<WishListMapper> factoryBean = new MapperFactoryBean<WishListMapper>(WishListMapper.class);
         factoryBean.setSqlSessionFactory(factory);
         return factoryBean;
      }
 
-	 @Bean
-	  public MapperFactoryBean<ReviewMapper> getReviewMapper(SqlSessionFactory factory) throws Exception{
-	     MapperFactoryBean<ReviewMapper> factoryBean = new MapperFactoryBean<ReviewMapper>(ReviewMapper.class);
-	     factoryBean.setSqlSessionFactory(factory);
-	     return factoryBean;
-	    }
-	 
-	 @Bean
-	 public MapperFactoryBean<AdminMapper> getAdminMapper(SqlSessionFactory factory) throws Exception{
-		 MapperFactoryBean<AdminMapper> factoryBean = new MapperFactoryBean<AdminMapper>(AdminMapper.class);
-		 factoryBean.setSqlSessionFactory(factory);
-		 return factoryBean;
-	 }
+    @Bean
+    public MapperFactoryBean<ReviewMapper> getReviewMapper(SqlSessionFactory factory) throws Exception{
+       MapperFactoryBean<ReviewMapper> factoryBean = new MapperFactoryBean<ReviewMapper>(ReviewMapper.class);
+       factoryBean.setSqlSessionFactory(factory);
+       return factoryBean;
+    }
+    
+    @Bean
+    public MapperFactoryBean<AdminMapper> getAdminMapper(SqlSessionFactory factory) throws Exception{
+    	MapperFactoryBean<AdminMapper> factoryBean = new MapperFactoryBean<AdminMapper>(AdminMapper.class);
+    	factoryBean.setSqlSessionFactory(factory);
+    	return factoryBean;
+    }
 
-	@Bean
+   @Bean
     public ReloadableResourceBundleMessageSource messageSource() {
          ReloadableResourceBundleMessageSource res = new ReloadableResourceBundleMessageSource();
          
          res.setBasenames("/WEB-INF/properties/error_message");
          return res; 
-	}
+   }
        //Error
       //소스(MyBatis드라이버 정보)와 메세지(유효성 검사)를 분리하는 코드
-	@Bean
+   @Bean
     public static PropertySourcesPlaceholderConfigurer PropertySourcesPlaceholderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
     }
       
     @Bean
-	public StandardServletMultipartResolver multipartResolver() {
-		return new StandardServletMultipartResolver();
-	}
+   public StandardServletMultipartResolver multipartResolver() {
+      return new StandardServletMultipartResolver();
+   }
       //-----------------------------------------------------------------------------------------
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -219,12 +219,13 @@ public class ServletAppContext implements WebMvcConfigurer {
         InterceptorRegistration reg2=registry.addInterceptor(checkLoginInterceptor);
          
         reg2.addPathPatterns("/user_modify", "/user_logout", "/board_answer", "/board_write", "/notice_delete", "/notice_write",
-        		 			"/order");
+                        "/order");
         reg2.excludePathPatterns("/board_list", "/board_read", "/notice_list", "/notice_read"); //제외 : 로그인하지 않아도 이용할 수 있는 카테고리
-      
-    	CheckAdminInterceptor checkAdminInterceptor = new CheckAdminInterceptor(adminBean);
-    	InterceptorRegistration reg4 = registry.addInterceptor(checkAdminInterceptor);
+         
+    
+       CheckAdminInterceptor checkAdminInterceptor = new CheckAdminInterceptor(adminBean);
+       InterceptorRegistration reg4 = registry.addInterceptor(checkAdminInterceptor);
 
-    	reg4.addPathPatterns("admin_userlist", "admin_siteInfo");
+       reg4.addPathPatterns("admin_userlist", "admin_siteInfo");
     }
 }

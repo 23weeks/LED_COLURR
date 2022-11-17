@@ -92,7 +92,7 @@
 								<div class="blog-content-area no-sidebar">
 									<!-- 게시판 시작 -->
 									<h2 id="board_title" style="text-transform: uppercase;">${notice_type}</h2>
-									<table id='board_list' width=100% align="center">
+									<table id='board_list' style="width:1500px; margin-left:100px" >
 										<thead>
 											<tr id="board_content_info">
 												<th>글번호</th>

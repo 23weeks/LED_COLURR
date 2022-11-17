@@ -14,7 +14,7 @@
     <title>COLURR</title>
 
     <!--== Favicon ==-->
-    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="assets/img/prelogo.png" type="image/x-icon" />
 
     <!--== Google Fonts ==-->
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface:400" rel="stylesheet">
@@ -161,7 +161,7 @@
               </ul>
               <div class="tab-content product-description-tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="productDesc" role="tabpanel" aria-labelledby="product-desc-tab">
-                  <div class="product-desc">
+                  <div class="product-desc" style="width:1400px">
                     <div class="product-desc-row">
                       <img src="assets/img/product/${showProductBean.product_img2}"/>
                     </div>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<c:set var='root' value="${pageContext.request.contextPath}/"/>	
+<c:set var='root' value="${pageContext.request.contextPath}/"/>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,43 +83,36 @@
                     <div class="content" style="text-align:center">
                       
                       <form:form action="${root }notice_modify_pro" method="post" modelAttribute="modifyNoticeBean" enctype="multipart/form-data" style="text-align:center">
-                  		
-                  		<form:hidden path="notice_idx"/>
-                  		<form:hidden path="notice_type"/>
+                        
+                        <form:hidden path="notice_idx"/>
+                        <form:hidden path="notice_type"/>
                         
                         <input type="hidden" name='page' value='${page }'/>  
                         
                         <div class="form-group">
-                   		  <form:input path="notice_date" class="form-control" placeholder="작성날짜" readonly="true"/>
-                   		</div>
-                  		<p/>
+                           <form:input path="notice_date" class="form-control" placeholder="작성날짜" readonly="true"/>
+                         </div>
+                        <p/>
                         
                         <div class="form-group">
-                   		  <form:input path="notice_title" class="form-control"/>
-                   		  <form:errors path="notice_title" style="color:gray"/>
-                   		</div>
-                  		<p/>
+                           <form:input path="notice_title" class="form-control"/>
+                           <form:errors path="notice_title" style="color:gray"/>
+                         </div>
+                        <p/>
 
                         <div class="form-group">
-                   		  <form:textarea path="notice_context" class="form-control" rows="10" style="resize:none"></form:textarea>
-                   		  <form:errors path="notice_context" style="color:gray"/>
-                   		</div> 
-                   		<p/>
-                   		
-                  		<div class="form-group">
-                  			<c:if test='${modifyNoticeBean.notice_img != null }'>
-								<img src="${root }upload/${modifyNoticeBean.notice_img}" width="100%"/>	
-								<form:hidden path="notice_img"/>	<!-- 이미지 계속 떠있게 하는거  -->
-							</c:if>
-                    	  <%-- <form:input type="file" path="upload_file" class="form-control" accept="image/*"/> --%>
-                   		</div>
-                   		<p/>
-                   		<p/>
+                           <form:textarea path="notice_context" class="form-control" rows="10" style="resize:none"></form:textarea>
+                           <form:errors path="notice_context" style="color:gray"/>
+                         </div> 
+                         <p/>
+                         
+                         <p/>
+                         <p/>
                    
-                   		<div class="form-group">
-                    	  <form:button class="btn-theme btn btn-black" style="width:180px">작성하기</form:button>
-                    	  <a href="${root }notice_read?notice_type=${notice_type}&notice_idx=${notice_idx}&page=${page}" class="btn-theme btn btn-black" style="width:180px">취소</a>
-                   		</div>
+                         <div class="form-group">
+                         <form:button class="btn-theme btn btn-black" style="width:180px">작성하기</form:button>
+                         <a href="${root }notice_read?notice_type=${notice_type}&notice_idx=${notice_idx}&page=${page}" class="btn-theme btn btn-black" style="width:180px">취소</a>
+                         </div>
                       </form:form>
                       <!-- 여기 -->
                     

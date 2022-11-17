@@ -215,10 +215,10 @@ a:link {
                <div class="row">
                   <div class="col-sm-8">
                      <h3>
-                        User <b>Details</b>
+                        Product <b>Details</b>
                      </h3>
                   </div>
-                  <div class="col-sm-8">회원 관리</div>
+                  <div class="col-sm-8">상품 관리</div>
                   <div class="col-sm-4">
                      <div class="search-box">
                         
@@ -230,46 +230,43 @@ a:link {
                   <a href="${root }main" style="color:red"> Main으로 이동 </a> <br />
                </h4>
            		 전체 다시 불러오기 : 
-           		 <a href="${root}admin_userlist" class="replace" title="Replace" data-toggle="tooltip"><i class="material-icons">cached</i></a>
+           		 <a href="${root}admin_productlist" class="replace" title="Replace" data-toggle="tooltip"><i class="material-icons">cached</i></a>
             <div>
                <table class="table table-striped table-hover table-bordered">
                   <thead>
                      <tr>
                         <th>Idx</th>
-                        <th>Id</th>
                         <th>Name</th>
-                        <th>Grade</th>
-                        <th>Update Grade <i class="fa fa-sort"></i></th>
-                        <th>Phone</th>
+                        <th>Price</th>
+                        <th>Stock</th>
                         
                      </tr>
                   </thead>
                   <tbody>
-                     <c:forEach var="obj" items="${userList }" >
+                     <c:forEach var="obj" items="${productlist }" >
                         <tr>
-                           <td>${obj.user_idx }</td>
-                           <td>${obj.user_id }</td>
-                           <td>${obj.user_name }</td>
-                           <td>${obj.user_grade }</td>
-                           <td>
-							  <form:form method="post" action="${root}changeGrade" modelAttribute="changeUserGrade">
-							     <input type="hidden" name="user_idx" value="${obj.user_idx}">
-                                 <form:select path="user_grade" id="user_grade" >
-                                    <option value="Silver">Silver</option>
-                                    <option value="Gold">Gold</option>
-                                    <option value="Diamond">Diamond</option>
-                                 </form:select>
-                                 <button type="submit" style="width:30px; height:20px; font-size:10px; border:none; border-radius:5px; background-color:#d6cab8">OK</button>
-                              </form:form>
+                           <td>${obj.product_idx }</td>
+                           <td>${obj.product_name }</td>
+                           <td style="width: 30%">
+                             <form:form method="post" action="${root}changePrice" modelAttribute="changeProduct">
+							   <input type="hidden" name="product_idx" value="${obj.product_idx}">
+                               <input type="number" name="product_price" id="product_price" value="${obj.product_price }" >
+                               <button type="submit" style="width:30px; height:20px; font-size:10px; border:none; border-radius:5px; background-color:#d6cab8">OK</button>
+                             </form:form>
                            </td>
-                           
-                           <td>${obj.user_phone }</td>
+                           <td style="width: 30%">
+							  <form:form method="post" action="${root}changeStock" modelAttribute="changeProduct">
+							   <input type="hidden" name="product_idx" value="${obj.product_idx}">
+                               <input type="number" name="product_instock" id="product_instock" value="${obj.product_instock }" >
+                               <button type="submit" style="width:30px; height:20px; font-size:10px; border:none; border-radius:5px; background-color:#d6cab8">OK</button>
+                             </form:form>
+                           </td>
                         </tr>
                      </c:forEach>
                   </tbody>
                </table>
-            </div>
-         </div>
+            </div> 
+		</div>
       </div>
    </div>
    <!-- footer  -->

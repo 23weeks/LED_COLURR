@@ -14,7 +14,7 @@
     <title>COLURR</title>
 
     <!--== Favicon ==-->
-    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="assets/img/prelogo.png" type="image/x-icon" />
 
     <!--== Google Fonts ==-->
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface:400" rel="stylesheet">
@@ -43,10 +43,10 @@
     <link href="assets/css/slick.css" rel="stylesheet"/>
     <!--== Main Style CSS ==-->
     <link href="assets/css/style.css" rel="stylesheet" />
-	<!--== Pay JS -->
+   <!--== Pay JS -->
 </head>
-	<!-- PAY 버튼 -->
-	<script type="text/javascript" src="assets/js/pay.js"></script>
+   <!-- PAY 버튼 -->
+   <script type="text/javascript" src="assets/js/pay.js"></script>
 
 <!-- 아임포트 -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>

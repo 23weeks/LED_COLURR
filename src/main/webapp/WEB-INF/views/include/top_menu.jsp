@@ -47,10 +47,11 @@
                   </ul>
                 </li>
                 <c:choose>
-                  <c:when test="${loginUserBean.user_idx == 1 && loginUserBean.userLogin == true}">
+                  <c:when test="${loginUserBean.user_idx == 1 && loginUserBean.userLogin == true }">
                     <li class="has-submenu"><a href="#none">Admin</a>
                       <ul class="submenu-nav">
                         <li><a href="${root }admin_userlist">User List</a></li>
+                        <li><a href="${root }admin_productlist">Product List</a></li>
                       </ul>
                     </li>
                   </c:when>
