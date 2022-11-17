@@ -180,7 +180,7 @@
 										</nav>
 									</div>
 														<c:choose>
-															<c:when test="${admin_idx == 1 }">
+															<c:when test="${admin_idx == 1 && loginUserBean.userLogin == true}">
 																<a class="btn-theme btn-black"
 																	href="${root }notice_write?notice_type=${notice_type}">글쓰기</a>
 															</c:when>
