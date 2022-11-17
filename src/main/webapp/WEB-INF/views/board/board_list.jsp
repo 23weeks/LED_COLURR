@@ -53,7 +53,7 @@
 
   <main class="main-content">
     <!--== Start Page Title Area ==-->
-    <section class="page-title-area bg-img" data-bg-img="assets/img/photos/bg-page1.jpg">
+    <section class="page-title-area bg-img" data-bg-img="assets/img/photos/m4.jpg">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -91,8 +91,8 @@
                 
             <table id='board_list'>
                <thead>
-                  <tr id="board_content_info">
-                     <th>글번호</th>
+                  <tr id="board_content_info"  style="font-size:30px;">
+                     <th>답변상태</th>
                      <th>제목</th>
                      <th>작성자</th>
                      <th>작성날짜</th>
@@ -102,8 +102,8 @@
                <tbody>
                  
                    <c:forEach var='obj' items="${questionList }">
-	                 <tr id="board_content">
-	                   <td>${obj.question_idx }</td>
+	                 <tr id="board_content"  style="font-size:20px;">
+	                   <td>${obj.question_type }</td>
 	                   <td><a href="${root }board_read?question_idx=${obj.question_idx}&page=${page}">${obj.question_title }</a></td>
 	                   <td>${obj.user_name }</td>
 	                   <td>${obj.question_date }</td>

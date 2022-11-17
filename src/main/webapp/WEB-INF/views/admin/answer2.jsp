@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var='root' value="${pageContext.request.contextPath}/"/> 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,19 +48,19 @@
 <body>
 
 <!--wrapper start-->
+  <c:import url="/WEB-INF/views/include/top_menu.jsp"></c:import>
 <div class="wrapper page-blog-wrapper">
 
-  <c:import url="/WEB-INF/views/include/top_menu.jsp"></c:import>
   
   <main class="main-content">
     <!--== Start Page Title Area ==-->
-    <section class="page-title-area bg-img" data-bg-img="assets/img/photos/m4.jpg">
+    <section class="page-title-area bg-img" data-bg-img="assets/img/photos/m3.jpg">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="page-title-content">
-              <h2 class="title">My Page</h2>
-              <div class="bread-crumbs"><a href="#none">Q&A<span class="breadcrumb-sep">></span></a><a href="${root }admin_qnaList">List</a><span class="breadcrumb-sep">></span><span class="active">Blog Details</span></div>
+              <h2 class="title">Blog</h2>
+              <div class="bread-crumbs"><a href="${root }main">Home<span class="breadcrumb-sep">></span></a><a href="${root }board_list">Q&A</a><span class="breadcrumb-sep">></span><span class="active">Blog Details</span></div>
             </div>
           </div>
         </div>
@@ -74,52 +75,90 @@
           <div class="col-12">
             <div class="blog-content-column">
               <div class="blog-content-area no-sidebar">
-                <div class="post-details-content">
-                  <div class="post-details-body">
-                    <div class="content" style="text-align:center">
-                      
-                      <!-- 여기 -->
-                      <div class="category">
-                      <c:if test="${readAnswerBean.answer_content != null }">
-                      <a href="${root }admin_answer?question_idx=${question_idx}&page=${page}">답변확인</a>  
-                      </c:if>
-                      </div>
-                      	
-                      <p/>
-                      
-                     <label for="question_title" >${readQuestionBean.question_title }</label><p/>
-                     <label for="writer" style="font-size: 14px">${readQuestionBean.user_name } </label><p/>
-                     <label for="question_date" style="font-size: 14px">${readQuestionBean.question_date } </label><p/>
-                      <hr />
-                     <label for="question_content">${readQuestionBean.question_content }</label>
-                     
-                      <p class="m-0"></p>
-                  <hr />
-                	   <div style="text-align:center" >
-                          <a href="${root}admin_qnalist" class="btn-theme btn btn-black" >목록보기</a> 
-	                    </div>
+									<div class="post-details-content">
+										<div class="post-details-body">
+
+											<h2 style="text-align: center">답변완료</h2>
+											<p />
+
+											<div class="content" style="text-align: left">
+												<input type="hidden" name='question_idx'
+													value='${question_idx }' />
+
+												<!-- 여기 -->
+												<div class="content" style="text-align: center">
+
+													<label for="question_title">${readQuestionBean.question_title }</label>
+													<p />
+													<label for="writer" style="font-size: 14px">${readQuestionBean.user_name }
+													</label>
+													<p />
+													<label for="question_date" style="font-size: 14px">${readQuestionBean.question_date }
+													</label>
+													<p />
+													<hr />
+													<label for="question_content">${readQuestionBean.question_content }</label>
+
+													<p class="m-0"></p>
+
+													<%-- </c:forEach> --%>
+
+												</div>
+												<hr />
+												<form:form action="${root }admin_answer_pro" method="post"
+													modelAttribute="writeAnswerBean">
+													<input type="hidden" name="question_idx" value="${question_idx}">
+													<div class="comments-area" style="margin: 30px">
+														<h2>답변 작성</h2>
+														<div class="comments-form-wrap">
+															<div class="clearfix"></div>
+
+															<div class="comments-form-content">
+																<div class="row row-gutter-20">
+																	<div class="col-md-12">
+																		<div class="form-group">
+
+																			<label for="answer_content">${writeAnswerBean.answer_content }</label>
+
+																			<input type="text" name="answer_content" class="form-control" style="resize:none; height:200px">
+
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+
+
+													  </div>
+													<div class="col-md-12">
+													  <p>
+													  <div class="form-group">
+														<div style="text-align: center">
+																
+														</div>
+													  </div>
+													</div>
+												  <button type="submit" class="btn-theme btn btn-black" style="width: 140px">확인</button>
+												</form:form>
+											</div>
+										</div>
+									</div>
+
+								</div>
+                        
+                      		</div>
+                     	</div>
                     </div>
-                    
-                    <div style="text-align:right" >
-                      
-                    	<a href="${root }admin_answer2?question_idx=${question_idx}">답글달기</a>
-                     </div>
-               
-                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+                 	</section>
+                </div>
+              
+         
     <!--== End Blog Area Wrapper ==-->
 
-  </main>
-
+ 
   <c:import url="/WEB-INF/views/include/bottom_info.jsp"></c:import>
-  
-</div>
 
 <!--=======================Javascript============================-->
 

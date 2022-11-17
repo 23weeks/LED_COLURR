@@ -55,7 +55,7 @@
   
   <main class="main-content">
     <!--== Start Page Title Area ==-->
-    <section class="page-title-area bg-img" data-bg-img="assets/img/photos/bg-page5.jpg">
+    <section class="page-title-area bg-img" data-bg-img="assets/img/photos/mp.png">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">

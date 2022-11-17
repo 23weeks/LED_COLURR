@@ -55,7 +55,7 @@
 
   <main class="main-content site-wrapper-reveal">
     <!--== Start Page Title Area ==-->
-    <section class="page-title-area bg-img" data-bg-img="assets/img/photos/bg-page5.jpg">
+    <section class="page-title-area bg-img" data-bg-img="assets/img/photos/m2.jpg">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -115,7 +115,6 @@
             </div>
             <div class="coupon-action">
               <button class="button" onclick="location.href='${root}cart_deleteAll'" style="text-align:left">Delete All</button>
-              <button class="button" onclick="location.href='${root}'" style="text-align:right; margin-right:30px">Update cart</button>
             </div>
           </div>
           <div class="col-lg-4">

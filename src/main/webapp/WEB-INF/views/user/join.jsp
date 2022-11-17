@@ -204,7 +204,7 @@ function chk_agree(){
   
   <main class="main-content">
     <!--== Start Page Title Area ==-->
-    <section class="page-title-area bg-overlay-black2-6 bg-img" data-bg-img="assets/img/photos/bg-page2.jpg">
+    <section class="page-title-area bg-overlay-black2-6 bg-img" data-bg-img="assets/img/photos/pay.png">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">

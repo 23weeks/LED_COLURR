@@ -6,6 +6,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.led.beans.AnswerBean;
 import kr.co.led.beans.ProductBean;
 import kr.co.led.beans.QuestionBean;
 import kr.co.led.beans.UserBean;
@@ -52,4 +53,7 @@ public class AdminDao {
 		return adminMapper.getAllQuestion();
 	}
 	
+	public AnswerBean getAnswerInfo(int question_idx) {
+		return adminMapper.getAnswerInfo(question_idx);
+	}
 }

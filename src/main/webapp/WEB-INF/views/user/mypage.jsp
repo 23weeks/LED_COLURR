@@ -54,7 +54,7 @@
   
   <main class="main-content">
     <!--== Start Page Title Area ==-->
-    <section class="page-title-area bg-img" data-bg-img="assets/img/photos/bg-page1.jpg">
+    <section class="page-title-area bg-img" data-bg-img="assets/img/photos/pay.png">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -85,9 +85,10 @@
                             <img src="assets/img/mypage/user.png" style="width:120px; margin-bottom:20px"/><br />
                             <h6>회원정보 수정</h6>
                           </td>
-                          <td onclick="location.href='${root}main'">
-                            <img src="assets/img/mypage/coupon.png" style="width:120px; margin-bottom:20px"/><br />
-                            <h6>쿠폰</h6>
+                          <td>
+                            <h6 style="font-size:20px; font-weight:bold">환영합니다</h6><br />
+                            <h6 style="font-size:20px; font-weight:bold; color:#CE77EB">${showUserInfo.user_name}</h6><br />
+                            <h6 style="font-size:20px; font-weight:bold"> 회원님!</h6>
                           </td>
                           <td onclick="location.href='${root}wishlist'">
                             <img src="assets/img/mypage/wishlist.png" style="width:120px; margin-bottom:20px"/><br />
@@ -98,9 +99,10 @@
                             <img src="assets/img/mypage/cart.png" style="width:120px; margin-bottom:20px"/><br />
                             <h6>장바구니</h6>
                           </td>
-                          <td onclick="location.href='${root}main'">
-                            <img src="assets/img/mypage/order.png" style="width:120px; margin-bottom:20px"/><br />
-                            <h6>주문내역</h6>
+                          <td>
+                            <h6 style="font-size:20px; font-weight:bold">회원님의 등급은</h6><br />
+                            <h6 style="font-size:20px; font-weight:bold; color:#CE77EB">${showUserInfo.user_grade}</h6><br />
+                            <h6 style="font-size:20px; font-weight:bold">입니다</h6>
                           </td>
                           <td onclick="location.href='${root}board_list'">
                             <img src="assets/img/mypage/qna.png" style="width:120px; margin-bottom:20px"/><br />

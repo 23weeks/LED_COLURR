@@ -42,6 +42,11 @@ public class AnswerDao {
 		answerMapper.modifyAnswerInfo(modifyAnswerBean);	
 	}
 	
+	public void modifyQuestionType(int question_idx) {
+		
+		answerMapper.modifyQuestionType(question_idx);	
+	}
+	
 	//ªË¡¶
 	public void deleteAnswerInfo(int answer_idx) {
 		

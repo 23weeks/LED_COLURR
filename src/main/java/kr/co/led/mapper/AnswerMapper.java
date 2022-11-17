@@ -35,6 +35,11 @@ public interface AnswerMapper {
 			"where question_idx=#{question_idx}")
 	void modifyAnswerInfo(AnswerBean modifyAnswerBean);
 	
+	@Update("update question " +
+			"set question_type= '답변 완료' " +
+			"where question_idx=#{question_idx}")
+	void modifyQuestionType(int question_idx);
+	
 	//삭제
 	@Delete("delete from answer " +
 			"where answer_idx=#{answer_idx}")

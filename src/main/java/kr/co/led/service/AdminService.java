@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import kr.co.led.beans.AnswerBean;
 import kr.co.led.beans.PageBean;
 import kr.co.led.beans.ProductBean;
 import kr.co.led.beans.QuestionBean;
@@ -42,5 +43,9 @@ public class AdminService {
 	
 	public List<QuestionBean> getAllQuestion() {
 		return adminDao.getAllQuestion();
+	}
+	
+	public AnswerBean getAnswerInfo(int question_idx) {
+		return adminDao.getAnswerInfo(question_idx);
 	}
 }

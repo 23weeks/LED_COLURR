@@ -31,16 +31,10 @@ public class AnswerService {
     	answerDao.addAnswerInfo(writeAnswerBean);
     }
     
-   
-    
-	
 	public List<AnswerBean> answerlist() {
 		List<AnswerBean> answerlist = answerDao.getanswerList();
 		return answerlist;
 	}
-	
-	
-	
 	
 	public AnswerBean getAnswerInfo(int question_idx) {
 		return answerDao.getAnswerInfo(question_idx);
@@ -51,11 +45,14 @@ public class AnswerService {
 		answerDao.modifyAnswerInfo(modifyAnswerBean);
 	}
 	
+	public void modifyQuestionType(int question_idx) {
+		answerDao.modifyQuestionType(question_idx);	
+	}
+	
 	//ªË¡¶
 	public void deleteAnswerInfo(int answer_idx) {
 		answerDao.deleteAnswerInfo(answer_idx);
 	}
 	
 	
-
 }

@@ -14,8 +14,8 @@
         <div class="col-4 col-xs-3 col-sm-3 col-md-3 col-xl-2 col-xxl-3">
           <div class="header-logo-area">
             <a href="${root }main">
-              <img class="logo-main" src="assets/img/logo-main.png" alt="Logo" width="280"  />
-              <img class="logo-light" src="assets/img/logo-main.png" alt="Logo"  />
+              <img class="logo-main" src="assets/img/logo_realmain.png" alt="Logo" width="280"  />
+              <img class="logo-light" src="assets/img/logo_realmain.png" alt="Logo"  />
             </a>
           </div>
         </div>
@@ -23,7 +23,7 @@
           <div class="header-align">
             <div class="header-navigation-area">
               <ul class="main-menu nav justify-content-center position-relative">
-                <li><a href="${root}main" style="font-size:28px;">About</a></li>
+                <li><a href="${root}about" style="font-size:28px;">About</a></li>
                 <li class="has-submenu"><a href="${root}product_list?product_gender=Men" style="font-size:28px;">Men</a>
                   <ul class="submenu-nav">
                     <li><a href="${root}product_type_list?product_gender=Men&product_colortype=Spring_Warm">Spring Warm</a></li>

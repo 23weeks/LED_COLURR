@@ -3,16 +3,18 @@ package kr.co.led.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import kr.co.led.beans.PageBean;
+import kr.co.led.beans.AnswerBean;
 import kr.co.led.beans.ProductBean;
 import kr.co.led.beans.QuestionBean;
 import kr.co.led.beans.UserBean;
@@ -88,5 +90,56 @@ public class AdminController {
 		
 		model.addAttribute("qnaList", qnaList);
 		return "admin/qnaList";
+	}
+	
+	
+	@GetMapping("/admin_answer")
+	public String answer(@ModelAttribute("writeAnswerBean") AnswerBean writeAnswerBean,
+			@RequestParam("question_idx") int question_idx, Model model) {
+
+		QuestionBean readQuestionBean = questionService.getQuestionInfo(question_idx);
+		model.addAttribute("readQuestionBean", readQuestionBean);
+		model.addAttribute("question_idx", question_idx);
+		// model.addAttribute("answer_content", writeAnswerBean);// 왜 이렇게 사용하는 지 이해할 것!
+
+		writeAnswerBean.getAnswer_content();
+
+		return "admin/answer";
+	}
+	
+	@PostMapping("/admin_answer_pro")
+	public String answer_pro(@ModelAttribute("writeAnswerBean") AnswerBean writeAnswerBean,
+			@RequestParam("question_idx") int question_idx, Model model) {
+		
+		model.addAttribute("question_idx", question_idx);
+		QuestionBean readQuestionBean = questionService.getQuestionInfo(question_idx);
+		model.addAttribute("readQuestionBean", readQuestionBean);
+
+		answerService.answerlist();
+		writeAnswerBean.setQuestion_idx(question_idx);
+		answerService.modifyQuestionType(question_idx);
+		answerService.addAnswerInfo(writeAnswerBean);
+
+		return "admin/answer_success";
+
+	}
+	
+	@GetMapping("/admin_answer2")
+	public String answer2(@RequestParam("question_idx") int question_idx, Model model) {
+		// @RequestParam("answer_idx") int answer_idx,
+		// @ModelAttribute("modifyAnswerBean") AnswerBean modifyAnswerBean, Model model)
+		// {
+
+		AnswerBean readAnswerBean = answerService.getAnswerInfo(question_idx);
+		QuestionBean readQuestionBean = questionService.getQuestionInfo(question_idx);
+
+		model.addAttribute("readQuestionBean", readQuestionBean);
+		model.addAttribute("readAnswerBean", readAnswerBean);
+		model.addAttribute("question_idx", question_idx);
+		// model.addAttribute("answer_content", writeAnswerBean);// 왜 이렇게 사용하는 지 이해할 것!
+
+		// writeAnswerBean.getAnswer_content();
+
+		return "admin/answer2";
 	}
 }

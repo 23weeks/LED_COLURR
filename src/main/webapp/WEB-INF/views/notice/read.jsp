@@ -13,7 +13,7 @@
 <title>COLURR</title>
 
 <!--== Favicon ==-->
-<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="assets/img/prelogo.png" type="image/x-icon" />
 
 <!--== Google Fonts ==-->
 <link href="https://fonts.googleapis.com/css?family=Abril+Fatface:400" rel="stylesheet">
@@ -55,7 +55,7 @@
   
   <main class="main-content">
     <!--== Start Page Title Area ==-->
-    <section class="page-title-area bg-img" data-bg-img="assets/img/photos/bg-page1.jpg">
+    <section class="page-title-area bg-img" data-bg-img="assets/img/photos/m4.jpg">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -100,10 +100,10 @@
                       <hr />
                          
                      <!-- 내용 -->   
-                     <p style="width:200px"> </p>
-                     <textarea>${readNoticeBean.notice_context }</textarea>         
-                      <p class="notice_context"></p>
-                      <hr />
+                    <!--  <p style="width:200px"> </p> -->
+                     <textarea style="width:100%; height:500px; border:none; class:notice_context; resize:none; overflow:hidden; spellcheck:false; leter-spacing" readonly="true">${readNoticeBean.notice_context }</textarea>         
+                     <!--  <p >text-align:center; </p> -->
+                   <hr /> 
                      
                      
                      

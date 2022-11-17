@@ -136,8 +136,16 @@ public class UserController {
    }
 
    @GetMapping("/mypage")
-   public String mypage() {
-	   return "user/mypage";
+   public String mypage(Model model) {
+      
+      UserBean showUserInfo = new UserBean();
+      
+      showUserInfo.setUser_name(loginUserBean.getUser_name());
+      showUserInfo.setUser_grade(loginUserBean.getUser_grade());
+      
+      model.addAttribute("showUserInfo", showUserInfo);
+      
+      return "user/mypage";
    }
 
    @GetMapping("/logout")

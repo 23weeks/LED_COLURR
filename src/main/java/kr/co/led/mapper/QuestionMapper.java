@@ -12,21 +12,18 @@ import org.apache.ibatis.session.RowBounds;
 import kr.co.led.beans.QuestionBean;
 
 public interface QuestionMapper {
-
 	
 	@SelectKey(statement="select question_seq.nextval from dual", keyProperty = "question_idx", before=true, resultType=int.class)
 	//jdbcType=VARCHAR : 이미지를 입력하지 않았을때 null값이 아닌 error가 발생하므로 varchar로 항상 설정한다.
 	@Insert("insert into question(question_idx, user_idx, question_type, question_title, question_content, question_date) " +
-			"values (#{question_idx}, #{user_idx}, #{question_type, jdbcType=VARCHAR}, #{question_title}, #{question_content}, sysdate)")
+			"values (#{question_idx}, #{user_idx}, '답변대기', #{question_title}, #{question_content}, sysdate)")
 	void addQuestionInfo(QuestionBean writeQuestionBean);
 	
-	
 	//게시판 모두 가져오기
-	@Select("select question_idx, question_title, ut.user_name as user_name, to_char(question_date, 'yyyy-mm-dd') as question_date " +
+	@Select("select question_idx, question_title, ut.user_name as user_name, question_type, to_char(question_date, 'yyyy-mm-dd') as question_date " +
             "from question qt, user_table ut "
             + "where qt.user_idx=ut.user_idx and qt.user_idx = #{user_idx}")
 	List<QuestionBean> getQuestionList(int user_idx, RowBounds rowBounds);
-	
 	
 	//게시판 하나 가져오기
 	@Select("select to_char(qt.question_date, 'yyyy-mm-dd') as question_date, "

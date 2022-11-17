@@ -3,6 +3,6 @@
 <c:set var='root' value="${pageContext.request.contextPath}/"/>
 
 <script>
-	alert('장바구니에 추가했습니다.')
-	history.go(-1)
+   alert('장바구니에 상품이 추가되었습니다.')
+   location.href='${root}wishlist'
 </script>

@@ -2,10 +2,13 @@ package kr.co.led.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.session.RowBounds;
 
+import kr.co.led.beans.AnswerBean;
 import kr.co.led.beans.ProductBean;
 import kr.co.led.beans.QuestionBean;
 import kr.co.led.beans.UserBean;
@@ -50,9 +53,23 @@ public interface AdminMapper {
    //=============================================
    
    //1대1문의 전체 끌어오기
-   @Select("select question_idx, question_title, ut.user_name as user_name, to_char(question_date, 'yyyy-mm-dd') as question_date "
+   @Select("select question_idx, question_title, question_type, ut.user_name as user_name, to_char(question_date, 'yyyy-mm-dd') as question_date "
    		+ "from question qt, user_table ut "
-   		+ "where qt.user_idx = ut.user_idx "
+   		+ "where qt.user_idx = ut.user_idx and question_type = '답변대기' "
    		+ "order by question_idx desc")
    List<QuestionBean> getAllQuestion();
+   
+   @Select("select answer_idx, question_idx, answer_content "
+			+ "from answer "
+			+ "where question_idx = #{question_idx}")
+	AnswerBean getAnswerInfo(int question_idx);
+   
+   //-------------------------미구현----------------
+   @SelectKey(statement="select answer_seq.nextval from dual", keyProperty = "answer_idx", before=true, resultType=int.class)
+	@Insert("insert into answer(answer_idx, question_idx, answer_content) " +
+			"values (#{answer_idx}, #{question_idx}, #{answer_content})")
+   void addAnswerInfo(AnswerBean writeAnswerBean);
+   
+
+   
 }

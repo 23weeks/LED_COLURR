@@ -52,14 +52,15 @@
   <c:import url="/WEB-INF/views/include/top_menu.jsp"></c:import>
   
   <main class="main-content">
+  
     <!--== Start Page Title Area ==-->
-    <section class="page-title-area bg-img" data-bg-img="assets/img/photos/m4.jpg">
+ <section class="page-title-area bg-img" data-bg-img="assets/img/photos/m3.jpg">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="page-title-content">
-              <h2 class="title">My Page</h2>
-              <div class="bread-crumbs"><a href="#none">Q&A<span class="breadcrumb-sep">></span></a><a href="${root }admin_qnaList">List</a><span class="breadcrumb-sep">></span><span class="active">Blog Details</span></div>
+              <h2 class="title">About</h2>
+              <div class="bread-crumbs"><a href="index.html">About</a></div>
             </div>
           </div>
         </div>
@@ -67,45 +68,66 @@
     </section>
     <!--== End Page Title Area ==-->
 
-    <!--== Start Blog Area Wrapper ==-->
-    <section class="blog-details-area">
+    <!--== Start Video Divider Area Wrapper ==-->
+    <section class="divider-area divider-about-area-style2">
       <div class="container">
         <div class="row">
-          <div class="col-12">
-            <div class="blog-content-column">
-              <div class="blog-content-area no-sidebar">
-                <div class="post-details-content">
-                  <div class="post-details-body">
-                    <div class="content" style="text-align:center">
-                      
-                      <!-- 여기 -->
-                      <div class="category">
-                      <c:if test="${readAnswerBean.answer_content != null }">
-                      <a href="${root }admin_answer?question_idx=${question_idx}&page=${page}">답변확인</a>  
-                      </c:if>
-                      </div>
-                      	
-                      <p/>
-                      
-                     <label for="question_title" >${readQuestionBean.question_title }</label><p/>
-                     <label for="writer" style="font-size: 14px">${readQuestionBean.user_name } </label><p/>
-                     <label for="question_date" style="font-size: 14px">${readQuestionBean.question_date } </label><p/>
-                      <hr />
-                     <label for="question_content">${readQuestionBean.question_content }</label>
-                     
-                      <p class="m-0"></p>
-                  <hr />
-                	   <div style="text-align:center" >
-                          <a href="${root}admin_qnalist" class="btn-theme btn btn-black" >목록보기</a> 
-	                    </div>
-                    </div>
-                    
-                    <div style="text-align:right" >
-                      
-                    	<a href="${root }admin_answer2?question_idx=${question_idx}">답글달기</a>
-                     </div>
+          <div class="col-md-6 col-lg-7">
+            <div class="divider-about-thumb">
+              <div class="video-content">
+                <div class="thumb">
+                  <img src="assets/img/photos/m2.jpg" alt="Moren-Image">
+                  <a class="btn-play play-video-popup" href="https://www.youtube.com/watch?v=MLpWrANjFbI">
+                 
                
-                  </div>
+               
+               
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-5">
+            <div class="divider-about-content">
+              <div class="divider-content">
+                <h2 class="title">Welcome to COLURR</h2>
+                <p>'COLURR'는 개인의 퍼스널 컬러에 맞는 세트 코디 상품을 추천해주는 쇼핑몰입니다. 봄,여름,가을,겨울 4계절 컬러 타입으로 구분되어 본인에게 어울리는 컬러의 상품을 선택할 수 있습니다. 모던한 스타일의 쇼핑몰로 일상속에서 꾸안꾸룩으로 연출하기 좋은 아이템들 위주로 추천을 해줍니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Video Divider Area Wrapper ==-->
+
+    <!--== Start Brand Logo Area ==-->
+    <section class="brand-logo-area brand-logo-style1-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-lg-6 m-auto">
+            <div class="section-title text-center">
+              <h2 class="title">Our Partners</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-lg-12">
+            <div class="swiper-container brand-logo-slider-container">
+              <div class="swiper-wrapper brand-logo-slider">
+                <div class="swiper-slide brand-logo-item">
+                  <a href="#/"><img src="assets/img/brand-logo/1.webp" alt="Brand-Logo"></a>
+                </div>
+                <div class="swiper-slide brand-logo-item">
+                  <a href="#/"><img src="assets/img/brand-logo/2.webp" alt="Brand-Logo"></a>
+                </div>
+                <div class="swiper-slide brand-logo-item">
+                  <a href="#/"><img src="assets/img/brand-logo/3.webp" alt="Brand-Logo"></a>
+                </div>
+                <div class="swiper-slide brand-logo-item">
+                  <a href="#/"><img src="assets/img/brand-logo/4.webp" alt="Brand-Logo"></a>
+                </div>
+                <div class="swiper-slide brand-logo-item">
+                  <a href="#/"><img src="assets/img/brand-logo/5.webp" alt="Brand-Logo"></a>
                 </div>
               </div>
             </div>
@@ -113,8 +135,9 @@
         </div>
       </div>
     </section>
-    <!--== End Blog Area Wrapper ==-->
+    <!--== End Brand Logo Area ==-->
 
+    
   </main>
 
   <c:import url="/WEB-INF/views/include/bottom_info.jsp"></c:import>

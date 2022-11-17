@@ -66,7 +66,7 @@
             <div class="swiper-slide">
               <!-- Start Slide Item -->
               <div class="home-slider-item">
-                <div class="bg-thumb bg-overlay bg-img" data-bg-img="assets/img/slider/m4.jpg"></div>
+                <div class="bg-thumb bg-overlay bg-img" data-bg-img="assets/img/photos/m4.jpg"></div>
                 <div class="slider-content-area">
                   <div class="container">
                     <div class="row align-items-center">
@@ -87,7 +87,7 @@
             <div class="swiper-slide">
               <!-- Start Slide Item -->
               <div class="home-slider-item">
-                <div class="bg-thumb bg-overlay bg-img" data-bg-img="assets/img/slider/m2.jpg"></div>
+                <div class="bg-thumb bg-overlay bg-img" data-bg-img="assets/img/photos/m2.jpg"></div>
                 <div class="slider-content-area">
                   <div class="container">
                     <div class="row align-items-center">
@@ -108,7 +108,7 @@
             <div class="swiper-slide">
               <!-- Start Slide Item -->
               <div class="home-slider-item">
-                <div class="bg-thumb bg-overlay bg-img" data-bg-img="assets/img/slider/m3.jpg"></div>
+                <div class="bg-thumb bg-overlay bg-img" data-bg-img="assets/img/photos/m3.jpg"></div>
                 <div class="slider-content-area">
                   <div class="container">
                     <div class="row align-items-center">

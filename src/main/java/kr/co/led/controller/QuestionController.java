@@ -80,7 +80,6 @@ public class QuestionController {
 		modifyQuestionBean.setQuestion_date(tempQuestionBean.getQuestion_date());
 		modifyQuestionBean.setQuestion_title(tempQuestionBean.getQuestion_title());
 		modifyQuestionBean.setQuestion_content(tempQuestionBean.getQuestion_content());
-		modifyQuestionBean.setQuestion_img(tempQuestionBean.getQuestion_img());
 		modifyQuestionBean.setUser_idx(tempQuestionBean.getUser_idx());
 
 		modifyQuestionBean.setQuestion_idx(question_idx);
@@ -170,7 +169,7 @@ public class QuestionController {
 	public String answer2(@RequestParam("page") int page, @RequestParam("question_idx") int question_idx, Model model) {
 		// @RequestParam("answer_idx") int answer_idx,
 		// @ModelAttribute("modifyAnswerBean") AnswerBean modifyAnswerBean, Model model)
-		// {
+		// 
 
 		AnswerBean readAnswerBean = answerService.getAnswerInfo(question_idx);
 		QuestionBean readQuestionBean = questionService.getQuestionInfo(question_idx);

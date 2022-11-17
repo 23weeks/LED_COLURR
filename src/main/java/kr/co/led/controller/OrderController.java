@@ -82,8 +82,12 @@ public class OrderController {
 	}
 
 	@GetMapping("checkout_complete")
-	public String checkout_complete() {
-		return "order/checkout_complete";
-	}
+	   public String checkout_complete() {
+	      
+	      int user_idx=loginUserBean.getUser_idx();
+	      cartService.deleteCartAll(user_idx);
+	      
+	      return "order/checkout_complete";
+	   }
 
 }

@@ -13,7 +13,7 @@
 <title>COLURR</title>
 
 <!--== Favicon ==-->
-<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="assets/img/prelogo.png" type="image/x-icon" />
 
 <!--== Google Fonts ==-->
 <link href="https://fonts.googleapis.com/css?family=Abril+Fatface:400" rel="stylesheet">
@@ -78,8 +78,8 @@
                 <div class="post-details-content">
                   <div class="post-details-body">
                     
-                      <h2 style="text-align:center">답변완료</h2><p/>
-					
+                      <h2 style="text-align:center">답변 대기</h2><p/>
+               
                     <div class="content" style="text-align:left">
                     <input type="hidden" name='page' value='${page }'/>
                     <input type="hidden" name='question_idx' value='${question_idx }'/>
@@ -88,28 +88,20 @@
                       <div class="content" style="text-align:center">
                   
                      <label for="question_title" >${readQuestionBean.question_title }</label><p/>
-                     <label for="writer" style="font-size: 14px">${readQuestionBean.writer_name } </label><p/>
+                     <label for="writer" style="font-size: 14px">${readQuestionBean.user_name } </label><p/>
                      <label for="question_date" style="font-size: 14px">${readQuestionBean.question_date } </label><p/>
                       <hr />
                      <label for="question_content">${readQuestionBean.question_content }</label>
                      
-                      <c:if test="${readQuestionBean.question_img != null }">
-                      <ul class="meta">
-                        <li class="question_img">첨부 이미지</li>
-                        <li> | </li>
-                        <li><img src="${root }upload/${readQuestionBean.question_img}" width="20%"/></li>
-                      </ul>
-                      </c:if>
-                      
                       <p class="m-0"></p>
                      
                       <%-- </c:forEach> --%>
-	
+   
                     </div>
                      <hr />
                     <div class="comments-area" style="margin:30px">
                     
-                      <h2>답변 작성</h2>
+                      <h2>답변 내용</h2>
                       <div class="comments-form-wrap">
                         <div class="clearfix"></div>
                         
@@ -132,8 +124,8 @@
                               <p>
                               <div class="form-group">
                                 <div style="text-align:center" >
-                          			<a href="${root }board_list" class="btn-theme btn btn-black" style="width:140px">확인하기</a> 
-                          			
+                                   <a href="${root }board_list" class="btn-theme btn btn-black" style="width:140px">돌아가기</a> 
+                                   
                                 
                                 </div>
                                 </div>
