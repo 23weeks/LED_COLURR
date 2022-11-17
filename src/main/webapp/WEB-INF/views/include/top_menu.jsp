@@ -47,7 +47,7 @@
                   </ul>
                 </li>
                 <c:choose>
-                  <c:when test="${loginUserBean.user_idx == 1}">
+                  <c:when test="${loginUserBean.user_idx == 1 && loginUserBean.userLogin == true}">
                     <li class="has-submenu"><a href="#none">Admin</a>
                       <ul class="submenu-nav">
                         <li><a href="${root }admin_userlist">User List</a></li>

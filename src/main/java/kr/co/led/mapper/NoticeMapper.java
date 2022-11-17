@@ -19,9 +19,9 @@ public interface NoticeMapper {
 	//글작성 writeNotice
 	//★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★admin_id 1로 적어놓음 ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
 	@Insert ("insert into notice (notice_idx, notice_type, notice_title, "
-			+ "notice_context, notice_img, admin_id, notice_date) "
+			+ "notice_context, notice_img, notice_date) "
 			+ "values (#{notice_idx}, #{notice_type}, #{notice_title}, "
-			+ "#{notice_context}, #{notice_img, jdbcType=VARCHAR}, #{admin_id}, sysdate)")
+			+ "#{notice_context}, #{notice_img, jdbcType=VARCHAR}, sysdate)")
 			//유저 연동전
 			//+ "#{notice_context}, #{notice_img, jdbcType=VARCHAR}, 1, sysdate)")
 	void addNoticeInfo(NoticeBean writeNoticeBean);
@@ -29,10 +29,10 @@ public interface NoticeMapper {
 	
 	
 	//notice 리스트 보기 
-	//★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★admin_id='1'로 적어놓음 수정예정 ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
-	@Select("select a1.notice_idx, a1.notice_title, a2.user_name as admin_id, to_char(a1.notice_date, 'yyyy-mm-dd') as notice_date "
+	//★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ 500에러가 나서 전체 수정 ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+	@Select("select a1.notice_idx, a1.notice_title, a2.user_idx, a2.user_id, to_char(a1.notice_date, 'yyyy-mm-dd') as notice_date "
 			+ "from notice a1, user_table a2 "
-			+ "where a1.admin_id=a2.user_name and a1.notice_type=#{notice_type} "
+			+ "where a2.user_idx = 1 and a1.notice_type=#{notice_type} "
 			+ "order by a1.notice_idx desc")
 	List<NoticeBean> getNoticeList(String notice_type, RowBounds rowBounds);
 	
@@ -47,9 +47,9 @@ public interface NoticeMapper {
 	
 	//글 하나 읽기
 	//★★★★★★★★★★★★★★★★★★원래대로면 작성자에 따라서 게시물에대한 수정, 삭제 권한을 주기 위해서 where에 admin이 와야하는데 지금 그게 없으니까 idx로 조건을 걸어둔거임★★★★★★★★★★★★★★★★★★
-	@Select("select a1.notice_type, a1.notice_title, a2.user_name as admin_id, to_char(a1.notice_date, 'yyyy-mm-dd') as notice_date, a1.notice_img, a1.notice_context "
-			+ "from notice a1, user_table a2 "
-			+ "where a1.admin_id = a2.user_name and a1.notice_idx=#{notice_idx}")
+	@Select("select a1.notice_type, a1.notice_title, to_char(a1.notice_date, 'yyyy-mm-dd') as notice_date, a1.notice_img, a1.notice_context "
+			+ "from notice a1 "
+			+ "where a1.notice_idx=#{notice_idx}")
 	NoticeBean getNoticeInfo(int notice_idx);
 	
 	//유저 연동 전

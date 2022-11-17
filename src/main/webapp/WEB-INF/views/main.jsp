@@ -71,7 +71,7 @@
                   <div class="container">
                     <div class="row align-items-center">
                       <div class="col-md-8 col-lg-5 m-auto">
-                        <div class="content">
+                        <div class="content" style="width:700px; position: relative; left: -120px; top: 30%;" >
                           <div class="inner-content">
                             <h2>COLURR</h2>
                             <p>choose your color</p>
@@ -92,10 +92,10 @@
                   <div class="container">
                     <div class="row align-items-center">
                       <div class="col-md-8 col-lg-5 m-auto">
-                        <div class="content">
+                        <div class="content" style="width:700px; position: relative; left: -120px; top: 30%;">
                           <div class="inner-content">
-                            <h2>MAIN2</h2>
-                            <p>main2</p>
+                            <h2>STYLE</h2>
+                            <p>about your own style</p>
                           </div>
                         </div>
                       </div>
@@ -113,10 +113,10 @@
                   <div class="container">
                     <div class="row align-items-center">
                       <div class="col-md-8 col-lg-5 m-auto">
-                        <div class="content">
+                        <div class="content" style="width:700px; position: relative; left: -120px; top: 30%;">
                           <div class="inner-content">
-                            <h2>MAIN3</h2>
-                            <p>main3</p>
+                            <h2>BEAUTY</h2>
+                            <p>show your beauty</p>
                           </div>
                         </div>
                       </div>
@@ -151,9 +151,9 @@
                 <div class="slider-content-area">
                   <div class="content">
                     <div class="inner-content">
-                      <span>DETAIL1</span>
-                      <h2>The spectacle before us was indeed sublime</h2>
-                      <p>DETAIL1</p>
+                      <span>2022</span>
+                      <h2>F/W New Arrival</h2>
+                      <p>LOOK</p>
                     </div>
                   </div>
                 </div>
@@ -169,9 +169,9 @@
                 <div class="slider-content-area">
                   <div class="content">
                     <div class="inner-content">
-                      <span>DETAIL2</span>
-                      <h2>The spectacle before us was indeed sublime</h2>
-                      <p>DETAIL2</p>
+                      <span>Hot</span>
+                      <h2>Hot items of this month</h2>
+                      <p>LOOK</p>
                     </div>
                   </div>
                 </div>

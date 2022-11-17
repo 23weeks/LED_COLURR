@@ -90,11 +90,6 @@
                         <input type="hidden" name='page' value='${page }'/>  
                         
                         <div class="form-group">
-                   		  <form:input path="admin_id" class="form-control" placeholder="작성자" readonly="true"/>
-                   		</div>
-                  		<p/>
-
-                        <div class="form-group">
                    		  <form:input path="notice_date" class="form-control" placeholder="작성날짜" readonly="true"/>
                    		</div>
                   		<p/>
@@ -116,7 +111,7 @@
 								<img src="${root }upload/${modifyNoticeBean.notice_img}" width="100%"/>	
 								<form:hidden path="notice_img"/>	<!-- 이미지 계속 떠있게 하는거  -->
 							</c:if>
-                    	  <form:input type="file" path="upload_file" class="form-control" accept="image/*"/>
+                    	  <%-- <form:input type="file" path="upload_file" class="form-control" accept="image/*"/> --%>
                    		</div>
                    		<p/>
                    		<p/>

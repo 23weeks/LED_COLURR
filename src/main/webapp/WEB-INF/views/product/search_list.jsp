@@ -78,7 +78,7 @@
                <div class="col-12 product-items-list">
                   <c:forEach var="obj" items="${productList}">
                     <!-- Start Product Item -->
-                    <div class="product-item ">
+                    <div class="product-item" style="float: left; width: 50%;">
                       <div class="product-thumb">
                         <a href="${root}product_detail?product_idx=${obj.product_idx}">
                           <img src="assets/img/product/${obj.product_img1}">
@@ -94,7 +94,7 @@
                           <div class="product-action-btn">
                           <form:form method="post" action="${root}cart_add" modelAttribute="addCartBean">
                             <input type="hidden" name="product_idx" value="${obj.product_idx}"> 
-                          <input type="hidden" name="product_amount" value=1>
+                            <input type="hidden" name="product_amount" value=1>
                             <c:choose>
                               <c:when test="${obj.product_instock == 0}">
                                 <form:button class="btn-add-cart btn-theme" disabled='true'>Sold Out</form:button>
@@ -103,11 +103,16 @@
                                 <form:button class="btn-add-cart btn-theme">Add to cart</form:button>
                               </c:otherwise>
                             </c:choose>
-                            
                            </form:form>
-                            <a class="btn-wishlist" href="shop-wishlist.html">
-                              <i class="lastudioicon-heart-2"></i>
-                            </a>
+                            <form:form method="post" action="${root}wishList_add" modelAttribute="addWishListBean">
+                             <input type="hidden" name="product_idx" value="${obj.product_idx}">
+                             <div  style="border:0px; outline:none; cursor:pointer; border-width: 0px; background-color=#FFFFFF">
+                             <button type="submit" class="btn-add-cart btn-theme">
+                             <i class="lastudioicon-heart-2"></i>
+                            </button>
+                            </div>
+
+                          </form:form>         
                           </div>
                         </div>
                       </div>

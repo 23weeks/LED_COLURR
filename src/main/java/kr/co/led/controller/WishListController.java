@@ -85,7 +85,7 @@ public class WishListController {
 
       wishListService.deleteWishListAll(user_idx);
 
-      return "wishlist/wishiList_delete";
+      return "wishlist/wishList_delete";
    }
 
    @GetMapping("/wishlist_deleteSelected")

@@ -12,18 +12,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>COLURR</title>
 <link href="https://fonts.googleapis.com/css?family=Roboto"
-	rel="stylesheet">
+   rel="stylesheet">
 <link rel="stylesheet"
-	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+   href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
+   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   
 
 
 <style>
@@ -36,308 +36,309 @@ footer p a span {
 }
 
 body {
-	color: #566787;
-	background: #ffffff;
-	font-family: 'Roboto', sans-serif;
+   color: #566787;
+   background: #ffffff;
+   font-family: 'Roboto', sans-serif;
 }
 
 .table-responsive {
-	margin: 30px 0;
+   margin: 30px 0;
 }
 
 .table-wrapper {
-	min-width: 1000px;
-	background: #fff;
-	padding: 20px;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+   min-width: 1000px;
+   background: #fff;
+   padding: 20px;
+   box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
 
 .table-title {
-	padding-bottom: 10px;
-	margin: 0 0 10px;
+   padding-bottom: 10px;
+   margin: 0 0 10px;
 }
 
 .table-title h2 {
-	margin: 8px 0 0;
-	font-size: 22px;
+   margin: 8px 0 0;
+   font-size: 22px;
 }
 
 .search-box {
-	position: relative;
-	float: right;
+   position: relative;
+   float: right;
 }
 
 .search-box input {
-	height: 34px;
-	border-radius: 20px;
-	padding-left: 35px;
-	border-color: #ddd;
-	box-shadow: none;
+   height: 34px;
+   border-radius: 20px;
+   padding-left: 35px;
+   border-color: #ddd;
+   box-shadow: none;
 }
 
 .search-box input:focus {
-	border-color: #3FBAE4;
+   border-color: #3FBAE4;
 }
 
 .search-box i {
-	color: #a0a5b1;
-	position: absolute;
-	font-size: 19px;
-	top: 8px;
-	left: 10px;
+   color: #a0a5b1;
+   position: absolute;
+   font-size: 19px;
+   top: 8px;
+   left: 10px;
 }
 
 table.table tr th, table.table tr td {
-	border-color: #e9e9e9;
+   border-color: #e9e9e9;
 }
 
 table.table-striped tbody tr:nth-of-type(odd) {
-	background-color: #fcfcfc;
+   background-color: #fcfcfc;
 }
 
 table.table-striped.table-hover tbody tr:hover {
-	background: #f5f5f5;
+   background: #f5f5f5;
 }
 
 table.table th i {
-	font-size: 13px;
-	margin: 0 5px;
-	cursor: pointer;
+   font-size: 13px;
+   margin: 0 5px;
+   cursor: pointer;
 }
 
 table.table td:last-child {
-	width: 130px;
+   width: 130px;
 }
 
 table.table td a {
-	color: #a0a5b1;
-	display: inline-block;
-	margin: 0 5px;
+   color: #a0a5b1;
+   display: inline-block;
+   margin: 0 5px;
 }
 
 table.table td a.view {
-	color: #03A9F4;
+   color: #03A9F4;
 }
 
 table.table td a.edit {
-	color: #FFC107;
+   color: #FFC107;
 }
 
 table.table td a.delete {
-	color: #E34724;
+   color: #E34724;
 }
 
 table.table td i {
-	font-size: 19px;
+   font-size: 19px;
 }
 
 .pagination {
-	float: right;
-	margin: 0 0 5px;
+   float: right;
+   margin: 0 0 5px;
 }
 
 .pagination li a {
-	border: none;
-	font-size: 95%;
-	width: 30px;
-	height: 30px;
-	color: #999;
-	margin: 0 2px;
-	line-height: 30px;
-	border-radius: 30px !important;
-	text-align: center;
-	padding: 0;
+   border: none;
+   font-size: 95%;
+   width: 30px;
+   height: 30px;
+   color: #999;
+   margin: 0 2px;
+   line-height: 30px;
+   border-radius: 30px !important;
+   text-align: center;
+   padding: 0;
 }
 
 .pagination li a:hover {
-	color: #666;
+   color: #666;
 }
 
 .pagination li.active a {
-	background: #03A9F4;
+   background: #03A9F4;
 }
 
 .pagination li.active a:hover {
-	background: #0397d6;
+   background: #0397d6;
 }
 
 .pagination li.disabled i {
-	color: #ccc;
+   color: #ccc;
 }
 
 .pagination li i {
-	font-size: 16px;
-	padding-top: 6px
+   font-size: 16px;
+   padding-top: 6px
 }
 
 .hint-text {
-	float: left;
-	margin-top: 6px;
-	font-size: 95%;
+   float: left;
+   margin-top: 6px;
+   font-size: 95%;
 }
 
 .status {
-	font-size: 30px;
-	margin: 2px 2px 0 0;
-	display: inline-block;
-	vertical-align: middle;
-	line-height: 10px;
+   font-size: 30px;
+   margin: 2px 2px 0 0;
+   display: inline-block;
+   vertical-align: middle;
+   line-height: 10px;
 }
 
 .text-success {
-	color: #10c469;
+   color: #10c469;
 }
 
 .text-danger {
-	color: #ff5b5b;
+   color: #ff5b5b;
 }
 
 a:link {
-	text-decoration: none;
-	color: #566787;
+   text-decoration: none;
+   color: #566787;
 }
 
 .justify-content-center {
-	-ms-flex-pack: center !important;
-	justify-content: center !important;
+   -ms-flex-pack: center !important;
+   justify-content: center !important;
 }
 </style>
 <script>
-	
+   
 </script>
 </head>
 <body>
 
-	<div class="container">
-		<div class="table-responsive">
-			<div class="table-wrapper">
-				<div class="table-title">
-					<div class="row">
-						<div class="col-sm-8">
-							<h3>
-								User <b>Details</b>
-							</h3>
-						</div>
-						<div class="col-sm-8">회원 관리</div>
-						<div class="col-sm-4">
-							<div class="search-box">
-								
-							</div>
-						</div>
-					</div>
-				</div>
-					<h4>
-						<a href="${root }main" style="color:red"> Main으로 이동 </a> <br />
-					</h4>
-				현재 페이지 : ${pageBean.currentPage}/${pageBean.max }<br /> 전체 다시 불러오기 : <a
-					href="${root}admin_userlist" class="replace" title="Replace"
-					data-toggle="tooltip"><i class="material-icons">cached</i></a>
-				<div>
-					<table class="table table-striped table-hover table-bordered">
-						<thead>
-							<tr>
-								<th>Idx</th>
-								<th>Id</th>
-								<th>Name</th>
-								<th>Grade <i class="fa fa-sort"></i></th>
-								<th>Phone</th>
-								
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="obj" items="${userList }" >
-								<tr>
-									<td>${obj.user_idx }</td>
-									<td>${obj.user_id }</td>
-									<td>${obj.user_name }</td>
-									<td>
-										<form>
-										<%-- <form:form method="post" action="${root}cartCnt_update" modelAttribute="cntUpdateBean"> --%>
-											<select name="user_grade" id="user_grade" >
-												<option value="Silver">Silver</option>
-												<option value="Gold">Gold</option>
-												<option value="Diamond">Diamond</option>
-											</select>
-												<input type="button" style="width:30px; height:20px; font-size:10px; border:none; border-radius:5px; background-color:#d6cab8">OK
-										</form>
-									</td>
-									
-									<td>${obj.user_phone }</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-					
-					<div class="d-md-block justify-content-center">
-						<ul class="pagination mt-4 justify-content-center">
-							<!-- 이전 페이지로 이동하려는게 1이하이면 disabled(비활성화) -->
-							<c:choose>
+   <div class="container">
+      <div class="table-responsive">
+         <div class="table-wrapper">
+            <div class="table-title">
+               <div class="row">
+                  <div class="col-sm-8">
+                     <h3>
+                        User <b>Details</b>
+                     </h3>
+                  </div>
+                  <div class="col-sm-8">회원 관리</div>
+                  <div class="col-sm-4">
+                     <div class="search-box">
+                        
+                     </div>
+                  </div>
+               </div>
+            </div>
+               <h4>
+                  <a href="${root }main" style="color:red"> Main으로 이동 </a> <br />
+               </h4>
+                  현재 페이지 : ${pageBean.currentPage}/${pageBean.max }<br /> 전체 다시 불러오기 : 
+                  <a href="${root}admin_userlist" class="replace" title="Replace" data-toggle="tooltip"><i class="material-icons">cached</i></a>
+            <div>
+               <table class="table table-striped table-hover table-bordered">
+                  <thead>
+                     <tr>
+                        <th>Idx</th>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Grade</th>
+                        <th>Update Grade <i class="fa fa-sort"></i></th>
+                        <th>Phone</th>
+                        
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <c:forEach var="obj" items="${userList }" >
+                        <tr>
+                           <td>${obj.user_idx }</td>
+                           <td>${obj.user_id }</td>
+                           <td>${obj.user_name }</td>
+                           <td>${obj.user_grade }</td>
+                           <td>
+                       <form:form method="post" action="${root}changeGrade" modelAttribute="changeUserGrade">
+                          <input type="hidden" name="user_idx" value="${obj.user_idx}">
+                                 <form:select path="user_grade" id="user_grade" >
+                                    <option value="Silver">Silver</option>
+                                    <option value="Gold">Gold</option>
+                                    <option value="Diamond">Diamond</option>
+                                 </form:select>
+                                 <button type="submit" style="width:30px; height:20px; font-size:10px; border:none; border-radius:5px; background-color:#d6cab8">OK</button>
+                              </form:form>
+                           </td>
+                           
+                           <td>${obj.user_phone }</td>
+                        </tr>
+                     </c:forEach>
+                  </tbody>
+               </table>
+               
+               <div class="d-md-block justify-content-center">
+                  <ul class="pagination mt-4 justify-content-center">
+                     <!-- 이전 페이지로 이동하려는게 1이하이면 disabled(비활성화) -->
+                     <c:choose>
 
-								<c:when test="${pageBean.prevPage <= 0 }">
-									<li class="page-item disabled"><a
-										style="text-decoration: none;" href="#" class="page-link">이전</a>
-									</li>
-								</c:when>
+                        <c:when test="${pageBean.prevPage <= 0 }">
+                           <li class="page-item disabled"><a
+                              style="text-decoration: none;" href="#" class="page-link">이전</a>
+                           </li>
+                        </c:when>
 
-								<c:otherwise>
-									<li class="page-item "><a
-										href="${root}admin/userlist?page=${pageBean.prevPage}"
-										class="page-link">이전</a></li>
-								</c:otherwise>
+                        <c:otherwise>
+                           <li class="page-item "><a
+                              href="${root}admin/userlist?page=${pageBean.prevPage}"
+                              class="page-link">이전</a></li>
+                        </c:otherwise>
 
-							</c:choose>
+                     </c:choose>
 
-							<c:forEach var="idx" begin="${pageBean.min }"
-								end="${pageBean.max }">
+                     <c:forEach var="idx" begin="${pageBean.min }"
+                        end="${pageBean.max }">
 
-								<!-- 페이지 아이콘 표시 -->
-								<!-- 현재페이지면 active(부트스트랩) -->
-								<c:choose>
+                        <!-- 페이지 아이콘 표시 -->
+                        <!-- 현재페이지면 active(부트스트랩) -->
+                        <c:choose>
 
-									<c:when test="${idx == pageBean.currentPage}">
+                           <c:when test="${idx == pageBean.currentPage}">
 
-										<li class="page-item active"><a
-											style="background: lightorange"
-											href="${root}admin/userlist?page=${idx}" class="page-link">${idx}</a>
-										</li>
+                              <li class="page-item active"><a
+                                 style="background: lightorange"
+                                 href="${root}admin/userlist?page=${idx}" class="page-link">${idx}</a>
+                              </li>
 
-									</c:when>
+                           </c:when>
 
-									<c:otherwise>
+                           <c:otherwise>
 
-										<li class="page-item"><a style="text-decoration: none;"
-											href="${root}admin/userlist?page=${idx}" class="page-link">${idx}</a>
-										</li>
+                              <li class="page-item"><a style="text-decoration: none;"
+                                 href="${root}admin/userlist?page=${idx}" class="page-link">${idx}</a>
+                              </li>
 
-									</c:otherwise>
+                           </c:otherwise>
 
-								</c:choose>
+                        </c:choose>
 
-							</c:forEach>
+                     </c:forEach>
 
-							<!-- Max값이 전체페이지보다 크거나 같으면 비활성화 disabled -->
-							<c:choose>
+                     <!-- Max값이 전체페이지보다 크거나 같으면 비활성화 disabled -->
+                     <c:choose>
 
-								<c:when test="${pageBean.max >= pageBean.pageCnt }">
-									<li class="page-item disabled"><a href="#"
-										class="page-link" style="text-decoration: none;">다음</a></li>
-								</c:when>
+                        <c:when test="${pageBean.max >= pageBean.pageCnt }">
+                           <li class="page-item disabled"><a href="#"
+                              class="page-link" style="text-decoration: none;">다음</a></li>
+                        </c:when>
 
-								<c:otherwise>
-									<li class="page-item"><a
-										href="${root}admin/userlist?page=${pageBean.nextPage}"
-										style="text-decoration: none;" class="page-link">다음</a></li>
-								</c:otherwise>
+                        <c:otherwise>
+                           <li class="page-item"><a
+                              href="${root}admin/userlist?page=${pageBean.nextPage}"
+                              style="text-decoration: none;" class="page-link">다음</a></li>
+                        </c:otherwise>
 
-							</c:choose>
+                     </c:choose>
 
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- footer  -->
-	
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- footer  -->
+   
 </body>
 </html>

@@ -25,10 +25,8 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	
-	
 	@Resource(name="loginUserBean")
 	private UserBean loginUserBean; 
-	
 	
 	@GetMapping("/notice_list")
 	public String list(@RequestParam("notice_type") String notice_type, 
@@ -38,8 +36,11 @@ public class NoticeController {
 		
 		List<NoticeBean> noticeList=noticeService.getNoticeList(notice_type, page);
 		
+		int admin_idx = loginUserBean.getUser_idx();
+		//System.out.println(admin_idx);
 		PageBean pageBean=noticeService.getNoticeCnt(notice_type, page);
 		
+		model.addAttribute("admin_idx", admin_idx);
 		model.addAttribute("notice_type", notice_type);
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("pageBean", pageBean);
@@ -49,8 +50,6 @@ public class NoticeController {
 		return "notice/list";
 	}
 	
-	
-	
 	//글 하나보기
 	@GetMapping("/notice_read")
 	public String read(@RequestParam("notice_idx") int notice_idx, 
@@ -59,6 +58,9 @@ public class NoticeController {
 		
 		NoticeBean readNoticeBean = noticeService.getNoticeInfo(notice_idx);
 		
+		int admin_idx = loginUserBean.getUser_idx();
+		System.out.println(admin_idx);
+		model.addAttribute("admin_idx", admin_idx);
 		model.addAttribute("notice_idx", notice_idx);
 		model.addAttribute("readNoticeBean", readNoticeBean);
 		model.addAttribute("loginUserBean", loginUserBean);
@@ -70,7 +72,7 @@ public class NoticeController {
 	
 	@GetMapping("/notice_write")
 	public String write(@ModelAttribute("writeNoticeBean") NoticeBean writeNoticeBean,
-						@RequestParam("notice_type") String notice_type) 				{
+						@RequestParam("notice_type") String notice_type) {
 								
 		writeNoticeBean.setNotice_type(notice_type);
 								
@@ -107,7 +109,7 @@ public class NoticeController {
 		//게시물 정보 불러오기 
 		NoticeBean tempNoticeBean=noticeService.getNoticeInfo(notice_idx);
 		
-		modifyNoticeBean.setAdmin_id(tempNoticeBean.getAdmin_id());
+		//modifyNoticeBean.setAdmin_id(tempNoticeBean.getAdmin_id());
 		modifyNoticeBean.setNotice_date(tempNoticeBean.getNotice_date());
 		modifyNoticeBean.setNotice_title(tempNoticeBean.getNotice_title());
 		modifyNoticeBean.setNotice_context(tempNoticeBean.getNotice_context());

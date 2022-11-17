@@ -86,7 +86,7 @@
                       <form:form action="${root }notice_write_pro" method="post" modelAttribute="writeNoticeBean" enctype="multipart/form-data" style="text-align:center">
                   		
                   		<form:hidden path="notice_idx"/>
-						<form:hidden path="admin_id"/>
+						<%-- <form:hidden path="admin_id"/> --%>
 						
 						<div class="input-group">
 						<label class="form-label">공지 유형</label> &nbsp;&nbsp;&nbsp;
@@ -111,7 +111,7 @@
                    		<p/>
                    		
                   		<div class="form-group">
-                    	  <form:input type="file" path="upload_file" class="form-control" accept="image/*"/>
+                    	  <%-- <form:input type="file" path="upload_file" class="form-control" accept="image/*"/> --%>
                    		</div>
                    		<p/>
                    		<p/>

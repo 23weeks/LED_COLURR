@@ -30,7 +30,7 @@ public interface QuestionMapper {
 	
 	//게시판 하나 가져오기
 	@Select("select to_char(qt.question_date, 'yyyy-mm-dd') as question_date, "
-			+ "qt.question_title, qt.question_content, qt.question_img "
+			+ "qt.question_title, qt.question_content, qt.question_img qt.question_idx"
 			+ "from question qt "
 			+ "where question_idx = #{question_idx}")
 	QuestionBean getQuestionInfo(int question_idx);

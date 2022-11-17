@@ -55,7 +55,7 @@
   
   <main class="main-content site-wrapper-reveal">
     <!--== Start Page Title Area ==-->
-    <div class="page-title-area page-title-area2" >
+    <div class="page-title-area page-title-area2">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -115,28 +115,23 @@
                         <form:input id="quantity1" path="product_amount" title="Quantity" value="1" />
                       </div>
                     </div>
-                  </div>
                     <c:choose>
                       <c:when test="${showProductBean.product_instock == 0}">
                         <form:button class="btn-add-cart btn-theme" disabled='true'>Sold Out</form:button>
                       </c:when>
+                              
                       <c:otherwise>
                         <form:button class="btn-add-cart btn-theme">Add to cart</form:button>
                       </c:otherwise>
                     </c:choose>
-                   
                 </form:form>
-               
-               <form:form method="post" action="${root}wishList_add" modelAttribute="addWishListBean">
-                             <input type="hidden" name="product_idx" value="${product_idx}">
-                             
-                             <button type="submit" class="btn-add-cart btn-theme">
-                            Add to wishlist
-                            </button>
-                          </form:form> 
-                    </div>
-            </div>
-         
+                <form:form method="post" action="${root}wishList_add" modelAttribute="addWishListBean">
+                  <input type="hidden" name="product_idx" value="${product_idx}">
+            	    <div class="action-bottom">
+            	      <button type="submit" class="btn-add-cart btn-theme">Add to wishlist</button>
+            	    </div>
+                </form:form>
+                  </div>
               </div>
               <div class="product-categorys">
                 <div class="product-category">
@@ -161,7 +156,7 @@
                   <button class="nav-link active" id="product-desc-tab" data-bs-toggle="tab" data-bs-target="#productDesc" type="button" role="tab" aria-controls="productDesc" aria-selected="true">Description</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="product-review-tab" data-bs-toggle="tab" data-bs-target="#productReview" type="button" role="tab" aria-controls="productReview" aria-selected="false">Reviews (0)</button>
+                  <button class="nav-link" id="product-review-tab" data-bs-toggle="tab" data-bs-target="#productReview" type="button" role="tab" aria-controls="productReview" aria-selected="false">Reviews (${reviewCnt})</button>
                 </li>
               </ul>
               <div class="tab-content product-description-tab-content" id="myTabContent">
@@ -176,73 +171,59 @@
                 <div class="tab-pane fade" id="productReview" role="tabpanel" aria-labelledby="product-review-tab">
                   <div class="product-review">
                     <div class="product-review-comments">
-                      <h4 class="title">1 review for <span>Product Simple</span></h4>
-                      <div class="comment-item">
-                        <div class="thumb">
-                          <img src="assets/img/icons/s1.jpg" alt="Moren-Shop">
-                        </div>
-                        <div class="content">
-                          <div class="rating">
-                            <span class="lastudioicon-star-rate-1"></span>
-                            <span class="lastudioicon-star-rate-1"></span>
-                            <span class="lastudioicon-star-rate-1"></span>
-                            <span class="lastudioicon-star-rate-1"></span>
-                            <span class="lastudioicon-star-rate-1"></span>
-                          </div>
-                          <h5 class="meta"><span>Agnes Wilson </span> – December 24, 2020</h5>
-                          <span class="review">There are no reviews yet.</span>
-                        </div>
-                      </div>
+                      <h4 class="title">${reviewCnt} review for <span>${showProductBean.product_name}</span></h4>
+                      <c:choose>
+                        <c:when test="${reviewList == null}">
+                          <h6 class="review">There are no reviews yet.</h6>
+                        </c:when>
+                        <c:otherwise>
+                         <c:forEach var="list" items="${reviewList }">
+                          <div class="comment-item">
+                           <div class="content">
+                            <div class="rating"> ${list.review_star} </div>
+                            <h5 class="meta"><span>[ ${list.user_name } ] </span> / ${list.review_date}</h5>
+                            <span class="review">${list.review_content }</span>
+                           </div>
+                         </div>
+                        </c:forEach>
+                       </c:otherwise>
+                      </c:choose>
                     </div>
+                    <form:form method="post" action="${root}review_write_pro" modelAttribute="writeReviewBean">
+                    <input type="hidden" name="product_idx" value="${product_idx}"/>
                     <div class="product-review-form">
                       <h3 class="title">Add a review</h3>
-                      <p>Your email address will not be published. Required fields are marked <span>*</span></p>
                       <div class="rating">
                         <span class="rating-title">Your rating *</span>
-                        <span class="lastudioicon-star-rate-2"></span>
-                        <span class="lastudioicon-star-rate-2"></span>
-                        <span class="lastudioicon-star-rate-2"></span>
-                        <span class="lastudioicon-star-rate-2"></span>
-                        <span class="lastudioicon-star-rate-2"></span>
+                        <div class='form-group'>
+                         <input type='radio' name='review_star' value='★'/> ★
+                         <input type='radio' name='review_star' value='★★'/> ★★
+                         <input type='radio' name='review_star' value='★★★'/> ★★★
+                         <input type='radio' name='review_star' value='★★★★'/> ★★★★
+                         <input type='radio' name='review_star' value='★★★★★'/> ★★★★★
+                       </div>
                       </div>
-                      <form action="#" method="post">
                         <div class="review-form-content">
                           <div class="row">
                             <div class="col-md-12">
                               <div class="form-group">
                                 <label for="reviewFormTextarea">Your review *</label>
-                                <textarea class="form-control" id="reviewFormTextarea" name="comment" rows="7" required></textarea>
-                              </div>
-                            </div>
-                            <div class="col-md-4">
-                              <div class="form-group">
-                                <label for="reviewFormName">Name *</label>
-                                <input class="form-control" id="reviewFormName" type="text" required />
-                              </div>
-                            </div>
-                            <div class="col-md-4">
-                              <div class="form-group">
-                                <label for="reviewFormEmail">Email *</label>
-                                <input class="form-control" id="reviewFormEmail" type="email" required />
-                              </div>
-                            </div>
-                            <div class="col-md-12">
-                              <div class="form-check pl-0">
-                                <input class="form-check-input position-static ml-0" type="checkbox" value="" id="reviewFormCheck"><br>
-                                <label class="form-check-label" for="reviewFormCheck">Save my name, email, and website in this browser for the next time I comment.
-                                </label>
+                                <textarea class="form-control" id="reviewFormTextarea" name="review_content" rows="7" required></textarea>
+                          		<form:errors path="review_content" style="color: red" />
                               </div>
                             </div>
                           </div>
+                          <p/>
                           <div class="row">
                             <div class="col-md-12">
                               <div class="form-group">
-                                <button class="btn btn-theme btn-black" type="submit">Submit</button>
+                                <form:button class="btn btn-theme btn-black">Submit</form:button>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </form>
+                       </div>
+                      </form:form>
                     </div>
                   </div>
                 </div>

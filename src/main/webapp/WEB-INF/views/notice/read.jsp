@@ -94,23 +94,11 @@
 	                      
                       <!-- 제목 -->
                       <h4>${readNoticeBean.notice_title }</h4>			 			
-                      
-                      <!-- 작성자 -->
-                      <p class="admin_id" style="font-size: 14px">${readNoticeBean.admin_id }</p>	
                       	
                       <!-- 작성날짜 -->	
                       <p class="notice_date" style="font-size: 14px">${readNoticeBean.notice_date }</p> 	
                       <hr />
                       
-                      <!-- 첨부파일 -->
-                      <c:if test="${readNoticeBean.notice_img != null}">
-	                   <ul class="meta">
-	                  	<li class="notice_img" span style="width:200px" >첨부파일</li>
-	                  	<!-- <li span style="width:100px"> | </li> -->
-	                  	<li><img src="${root }upload/${readNoticeBean.notice_img }" width="80%"/></li>		
-	                   </ul>
-	                  </c:if>
-	                      
 	                  <!-- 내용 -->   
 	                  <p span style="width:200px"> </p>
 	                  <p style="text-align:left">${readNoticeBean.notice_context }</p>			
@@ -122,9 +110,9 @@
                      <!-- 하단 버튼 -->
 	                 <div>
 		                <a href="${root }notice_list?notice_type=${readNoticeBean.notice_type}&page=${page}" class="btn-theme btn btn-black">목록보기</a>
-		                <c:if test="${loginUserBean.user_name == readNoticeBean.admin_id }">
+		                <c:if test="${admin_idx == 1 && loginUserBean.userLogin == true}">
 		                	<a href="${root }notice_modify?notice_type=${readNoticeBean.notice_type}&notice_idx=${notice_idx}&page=${page}" class="btn-theme btn btn-black">수정하기</a>
-		                 	<a href="${root }notice_delete?notice_type=${readNoticeBean.notice_type}&notice_idx=${notice_idx}" class="btn-theme btn btn-black">삭제하기</a>
+		                 	<a href="${root }notice_delete?notice_type=${readNoticeBean.notice_type}&notice_idx=${notice_idx}&page=${page}" class="btn-theme btn btn-black">삭제하기</a>
 	                 	 </c:if>
 	                 </div>
 	                
@@ -147,7 +135,6 @@
   </main>
 
   
-</div>
 
   <c:import url="/WEB-INF/views/include/bottom_info.jsp"></c:import>
 <!--=======================Javascript============================-->

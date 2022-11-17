@@ -23,7 +23,6 @@ public class NoticeBean {
 	
 	private MultipartFile upload_file;
 	private String notice_img;
-	private String admin_id;
 	private String notice_date;	
 	
 	

@@ -89,12 +89,12 @@
                             <img src="assets/img/mypage/coupon.png" style="width:120px; margin-bottom:20px"/><br />
                             <h6>쿠폰</h6>
                           </td>
-                          <td onclick="location.href='${root}main'">
+                          <td onclick="location.href='${root}wishlist'">
                             <img src="assets/img/mypage/wishlist.png" style="width:120px; margin-bottom:20px"/><br />
                             <h6>찜목록</h6>
                           </td>
                         <tr height="250px">
-                          <td onclick="location.href='${root}main'">
+                          <td onclick="location.href='${root}cart'">
                             <img src="assets/img/mypage/cart.png" style="width:120px; margin-bottom:20px"/><br />
                             <h6>장바구니</h6>
                           </td>

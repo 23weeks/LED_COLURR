@@ -46,6 +46,7 @@ public class NoticeService {
 	
 	
 	//파일명 붙이기
+	/*
 	private String saveUploadFile(MultipartFile upload_file) {
 		
 		String file_name = System.currentTimeMillis() + "_" +  					
@@ -61,19 +62,19 @@ public class NoticeService {
 		return file_name;
 		
 	}
-	
+	*/
 	
 	//글쓰기
 	public void addNoticeInfo(NoticeBean writeNoticeBean) {
-		
+		/*
 		MultipartFile upload_file=writeNoticeBean.getUpload_file();
 		
 		if(upload_file.getSize() > 0) {
 			String file_name=saveUploadFile(upload_file);
 			writeNoticeBean.setNotice_img(file_name);
 		}
-		writeNoticeBean.setAdmin_id(loginUserBean.getUser_name());
-		
+		writeNoticeBean.setAdmin_idx(loginUserBean.getUser_idx());
+		*/
 		noticeDao.addNoticeInfo(writeNoticeBean);
 	}
 	
@@ -93,6 +94,7 @@ public class NoticeService {
 	
 	//글 하나보기
 	public NoticeBean getNoticeInfo(int notice_idx) {
+		
 		return noticeDao.getNoticeInfo(notice_idx);
 	}
 			
@@ -100,14 +102,6 @@ public class NoticeService {
 	
 	//게시물 수정하기
 	public void modifyNoticeInfo(NoticeBean modifyNoticeBean) {
-		
-		MultipartFile upload_file=modifyNoticeBean.getUpload_file();
-		
-		if(upload_file.getSize() > 0 ) {
-			String file_name=saveUploadFile(upload_file);
-			
-			modifyNoticeBean.setNotice_img(file_name);
-		}
 		
 		noticeDao.modifyNoticeInfo(modifyNoticeBean);
 	}
